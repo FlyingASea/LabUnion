@@ -1,0 +1,1557 @@
+focus_tree = {
+	id = France
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FRA
+		}
+	}
+	default = no
+	focus = {
+		id = FRA_Elections
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 9
+		y = 0
+	}
+	focus = {
+		id = FRA_Industrial_Recovery
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 25
+		y = 0
+	}
+	focus = {
+		id = FRA_Look_The_World
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 40
+		y = 0
+	}
+	focus = {
+		id = FRA_address_The_Air
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 36
+		y = 8
+	}
+	focus = {
+		id = FRA_address_The_Navy
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 28
+		y = 8
+	}
+	focus = {
+		id = FRA_address_The_Army
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 20
+		y = 8
+	}
+	focus = {
+		id = FRA_National_March_Win
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Elections
+		}
+		relative_position_id = FRA_Elections
+	}
+	focus = {
+		id = FRA_Highway
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 3
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	focus = {
+		id = FRA_Look_The_Asian
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	focus = {
+		id = FRA_Old_Enemys
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		mutually_exclusive = {
+			focus = FRA_New_Friends
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	focus = {
+		id = FRA_Joseph_Darnand_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		mutually_exclusive = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_National_March_Win
+	}
+	focus = {
+		id = FRA_Pierre_Laval_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		mutually_exclusive = {
+			focus = FRA_Jacques_Doriot_Win
+		}
+		mutually_exclusive = {
+			focus = FRA_Joseph_Darnand_Win
+		}
+		relative_position_id = FRA_National_March_Win
+	}
+	focus = {
+		id = FRA_Jacques_Doriot_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = -6
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		mutually_exclusive = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_National_March_Win
+	}
+	focus = {
+		id = FRA_beginning_revolution
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Jacques_Doriot_Win
+		}
+		relative_position_id = FRA_Jacques_Doriot_Win
+	}
+	focus = {
+		id = FRA_Kristallnacht
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+	}
+	focus = {
+		id = FRA_reign_of_terror
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+	}
+	focus = {
+		id = FRA_Night_of_the_Long_Knives
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+	}
+	focus = {
+		id = FRA_ban_others
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+	}
+	focus = {
+		id = FRA_Union_military
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+	}
+	focus = {
+		id = FRA_work_family_fatherland
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+	}
+	focus = {
+		id = FRA_praetorian_Guards
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Joseph_Darnand_Win
+		}
+		relative_position_id = FRA_Joseph_Darnand_Win
+	}
+	focus = {
+		id = FRA_Commemorating_Joan_of_Arc
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_military
+		}
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		relative_position_id = FRA_Union_military
+	}
+	focus = {
+		id = FRA_Voice_of_the_Army
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+	}
+	focus = {
+		id = FRA_Mastering_Capitalism
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+	}
+	focus = {
+		id = FRA_the_internal_enemy
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+	}
+	focus = {
+		id = FRA_wake_men
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_reign_of_terror
+		}
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		relative_position_id = FRA_reign_of_terror
+	}
+	focus = {
+		id = FRA_Big_Brother_watching_you
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		prerequisite = {
+			focus = FRA_Night_of_the_Long_Knives
+		}
+		relative_position_id = FRA_Night_of_the_Long_Knives
+	}
+	focus = {
+		id = FRA_Pure_France
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_wake_men
+			focus = FRA_Big_Brother_watching_you
+		}
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		relative_position_id = FRA_Kristallnacht
+	}
+	focus = {
+		id = FRA_Father_of_the_French_Revolution
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Pure_France
+		}
+		relative_position_id = FRA_Pure_France
+	}
+	focus = {
+		id = FRA_Crushing_Corruption
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		prerequisite = {
+			focus = FRA_work_family_fatherland
+		}
+		relative_position_id = FRA_work_family_fatherland
+	}
+	focus = {
+		id = FRA_Laissez_faire
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		prerequisite = {
+			focus = FRA_ban_others
+			focus = FRA_Commemorating_Joan_of_Arc
+			focus = FRA_Crushing_Corruption
+		}
+		relative_position_id = FRA_ban_others
+	}
+	focus = {
+		id = FRA_Encourage_industrial_development
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Laissez_faire
+		}
+		relative_position_id = FRA_Laissez_faire
+	}
+	focus = {
+		id = FRA_Free_dynamic_market
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Encourage_industrial_development
+		}
+		relative_position_id = FRA_Encourage_industrial_development
+	}
+	focus = {
+		id = FRA_Pacify_the_military
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Voice_of_the_Army
+		}
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		relative_position_id = FRA_Voice_of_the_Army
+	}
+	focus = {
+		id = FRA_Promote_industrialization
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		prerequisite = {
+			focus = FRA_the_internal_enemy
+		}
+		relative_position_id = FRA_the_internal_enemy
+	}
+	focus = {
+		id = FRA_grand_master
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+			focus = FRA_Pacify_the_military
+			focus = FRA_Promote_industrialization
+		}
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		relative_position_id = FRA_Mastering_Capitalism
+	}
+	focus = {
+		id = FRA_The_Magnificent_Holy_War
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_grand_master
+		}
+		relative_position_id = FRA_grand_master
+	}
+	focus = {
+		id = FRA_Develop_Research
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Four_Years_Plan
+			focus = FRA_Devalue_The_Franc
+		}
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	focus = {
+		id = FRA_Accelerate_The_Rearmament_Program
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Four_Years_Plan
+		}
+		relative_position_id = FRA_Four_Years_Plan
+	}
+	focus = {
+		id = FRA_Currency_Reforms
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Devalue_The_Franc
+		}
+		relative_position_id = FRA_Devalue_The_Franc
+	}
+	focus = {
+		id = FRA_Four_Years_Plan
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	focus = {
+		id = FRA_Devalue_The_Franc
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	focus = {
+		id = FRA_Develop_Research2
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Research
+		}
+		relative_position_id = FRA_Develop_Research
+	}
+	focus = {
+		id = FRA_Concentrated_Armament_Program
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Accelerate_The_Rearmament_Program
+		}
+		relative_position_id = FRA_Accelerate_The_Rearmament_Program
+	}
+	focus = {
+		id = FRA_Agricultural_Reforms
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Currency_Reforms
+		}
+		relative_position_id = FRA_Currency_Reforms
+	}
+	focus = {
+		id = FRA_The_Means_To_Wage_War
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Research2
+		}
+		relative_position_id = FRA_Develop_Research2
+	}
+	focus = {
+		id = FRA_Zentrale_planung
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Concentrated_Armament_Program
+		}
+		relative_position_id = FRA_Concentrated_Armament_Program
+	}
+	focus = {
+		id = FRA_Urbanization
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Agricultural_Reforms
+		}
+		relative_position_id = FRA_Agricultural_Reforms
+	}
+	focus = {
+		id = FRA_Economic_Miracle
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Zentrale_planung
+		}
+		relative_position_id = FRA_Zentrale_planung
+	}
+	focus = {
+		id = FRA_Autarky_Achieved
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Urbanization
+		}
+		relative_position_id = FRA_Urbanization
+	}
+	focus = {
+		id = FRA_War_Production
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Economic_Miracle
+		}
+		relative_position_id = FRA_Economic_Miracle
+	}
+	focus = {
+		id = FRA_The_Last_Battle
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Autarky_Achieved
+		}
+		relative_position_id = FRA_Autarky_Achieved
+	}
+	focus = {
+		id = FRA_Slave_Labor
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	focus = {
+		id = FRA_Resource_Self_Sufficiency
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Slave_Labor
+		}
+		relative_position_id = FRA_Slave_Labor
+	}
+	focus = {
+		id = FRA_Electrification
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Resource_Self_Sufficiency
+		}
+		relative_position_id = FRA_Resource_Self_Sufficiency
+	}
+	focus = {
+		id = FRA_Develop_Northern_Railways
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Highway
+		}
+		relative_position_id = FRA_Highway
+	}
+	focus = {
+		id = FRA_Develop_Northern_industry
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Northern_Railways
+		}
+		relative_position_id = FRA_Develop_Northern_Railways
+	}
+	focus = {
+		id = FRA_Develop_Southern_Railways
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Northern_industry
+		}
+		relative_position_id = FRA_Develop_Northern_industry
+	}
+	focus = {
+		id = FRA_Develop_Southern_Buisnesses
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Railways
+		}
+		relative_position_id = FRA_Develop_Southern_Railways
+	}
+	focus = {
+		id = FRA_All_Roads_Lead_To_Paris
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Buisnesses
+		}
+		relative_position_id = FRA_Develop_Southern_Buisnesses
+	}
+	focus = {
+		id = FRA_All_Ship_Lead_To_Marseille
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Buisnesses
+		}
+		relative_position_id = FRA_Develop_Southern_Buisnesses
+	}
+	focus = {
+		id = FRA_Military_Industry1
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Electrification
+		}
+		relative_position_id = FRA_Electrification
+	}
+	focus = {
+		id = FRA_Military_Industry2
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry1
+		}
+		relative_position_id = FRA_Military_Industry1
+	}
+	focus = {
+		id = FRA_Military_Industry3
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry2
+		}
+		relative_position_id = FRA_Military_Industry2
+	}
+	focus = {
+		id = FRA_We_Are_Already_For_War
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry2
+		}
+		relative_position_id = FRA_Military_Industry2
+	}
+	focus = {
+		id = FRA_Look_The_America
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -6
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	focus = {
+		id = FRA_Trade_With_USA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+	}
+	focus = {
+		id = FRA_Influence_Southern_America
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Collaboration_With_Peru
+			focus = FRA_Trade_With_USA
+			focus = FRA_Trade_With_Venezuela
+		}
+		relative_position_id = FRA_Trade_With_Venezuela
+	}
+	focus = {
+		id = FRA_Collaboration_With_Peru
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+	}
+	focus = {
+		id = FRA_Influence_Northern_America
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+			focus = FRA_Collaboration_With_Peru
+			focus = FRA_Trade_With_Venezuela
+		}
+		relative_position_id = FRA_Collaboration_With_Peru
+	}
+	focus = {
+		id = FRA_Trade_With_Venezuela
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+	}
+	focus = {
+		id = FRA_Restore_Trade_With_USA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+			focus = FRA_Influence_Northern_America
+			focus = FRA_Influence_Southern_America
+		}
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+		}
+		relative_position_id = FRA_Trade_With_USA
+	}
+	focus = {
+		id = FRA_Influence_Europe
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	focus = {
+		id = FRA_Union_With_Spain
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	focus = {
+		id = FRA_Preemptive_Strike_Ger
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	focus = {
+		id = FRA_Contact_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	focus = {
+		id = FRA_Influence_ITA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_With_Spain
+			focus = FRA_Preemptive_Strike_Ger
+		}
+		prerequisite = {
+			focus = FRA_Union_With_Spain
+		}
+		relative_position_id = FRA_Union_With_Spain
+	}
+	focus = {
+		id = FRA_Operational_Plan_For_Low_Countries
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_With_Spain
+			focus = FRA_Preemptive_Strike_Ger
+			focus = FRA_Contact_With_SOV
+		}
+		relative_position_id = FRA_Preemptive_Strike_Ger
+	}
+	focus = {
+		id = FRA_Treaty_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Contact_With_SOV
+			focus = FRA_Preemptive_Strike_Ger
+		}
+		prerequisite = {
+			focus = FRA_Contact_With_SOV
+		}
+		relative_position_id = FRA_Contact_With_SOV
+	}
+	focus = {
+		id = FRA_Game_Balkans
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_ITA
+			focus = FRA_Operational_Plan_For_Low_Countries
+			focus = FRA_Treaty_With_SOV
+		}
+		prerequisite = {
+			focus = FRA_Influence_ITA
+		}
+		relative_position_id = FRA_Influence_ITA
+	}
+	focus = {
+		id = FRA_Revenge_For_Twenty_Years_Humiliation
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_ITA
+			focus = FRA_Operational_Plan_For_Low_Countries
+			focus = FRA_Treaty_With_SOV
+		}
+		relative_position_id = FRA_Operational_Plan_For_Low_Countries
+	}
+	focus = {
+		id = FRA_Temporary_Alliance_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Treaty_With_SOV
+		}
+		relative_position_id = FRA_Treaty_With_SOV
+	}
+	focus = {
+		id = FRA_Towards_A_New_Europe
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Revenge_For_Twenty_Years_Humiliation
+		}
+		relative_position_id = FRA_Revenge_For_Twenty_Years_Humiliation
+	}
+	focus = {
+		id = FRA_Game_Chinese
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	focus = {
+		id = FRA_New_Friends
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		mutually_exclusive = {
+			focus = FRA_Old_Enemys
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	focus = {
+		id = FRA_Indian_Ocean_Coalition
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	focus = {
+		id = FRA_Restoring_Colonial_Empire
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_Algeria
+		}
+		prerequisite = {
+			focus = FRA_Taking_Over_Colonies
+		}
+		prerequisite = {
+			focus = FRA_Rebirth_Of_France
+		}
+		relative_position_id = FRA_Taking_Over_Colonies
+	}
+	focus = {
+		id = FRA_Union_Algeria
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	focus = {
+		id = FRA_Taking_Over_Colonies
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	focus = {
+		id = FRA_Rebirth_Of_France
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	focus = {
+		id = FRA_Extinguish_The_Flame
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Turning_Against_SOV
+			focus = FRA_Restoring_Colonial_Empire
+		}
+		relative_position_id = FRA_Union_Algeria
+	}
+	focus = {
+		id = FRA_Turning_Against_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Rebirth_Of_France
+		}
+		prerequisite = {
+			focus = FRA_Union_Algeria
+		}
+		prerequisite = {
+			focus = FRA_Taking_Over_Colonies
+		}
+		relative_position_id = FRA_Rebirth_Of_France
+	}
+	focus = {
+		id = FRA_The_Reaction
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_military_research
+		}
+		relative_position_id = FRA_military_research
+	}
+	focus = {
+		id = FRA_Cdg_Plan_Chosen
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Army
+		}
+		relative_position_id = FRA_address_The_Army
+	}
+	focus = {
+		id = FRA_Darian_Plan_Chosen
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Navy
+		}
+		relative_position_id = FRA_address_The_Navy
+	}
+	focus = {
+		id = FRA_military_research
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+	}
+	focus = {
+		id = FRA_Mobile_warfare
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_infantry_Motorization
+		}
+		relative_position_id = FRA_infantry_Motorization
+	}
+	focus = {
+		id = FRA_infantry_Motorization
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+	}
+	focus = {
+		id = FRA_elite_army
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+	}
+	focus = {
+		id = FRA_Tank_investment
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_improve_special_forces
+			focus = FRA_Mobile_warfare
+			focus = FRA_The_Reaction
+		}
+		relative_position_id = FRA_improve_special_forces
+	}
+	focus = {
+		id = FRA_armor_advancements
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_special_cooperation
+		}
+		relative_position_id = FRA_special_cooperation
+	}
+	focus = {
+		id = FRA_Air_support
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Tank_investment
+		}
+		relative_position_id = FRA_Tank_investment
+	}
+	focus = {
+		id = FRA_special_cooperation
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_improve_special_forces
+			focus = FRA_Mobile_warfare
+			focus = FRA_The_Reaction
+		}
+		relative_position_id = FRA_The_Reaction
+	}
+	focus = {
+		id = FRA_Mechanized_Improvements
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Mobile_warfare
+			focus = FRA_Tank_investment
+			focus = FRA_special_cooperation
+		}
+		prerequisite = {
+			focus = FRA_Mobile_warfare
+		}
+		relative_position_id = FRA_Mobile_warfare
+	}
+	focus = {
+		id = FRA_improve_special_forces
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_elite_army
+		}
+		relative_position_id = FRA_elite_army
+	}
+	focus = {
+		id = FRA_construct_A_World_Class_navy
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Darian_Plan_Chosen
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_old_doctrine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_construct_A_World_Class_navy
+		}
+		mutually_exclusive = {
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_construct_A_World_Class_navy
+	}
+	focus = {
+		id = FRA_new_doctrine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_restore_naval
+		}
+		mutually_exclusive = {
+			focus = FRA_old_doctrine
+		}
+		relative_position_id = FRA_restore_naval
+	}
+	focus = {
+		id = FRA_cruisers
+		icon = GFX_goal_unknown
+		cost = 10
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_destroyers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -4
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_heavy_battleship
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_Air_carriers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_submarine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 4
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_Cut_Off_lifeline
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_submarine
+		}
+		prerequisite = {
+			focus = FRA_Air_carriers
+		}
+		relative_position_id = FRA_submarine
+	}
+	focus = {
+		id = FRA_Develop_amphibious_forces
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_destroyers
+		}
+		prerequisite = {
+			focus = FRA_cruisers
+		}
+		relative_position_id = FRA_destroyers
+	}
+	focus = {
+		id = FRA_naval_bombings
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Air_Coordination_center
+			focus = FRA_electromagnetic_detection
+			focus = FRA_Long_Range_fighter
+		}
+		relative_position_id = FRA_electromagnetic_detection
+	}
+	focus = {
+		id = FRA_restore_naval
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Darian_Plan_Chosen
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+	}
+	focus = {
+		id = FRA_combat_squadron
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_heavy_battleship
+			focus = FRA_cruisers
+			focus = FRA_destroyers
+			focus = FRA_Air_carriers
+			focus = FRA_submarine
+		}
+		relative_position_id = FRA_heavy_battleship
+	}
+	focus = {
+		id = FRA_combat_squadron
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_heavy_battleship
+			focus = FRA_cruisers
+			focus = FRA_destroyers
+			focus = FRA_Air_carriers
+			focus = FRA_submarine
+		}
+		relative_position_id = FRA_heavy_battleship
+	}
+	focus = {
+		id = FRA_Air_Coordination_center
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Developing_bombers
+			focus = FRA_Developing_fighters
+		}
+		relative_position_id = FRA_Developing_bombers
+	}
+	focus = {
+		id = FRA_anti_air_positions
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Air_Coordination_center
+			focus = FRA_electromagnetic_detection
+			focus = FRA_Long_Range_fighter
+		}
+		relative_position_id = FRA_electromagnetic_detection
+	}
+	focus = {
+		id = FRA_Large_scale_aircraft_production
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Aviation_School
+			focus = FRA_naval_bombings
+			focus = FRA_anti_air_positions
+			focus = FRA_combat_squadron
+		}
+		relative_position_id = FRA_naval_bombings
+	}
+	focus = {
+		id = FRA_Long_Range_fighter
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Developing_bombers
+			focus = FRA_Developing_fighters
+		}
+		relative_position_id = FRA_Developing_fighters
+	}
+	focus = {
+		id = FRA_electromagnetic_detection
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Developing_bombers
+			focus = FRA_Developing_fighters
+		}
+		relative_position_id = FRA_address_The_Air
+	}
+	focus = {
+		id = FRA_Aviation_School
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Air_Coordination_center
+		}
+		relative_position_id = FRA_Air_Coordination_center
+	}
+	focus = {
+		id = FRA_Pilot_specialization
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Aviation_School
+			focus = FRA_naval_bombings
+			focus = FRA_anti_air_positions
+			focus = FRA_combat_squadron
+		}
+		relative_position_id = FRA_anti_air_positions
+	}
+	focus = {
+		id = FRA_Developing_fighters
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Air
+		}
+		relative_position_id = FRA_address_The_Air
+	}
+	focus = {
+		id = FRA_Developing_bombers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Air
+		}
+		relative_position_id = FRA_address_The_Air
+	}
+	focus = {
+		id = FRA_developing_rockets
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Large_scale_aircraft_production
+		}
+		relative_position_id = FRA_Large_scale_aircraft_production
+	}
+	focus = {
+		id = FRA_The_eagle_soars
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Pilot_specialization
+		}
+		relative_position_id = FRA_Pilot_specialization
+	}
+}
