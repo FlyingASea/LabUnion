@@ -1,5 +1,5 @@
 focus_tree = {
-	id = France
+	id = france_focus
 	country = {
 		factor = 0
 		modifier = {
@@ -14,6 +14,16 @@ focus_tree = {
 		cost = 2
 		x = 9
 		y = 0
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Elections"
+			add_war_support = 0.05
+			add_stability = 0.05
+			add_political_power = 50
+			country_event = fraelections.0
+		}
 	}
 	focus = {
 		id = FRA_Industrial_Recovery
@@ -56,10 +66,16 @@ focus_tree = {
 		cost = 2
 		x = 0
 		y = 1
+		relative_position_id = FRA_Elections
 		prerequisite = {
 			focus = FRA_Elections
 		}
-		relative_position_id = FRA_Elections
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_National_March_Win"
+		}
 	}
 	focus = {
 		id = FRA_Highway
