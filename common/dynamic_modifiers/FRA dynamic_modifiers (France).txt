@@ -1,0 +1,119 @@
+#多里奥革命进行时动态精神
+FRA_revolution_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	stability_factor = FRA_revolution_stability_factor	#稳定度
+	war_support_factor = FRA_revolution_war_support_factor	#战争支持度
+	operative_slot = FRA_revolution_operative_slot	#特工数量
+	agency_upgrade_time = FRA_revolution_agency_upgrade_time	#升级情报机构所需的时间
+	crypto_strength = FRA_revolution_crypto_strength	#加密等级
+	decryption_power = FRA_revolution_decryption_power	#破译能力
+	operation_outcome = FRA_revolution_operation_outcome	#特工行动效率
+	operation_risk = FRA_revolution_operation_risk	#特工行动风险
+	intel_network_gain_factor = FRA_revolution_intel_network_gain_factor	#情报网络强度增益
+	intel_from_operatives_factor = FRA_revolution_intel_from_operatives_factor	#特工渗透获得的情报
+	intelligence_agency_defense = FRA_revolution_ntelligence_agency_defense	#反间谍
+	enemy_operative_capture_chance_factor = FRA_revolution_enemy_operative_capture_chance_factor	#捕获敌方特工的几率
+	civilian_intel_factor = FRA_revolution_civilian_intel_factor	#总体民政情报
+	army_intel_factor = FRA_revolution_army_intel_factor	#总体陆军情报
+	navy_intel_factor = FRA_revolution_navy_intel_factor	#总体海军情报
+	airforce_intel_factor = FRA_revolution_airforce_intel_factor	#总体空军情报
+}
+
+#戴高乐计划动态精神
+FRA_cdg_plan_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	experience_gain_army_factor = FRA_cdg_plan_experience_gain_army_factor	#陆军经验增长系数
+	max_planning_factor = FRA_cdg_plan_max_planning_factor	#计划加成上限系数
+	mobilization_speed = FRA_cdg_plan_mobilization_speed	#动员速度
+	army_attack_factor = FRA_cdg_plan_army_attack_factor	#陆军攻击
+	army_defence_factor = FRA_cdg_plan_army_defence_factor	#陆军防御
+	breakthrough_factor = FRA_cdg_plan_breakthrough_factor	#突破
+	mechanized_attack_factor = FRA_cdg_plan_mechanized_attack_factor	#机械化攻击 
+	mechanized_defence_factor = FRA_cdg_plan_mechanized_defence_factor	#机械化防御
+	army_armor_attack_factor = FRA_cdg_plan_army_armor_attack_factor	#装甲攻击
+	army_armor_defence_factor = FRA_cdg_plan_army_armor_defence_factor	#装甲防御
+	special_forces_attack_factor = FRA_cdg_plan_special_forces_attack_factor	#特种部队攻击
+	special_forces_defence_factor = FRA_cdg_plan_special_forces_defence_factor	#特种部队防御
+	supply_consumption_factor = FRA_cdg_plan_supply_consumption_factor	#补给消耗
+}
+
+#法国达尔朗计划
+FRA_darlan_plan_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	experience_gain_navy_factor = FRA_darlan_plan_experience_gain_navy_factor	#海军经验增长系数
+	navy_screen_attack_factor = FRA_darlan_plan_screen_attack_factor	#屏卫舰攻击
+	navy_screen_defence_factor = FRA_darlan_plan_screen_defence_factor	#屏卫舰防御
+	navy_capital_ship_attack_factor = FRA_darlan_plan_navy_capital_ship_attack_factor	#主力舰攻击
+	navy_capital_ship_defence_factor = FRA_darlan_plan_navy_capital_ship_defence_factor	#主力舰防御
+	navy_submarine_attack_factor = FRA_darlan_plan_navy_submarine_attack_factor	#潜艇攻击
+	navy_submarine_defence_factor = FRA_darlan_plan_navy_submarine_defence_factor	#潜艇防御
+	navy_carrier_air_attack_factor = FRA_darlan_plan_navy_carrier_air_attack_factor #舰载机对空攻击
+	navy_carrier_air_targetting_factor = FRA_darlan_plan_navy_carrier_air_targetting_factor #舰载机对海瞄准
+	naval_torpedo_hit_chance_factor = FRA_darlan_plan_naval_torpedo_hit_chance_factor #鱼雷命中几率
+	naval_torpedo_reveal_chance_factor = FRA_darlan_plan_naval_torpedo_reveal_chance_factor #鱼雷暴露几率
+	naval_torpedo_screen_penetration_factor = FRA_darlan_plan_naval_torpedo_screen_penetration_factor #鱼雷穿透屏卫舰几率
+	navy_visibility = FRA_darlan_plan_navy_visibility	#可见度
+	refit_speed = FRA_darlan_plan_refit_speed	#舰船改造速度
+	repair_speed_factor = FRA_darlan_plan_repair_speed_factor	#舰船修理速度
+	naval_damage_factor = FRA_darlan_plan_naval_damage_factor	#海军伤害
+	naval_defense_factor = FRA_darlan_plan_naval_defense_factor	#海军防御
+	naval_speed_factor = FRA_darlan_plan_naval_speed_factor	#海军速度
+}
+
+#法国空军动态精神
+FRA_air_force_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	experience_gain_air_factor = FRA_air_force_experience_gain_air_factor	#空军经验增长百分比
+	air_attack_factor = FRA_air_force_air_attack_factor	#对空攻击
+	air_defence_factor = FRA_air_force_air_defence_factor	#空军防御
+	air_agility_factor = FRA_air_force_air_agility_factor	#空中机动
+	air_range_factor = FRA_air_force_air_range_factor	#空军航程
+	air_ace_generation_chance_factor = FRA_air_force_air_ace_generation_chance_factor	#王牌机师产生的概率
+	air_mission_efficiency = FRA_air_force_air_mission_efficiency	#空军任务效率
+	air_weather_penalty = FRA_air_force_air_weather_penalty	#空军恶劣天气惩罚
+	air_nav_efficiency = FRA_air_force_air_nav_efficiency	#对海任务效率
+	air_strategic_bomber_bombing_factor = FRA_air_force_air_strategic_bomber_bombing_factor	#战略轰炸
+	ground_attack_factor = FRA_air_force_ground_attack_factor	#对地攻击
+	air_detection = FRA_air_detection	#对空检测
+}
+
+#法国四年计划动态精神
+FRA_four_year_plan_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	stability_weekly = FRA_four_year_plan_stability_weekly	#每周稳定度增长
+	consumer_goods_factor = FRA_four_year_plan_consumer_goods_factor	#消费品系数
+	consumer_goods_expected_value = FRA_four_year_plan_consumer_goods_expected_value	#消费品基础期望
+	production_speed_buildings_factor = FRA_four_year_plan_production_speed_buildings_factor	#建造速度
+	industrial_capacity_dockyard = FRA_four_year_plan_industrial_capacity_dockyard	#船坞产出
+	industrial_capacity_factory = FRA_four_year_plan_industrial_capacity_factory	#工厂产出
+	production_factory_max_efficiency_factor = FRA_four_year_plan_production_factory_max_efficiency_facto	#生产效率上限
+	production_factory_efficiency_gain_factor = FRA_four_year_plan_production_factory_efficiency_gain_factor	#生产效率增长
+	production_factory_start_efficiency_factor = FRA_four_year_plan_production_factory_start_efficiency_factor	#基础生产效率
+	local_resources_factor = FRA_four_year_plan_local_resources_factor	#战略资源获取率
+	research_speed_factor = FRA_four_year_plan_research_speed_factor	#研究速度
+}

@@ -1,0 +1,195 @@
+namespace = fraelections
+
+# 1. 大选前的不安（之前的）
+country_event = {
+	id = fraelections.1
+	title = fraelections.1.t
+	desc = fraelections.1.d
+	picture = GFX_report_event_generic_political
+	fire_only_once = yes
+	trigger = {
+		tag = FRA
+		date > 1936.1.1
+		has_government = neutrality
+		NOT = {
+			has_country_flag = fraelections_prevote_unrest
+		}
+	}
+	mean_time_to_happen = {
+		days = 5
+	}
+	immediate = {
+		set_country_flag = fraelections_prevote_unrest
+	}
+	option = {
+		name = fraelections.1.a
+		ai_chance = {
+			factor = 50
+		}
+		add_stability = 0.05
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.1
+		}
+		add_popularity = {
+			ideology = democratic
+			popularity = -0.05
+		}
+		country_event = {
+			id = fraelections.2
+			days = 5
+		}
+	}
+}
+
+# 2. 大选正式开始
+country_event = {
+	id = fraelections.2
+	title = fraelections.2.t
+	desc = fraelections.2.d
+	picture = GFX_report_event_generic_political
+	fire_only_once = yes
+	option = {
+		name = fraelections.2.a		# 支持多里奥
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		set_country_flag = Jacques_Doriot_Win
+		country_event = {
+			id = fraelections.3
+			days = 7
+		}
+	}
+	option = {
+		name = fraelections.2.b		# 支持赖伐尔
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		set_country_flag = Pierre_Laval_Win
+		country_event = {
+			id = fraelections.3
+			days = 7
+		}
+	}
+	option = {
+		name = fraelections.2.c		# 支持达南德
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.03
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.02
+		}
+		set_country_flag = Joseph_Darnand_Win
+		country_event = {
+			id = fraelections.3
+			days = 7
+		}
+	}
+}
+
+# 3. 激烈斗争
+country_event = {
+	id = fraelections.3
+	title = fraelections.3.t
+	desc = fraelections.3.d
+	picture = GFX_report_event_generic_unrest
+	fire_only_once = yes
+	option = {
+		name = fraelections.3.a		# 动员街头支持多里奥
+		trigger = {
+			has_country_flag = fra_support_doriot
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.05
+		}
+		add_stability = -0.02
+		country_event = {
+			id = fraelections.4
+			days = 5
+		}
+	}
+	option = {
+		name = fraelections.3.b		# 以外交与媒体塑造赖伐尔形象
+		trigger = {
+			has_country_flag = fra_support_laval
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.05
+		}
+		add_war_support = -0.02
+		country_event = {
+			id = fraelections.4
+			days = 5
+		}
+	}
+	option = {
+		name = fraelections.3.c		# 军方游行展示力量
+		trigger = {
+			has_country_flag = fra_support_darlan
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.02
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.03
+		}
+		add_war_support = 0.05
+		country_event = {
+			id = fraelections.4
+			days = 5
+		}
+	}
+}
+
+# 4. 计票结果
+country_event = {
+	id = fraelections.4
+	title = fraelections.4.t
+	desc = fraelections.4.d
+	picture = GFX_report_event_generic_political
+	fire_only_once = yes
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = Jacques_Doriot_Win
+			}
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			add_stability = 0.05
+		}
+		if = {
+			limit = {
+				has_country_flag = fra_support_laval
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = yes
+			}
+			add_stability = 0.1
+		}
+		if = {
+			limit = {
+				has_country_flag = fra_support_darlan
+			}
+			set_politics = {
+				ruling_party = neutrality
+				elections_allowed = no
+			}
+			add_stability = 0.07
+			add_war_support = 0.05
+		}
+	}
+	option = {
+		name = fraelections.4.a
+	}
+}

@@ -132,3 +132,15 @@
  FRA_Laissez_faire:0 "自由放任"
  FRA_Encourage_industrial_development:0 "鼓励工业发展"
  FRA_Free_dynamic_market:0 "自由活力的市场"
+
+ tooltip_white_line:0 "   \n"
+ tooltip_line_break:0 "\n"
+ tooltip_line_break_2:0 "$tooltip_line_break$$tooltip_line_break$"
+
+
+
+ Jacques_Doriot_Win:0 "雅克多里奥赢得选举"
+ Pierre_Laval_Win:0 "皮埃尔赖伐尔赢得选举"
+ Joseph_Darnand_Win:0 "约瑟夫达南德赢得选举"
+ FRA_Great_Depression:0 "大萧条已波及到我们"
+

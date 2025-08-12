@@ -8,6 +8,10 @@ focus_tree = {
 		}
 	}
 	default = no
+	continuous_focus_position = {
+		x = 500
+		y = 1500
+	}
 	focus = {
 		id = FRA_Elections
 		icon = GFX_goal_unknown
@@ -22,43 +26,8 @@ focus_tree = {
 			add_war_support = 0.05
 			add_stability = 0.05
 			add_political_power = 50
-			country_event = fraelections.0
+			country_event = fraelections.1
 		}
-	}
-	focus = {
-		id = FRA_Industrial_Recovery
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 25
-		y = 0
-	}
-	focus = {
-		id = FRA_Look_The_World
-		icon = GFX_goal_unknown
-		cost = 10
-		x = 40
-		y = 0
-	}
-	focus = {
-		id = FRA_address_The_Air
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 36
-		y = 8
-	}
-	focus = {
-		id = FRA_address_The_Navy
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 28
-		y = 8
-	}
-	focus = {
-		id = FRA_address_The_Army
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 20
-		y = 8
 	}
 	focus = {
 		id = FRA_National_March_Win
@@ -77,6 +46,391 @@ focus_tree = {
 			log = "[GetLogRoot]: Focus Completed FRA_National_March_Win"
 		}
 	}
+	#雅克多里奥获胜  ####################################################################
+	focus = {
+		id = FRA_Jacques_Doriot_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = -6
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		relative_position_id = FRA_National_March_Win
+		available = {
+			has_country_flag = Jacques_Doriot_Win
+		}
+		bypass = {
+			has_country_flag = Jacques_Doriot_Win
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Jacques_Doriot_Win"
+		}
+	}
+	#开始宣告革命
+	focus = {
+		id = FRA_beginning_revolution
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Jacques_Doriot_Win
+		}
+		relative_position_id = FRA_Jacques_Doriot_Win
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			add_political_power = 50
+			add_stability = -0.05
+			add_war_support = 0.1
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_beginning_revolution_idea
+		}
+	}
+	#水晶之夜
+	focus = {
+		id = FRA_Kristallnacht
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			add_political_power = 50
+			add_stability = 0.1
+			add_war_support = 0.05
+			add_manpower = -10000
+		}
+	}
+	#恐怖的大天使
+	focus = {
+		id = FRA_reign_of_terror
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			add_political_power = 100
+			add_war_support = 0.1
+			add_manpower = -50000
+		}
+	}
+	#长刀之夜
+	focus = {
+		id = FRA_Night_of_the_Long_Knives
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_beginning_revolution
+		}
+		relative_position_id = FRA_beginning_revolution
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			add_political_power = 100
+			add_stability = 0.1
+			add_manpower = -50000
+			add_to_variable = {
+				FRA_revolution_operative_slots = 1
+			}
+			custom_effect_tooltip = tooltip_white_line
+		}
+	}
+	#唤醒法兰西人民
+	focus = {
+		id = FRA_wake_men
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_reign_of_terror
+		}
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		relative_position_id = FRA_reign_of_terror
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			add_political_power = 100
+			add_manpower = -50000
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_wake_men_idea
+		}
+	}
+	focus = {
+		id = FRA_Big_Brother_watching_you
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		prerequisite = {
+			focus = FRA_Night_of_the_Long_Knives
+		}
+		relative_position_id = FRA_Night_of_the_Long_Knives
+	}
+	focus = {
+		id = FRA_Pure_France
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_wake_men
+			focus = FRA_Big_Brother_watching_you
+		}
+		prerequisite = {
+			focus = FRA_Kristallnacht
+		}
+		relative_position_id = FRA_Kristallnacht
+	}
+	focus = {
+		id = FRA_Father_of_the_French_Revolution
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Pure_France
+		}
+		relative_position_id = FRA_Pure_France
+	}
+	#皮埃尔赖伐尔获胜  ####################################################################
+	focus = {
+		id = FRA_Pierre_Laval_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		relative_position_id = FRA_National_March_Win
+		available = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		bypass = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Pierre_Laval_Win"
+		}
+	}
+	#约瑟夫达南德获胜  ####################################################################
+	focus = {
+		id = FRA_Joseph_Darnand_Win
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 6
+		y = 1
+		prerequisite = {
+			focus = FRA_National_March_Win
+		}
+		relative_position_id = FRA_National_March_Win
+		available = {
+			has_country_flag = Joseph_Darnand_Win
+		}
+		bypass = {
+			has_country_flag = Joseph_Darnand_Win
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+		}
+	}
+	# 工业线 工业恢复 ####################################################################
+	focus = {
+		id = FRA_Industrial_Recovery
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 25
+		y = 0
+		available = {
+			has_country_flag = FRA_Great_Depression
+		}
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Industrial_Recovery"
+		}
+	}
+	# 法兰西经济 #################################################################
+	focus = {
+		id = FRA_Slave_Labor
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -3
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Slave_Labor"
+			add_ideas = FRA_Slave_Labor1
+		}
+	}
+	# 自给自足
+	focus = {
+		id = FRA_Resource_Self_Sufficiency
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Slave_Labor
+		}
+		relative_position_id = FRA_Slave_Labor
+	}
+	# 普及电气化
+	focus = {
+		id = FRA_Electrification
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Resource_Self_Sufficiency
+		}
+		relative_position_id = FRA_Resource_Self_Sufficiency
+	}
+	# 初步工业化
+	focus = {
+		id = FRA_Military_Industry1
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Electrification
+		}
+		relative_position_id = FRA_Electrification
+	}
+	# 加大军工投资
+	focus = {
+		id = FRA_Military_Industry2
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry1
+		}
+		relative_position_id = FRA_Military_Industry1
+	}
+	# 再次扩充军备
+	focus = {
+		id = FRA_Military_Industry3
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry2
+		}
+		relative_position_id = FRA_Military_Industry2
+	}
+	# 我们已经为战争做好了准备
+	focus = {
+		id = FRA_We_Are_Already_For_War
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Military_Industry2
+		}
+		relative_position_id = FRA_Military_Industry2
+	}
+	# 四年计划 ##################################################################
+	focus = {
+		id = FRA_Four_Years_Plan
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	# 法兰西高速公路  ##################################################################
 	focus = {
 		id = FRA_Highway
 		icon = GFX_goal_unknown
@@ -87,6 +441,579 @@ focus_tree = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
+	}
+	# 外交线 雄鸡啼鸣 ####################################################################
+	focus = {
+		id = FRA_Look_The_World
+		icon = GFX_goal_unknown
+		cost = 10
+		x = 40
+		y = 0
+	}
+	# 空军改革线  ####################################################################
+	focus = {
+		id = FRA_address_The_Air
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 36
+		y = 8
+	}
+	# 海军改革线  ####################################################################
+	focus = {
+		id = FRA_address_The_Navy
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 28
+		y = 8
+	}
+	#陆军改革线  ####################################################################
+	focus = {
+		id = FRA_address_The_Army
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 20
+		y = 8
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Army"
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_Army_Reform_idea
+		}
+	}
+	#戴高乐计划
+	focus = {
+		id = FRA_Cdg_Plan_Chosen
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Army
+		}
+		relative_position_id = FRA_address_The_Army
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Cdg_Plan_Chosen"
+			add_tech_bonus = {
+				name = FRA_Cdg_Plan_Chosen
+				category = armor
+				bonus = 1
+				uses = 2
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_dynamic_modifier = {
+				modifier = FRA_cdg_plan_modifier
+			}
+			add_to_variable = {
+				FRA_cdg_plan_experience_gain_army_factor = 0.1
+				tooltip = experience_gain_army_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_max_planning_factor = 0.1
+				tooltip = max_planning_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_mobilization_speed = 0.1
+				tooltip = mobilization_speed_tt
+			}
+		}
+	}
+	# 职业军队
+	focus = {
+		id = FRA_elite_army
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_elite_army"
+			army_experience = 30
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_elite_army_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_army_attack_factor = 0.05
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_defence_factor = 0.05
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_max_planning_factor = 0.1
+				tooltip = max_planning_factor_tt
+			}
+		}
+	}
+	# 步兵机械化
+	focus = {
+		id = FRA_infantry_Motorization
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_infantry_Motorization"
+			add_tech_bonus = {
+				name = FRA_infantry_Motorization
+				category = motorized_equipment
+				bonus = 1
+				uses = 2
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_research_mechanized_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_attack_factor = 0.05
+				tooltip = mechanized_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_defence_factor = 0.05
+				tooltip = mechanized_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_breakthrough_factor = 0.1
+				tooltip = breakthrough_factor_tt
+			}
+		}
+	}
+	# 军事研究
+	focus = {
+		id = FRA_military_research
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Cdg_Plan_Chosen
+		}
+		relative_position_id = FRA_Cdg_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_military_research"
+			army_experience = 20
+			add_research_slot = 1
+			add_tech_bonus = {
+				name = FRA_military_research
+				bonus = 1
+				uses = 1
+				category = cat_anti_tank
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_military_research_idea
+				days = 365
+			}
+		}
+	}
+	# 发展特种部队
+	focus = {
+		id = FRA_improve_special_forces
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_elite_army
+		}
+		relative_position_id = FRA_elite_army
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_improve_special_forces"
+			army_experience = 20
+			custom_effect_tooltip = tooltip_white_line
+			add_tech_bonus = {
+				name = FRA_improve_special_forces
+				bonus = 1
+				uses = 1
+				category = artillery
+			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = special_forces_doctrine
+				name = FRA_improve_special_forces
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_special_forces_attack_factor = 0.1
+				tooltip = special_forces_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_special_forces_defence_factor = 0.1
+				tooltip = special_forces_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}
+		}
+	}
+	# 拥抱机动作战
+	focus = {
+		id = FRA_Mobile_warfare
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_infantry_Motorization
+		}
+		relative_position_id = FRA_infantry_Motorization
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Mobile_warfare"
+			army_experience = 30
+			add_command_power = 10
+			custom_effect_tooltip = tooltip_white_line
+			add_tech_bonus = {
+				name = FRA_Mobile_warfare
+				bonus = 1
+				uses = 1
+				ahead_reduction = 1
+				category = armor
+				category = cat_mechanized_equipment
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_attack_factor = 0.1
+				tooltip = mechanized_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_defence_factor = 0.1
+				tooltip = mechanized_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}
+		}
+	}
+	# 军队现代化
+	focus = {
+		id = FRA_The_Reaction
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_military_research
+		}
+		relative_position_id = FRA_military_research
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_The_Reaction"
+			add_tech_bonus = {
+				name = FRA_The_Reaction
+				bonus = 0.5
+				uses = 2
+				category = artillery
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_max_planning_factor = 0.2
+				tooltip = max_planning_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_attack_factor = 0.1
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_defence_factor = 0.1
+				tooltip = army_defence_factor_tt
+			}
+		}
+	}
+	# 主战坦克
+	focus = {
+		id = FRA_Tank_investment
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_improve_special_forces
+			focus = FRA_Mobile_warfare
+			focus = FRA_The_Reaction
+		}
+		relative_position_id = FRA_improve_special_forces
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Tank_investment"
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_army_armor_attack_factor = 0.1
+				tooltip = army_armor_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_armor_defence_factor = 0.1
+				tooltip = army_armor_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_breakthrough_factor = 0.05
+				tooltip = breakthrough_factor_tt
+			}
+		}
+	}
+	# 特种联合作战
+	focus = {
+		id = FRA_special_cooperation
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_improve_special_forces
+			focus = FRA_Mobile_warfare
+			focus = FRA_The_Reaction
+		}
+		relative_position_id = FRA_The_Reaction
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Tank_investment"
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_army_attack_factor = 0.05
+				tooltip = army_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_defence_factor = 0.05
+				tooltip = army_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_special_forces_attack_factor = 0.1
+				tooltip = special_forces_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_special_forces_defence_factor = 0.1
+				tooltip = special_forces_defence_factor_tt
+			}
+		}
+	}
+	# 空地一体化
+	focus = {
+		id = FRA_Air_support
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Tank_investment
+		}
+		available = {
+			has_completed_focus = FRA_address_The_Air
+		}
+		relative_position_id = FRA_Tank_investment
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Tank_investment"
+			add_tech_bonus = {
+				name = FRA_Air_support
+				category = cat_anti_air
+				bonus = 1
+				uses = 2
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_ground_attack_factor = 0.1
+				tooltip = ground_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_mission_efficiency = 0.1
+				tooltip = air_mission_efficiency_tt
+			}
+		}
+	}
+	# 机械化改进
+	focus = {
+		id = FRA_Mechanized_Improvements
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Tank_investment
+			focus = FRA_special_cooperation
+		}
+		prerequisite = {
+			focus = FRA_Mobile_warfare
+		}
+		available = {
+			has_tech = mechanised_infantry
+		}
+		relative_position_id = FRA_Mobile_warfare
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Tank_investment"
+			add_timed_idea = {
+				idea = FRA_produce_mechanized_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_attack_factor = 0.05
+				tooltip = mechanized_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_mechanized_defence_factor = 0.05
+				tooltip = mechanized_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_supply_consumption_factor = -0.1
+				tooltip = supply_consumption_factor_tt
+			}
+		}
+	}
+	# 装甲进步
+	focus = {
+		id = FRA_armor_advancements
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_special_cooperation
+		}
+		relative_position_id = FRA_special_cooperation
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 200
+				date > 1938.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_armor_advancements"
+			add_timed_idea = {
+				idea = FRA_produce_armor_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_cdg_plan_tt
+			add_to_variable = {
+				FRA_cdg_plan_army_armor_attack_factor = 0.05
+				tooltip = army_armor_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_army_armor_defence_factor = 0.05
+				tooltip = army_armor_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_cdg_plan_supply_consumption_factor = -0.1
+				tooltip = supply_consumption_factor_tt
+			}
+		}
 	}
 	focus = {
 		id = FRA_Look_The_Asian
@@ -112,95 +1039,6 @@ focus_tree = {
 			focus = FRA_New_Friends
 		}
 		relative_position_id = FRA_Look_The_Asian
-	}
-	focus = {
-		id = FRA_Joseph_Darnand_Win
-		icon = GFX_goal_unknown
-		cost = 1
-		x = 6
-		y = 1
-		prerequisite = {
-			focus = FRA_National_March_Win
-		}
-		mutually_exclusive = {
-			focus = FRA_Pierre_Laval_Win
-		}
-		relative_position_id = FRA_National_March_Win
-	}
-	focus = {
-		id = FRA_Pierre_Laval_Win
-		icon = GFX_goal_unknown
-		cost = 1
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_National_March_Win
-		}
-		mutually_exclusive = {
-			focus = FRA_Jacques_Doriot_Win
-		}
-		mutually_exclusive = {
-			focus = FRA_Joseph_Darnand_Win
-		}
-		relative_position_id = FRA_National_March_Win
-	}
-	focus = {
-		id = FRA_Jacques_Doriot_Win
-		icon = GFX_goal_unknown
-		cost = 1
-		x = -6
-		y = 1
-		prerequisite = {
-			focus = FRA_National_March_Win
-		}
-		mutually_exclusive = {
-			focus = FRA_Pierre_Laval_Win
-		}
-		relative_position_id = FRA_National_March_Win
-	}
-	focus = {
-		id = FRA_beginning_revolution
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Jacques_Doriot_Win
-		}
-		relative_position_id = FRA_Jacques_Doriot_Win
-	}
-	focus = {
-		id = FRA_Kristallnacht
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_beginning_revolution
-		}
-		relative_position_id = FRA_beginning_revolution
-	}
-	focus = {
-		id = FRA_reign_of_terror
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_beginning_revolution
-		}
-		relative_position_id = FRA_beginning_revolution
-	}
-	focus = {
-		id = FRA_Night_of_the_Long_Knives
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_beginning_revolution
-		}
-		relative_position_id = FRA_beginning_revolution
 	}
 	focus = {
 		id = FRA_ban_others
@@ -292,60 +1130,6 @@ focus_tree = {
 			focus = FRA_praetorian_Guards
 		}
 		relative_position_id = FRA_praetorian_Guards
-	}
-	focus = {
-		id = FRA_wake_men
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_reign_of_terror
-		}
-		prerequisite = {
-			focus = FRA_Kristallnacht
-		}
-		relative_position_id = FRA_reign_of_terror
-	}
-	focus = {
-		id = FRA_Big_Brother_watching_you
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Kristallnacht
-		}
-		prerequisite = {
-			focus = FRA_Night_of_the_Long_Knives
-		}
-		relative_position_id = FRA_Night_of_the_Long_Knives
-	}
-	focus = {
-		id = FRA_Pure_France
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_wake_men
-			focus = FRA_Big_Brother_watching_you
-		}
-		prerequisite = {
-			focus = FRA_Kristallnacht
-		}
-		relative_position_id = FRA_Kristallnacht
-	}
-	focus = {
-		id = FRA_Father_of_the_French_Revolution
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Pure_France
-		}
-		relative_position_id = FRA_Pure_France
 	}
 	focus = {
 		id = FRA_Crushing_Corruption
@@ -461,10 +1245,6 @@ focus_tree = {
 		x = 0
 		y = 2
 		prerequisite = {
-			focus = FRA_Four_Years_Plan
-			focus = FRA_Devalue_The_Franc
-		}
-		prerequisite = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
@@ -490,17 +1270,6 @@ focus_tree = {
 			focus = FRA_Devalue_The_Franc
 		}
 		relative_position_id = FRA_Devalue_The_Franc
-	}
-	focus = {
-		id = FRA_Four_Years_Plan
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Industrial_Recovery
-		}
-		relative_position_id = FRA_Industrial_Recovery
 	}
 	focus = {
 		id = FRA_Devalue_The_Franc
@@ -624,39 +1393,6 @@ focus_tree = {
 		relative_position_id = FRA_Autarky_Achieved
 	}
 	focus = {
-		id = FRA_Slave_Labor
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -3
-		y = 1
-		prerequisite = {
-			focus = FRA_Industrial_Recovery
-		}
-		relative_position_id = FRA_Industrial_Recovery
-	}
-	focus = {
-		id = FRA_Resource_Self_Sufficiency
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Slave_Labor
-		}
-		relative_position_id = FRA_Slave_Labor
-	}
-	focus = {
-		id = FRA_Electrification
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Resource_Self_Sufficiency
-		}
-		relative_position_id = FRA_Resource_Self_Sufficiency
-	}
-	focus = {
 		id = FRA_Develop_Northern_Railways
 		icon = GFX_goal_unknown
 		cost = 2
@@ -721,50 +1457,6 @@ focus_tree = {
 			focus = FRA_Develop_Southern_Buisnesses
 		}
 		relative_position_id = FRA_Develop_Southern_Buisnesses
-	}
-	focus = {
-		id = FRA_Military_Industry1
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Electrification
-		}
-		relative_position_id = FRA_Electrification
-	}
-	focus = {
-		id = FRA_Military_Industry2
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Military_Industry1
-		}
-		relative_position_id = FRA_Military_Industry1
-	}
-	focus = {
-		id = FRA_Military_Industry3
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Military_Industry2
-		}
-		relative_position_id = FRA_Military_Industry2
-	}
-	focus = {
-		id = FRA_We_Are_Already_For_War
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Military_Industry2
-		}
-		relative_position_id = FRA_Military_Industry2
 	}
 	focus = {
 		id = FRA_Look_The_America
@@ -1106,28 +1798,6 @@ focus_tree = {
 		relative_position_id = FRA_Rebirth_Of_France
 	}
 	focus = {
-		id = FRA_The_Reaction
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_military_research
-		}
-		relative_position_id = FRA_military_research
-	}
-	focus = {
-		id = FRA_Cdg_Plan_Chosen
-		icon = GFX_goal_unknown
-		cost = 10
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_address_The_Army
-		}
-		relative_position_id = FRA_address_The_Army
-	}
-	focus = {
 		id = FRA_Darian_Plan_Chosen
 		icon = GFX_goal_unknown
 		cost = 10
@@ -1137,125 +1807,6 @@ focus_tree = {
 			focus = FRA_address_The_Navy
 		}
 		relative_position_id = FRA_address_The_Navy
-	}
-	focus = {
-		id = FRA_military_research
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Cdg_Plan_Chosen
-		}
-		relative_position_id = FRA_Cdg_Plan_Chosen
-	}
-	focus = {
-		id = FRA_Mobile_warfare
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_infantry_Motorization
-		}
-		relative_position_id = FRA_infantry_Motorization
-	}
-	focus = {
-		id = FRA_infantry_Motorization
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Cdg_Plan_Chosen
-		}
-		relative_position_id = FRA_Cdg_Plan_Chosen
-	}
-	focus = {
-		id = FRA_elite_army
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_Cdg_Plan_Chosen
-		}
-		relative_position_id = FRA_Cdg_Plan_Chosen
-	}
-	focus = {
-		id = FRA_Tank_investment
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_improve_special_forces
-			focus = FRA_Mobile_warfare
-			focus = FRA_The_Reaction
-		}
-		relative_position_id = FRA_improve_special_forces
-	}
-	focus = {
-		id = FRA_armor_advancements
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_special_cooperation
-		}
-		relative_position_id = FRA_special_cooperation
-	}
-	focus = {
-		id = FRA_Air_support
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Tank_investment
-		}
-		relative_position_id = FRA_Tank_investment
-	}
-	focus = {
-		id = FRA_special_cooperation
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_improve_special_forces
-			focus = FRA_Mobile_warfare
-			focus = FRA_The_Reaction
-		}
-		relative_position_id = FRA_The_Reaction
-	}
-	focus = {
-		id = FRA_Mechanized_Improvements
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Mobile_warfare
-			focus = FRA_Tank_investment
-			focus = FRA_special_cooperation
-		}
-		prerequisite = {
-			focus = FRA_Mobile_warfare
-		}
-		relative_position_id = FRA_Mobile_warfare
-	}
-	focus = {
-		id = FRA_improve_special_forces
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_elite_army
-		}
-		relative_position_id = FRA_elite_army
 	}
 	focus = {
 		id = FRA_construct_A_World_Class_navy
@@ -1412,31 +1963,12 @@ focus_tree = {
 		id = FRA_combat_squadron
 		icon = GFX_goal_unknown
 		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_heavy_battleship
-			focus = FRA_cruisers
-			focus = FRA_destroyers
-			focus = FRA_Air_carriers
-			focus = FRA_submarine
-		}
-		relative_position_id = FRA_heavy_battleship
-	}
-	focus = {
-		id = FRA_combat_squadron
-		icon = GFX_goal_unknown
-		cost = 5
 		x = 1
 		y = 1
 		prerequisite = {
-			focus = FRA_heavy_battleship
-			focus = FRA_cruisers
-			focus = FRA_destroyers
-			focus = FRA_Air_carriers
-			focus = FRA_submarine
+			focus = FRA_Long_Range_fighter
 		}
-		relative_position_id = FRA_heavy_battleship
+		relative_position_id = FRA_Long_Range_fighter
 	}
 	focus = {
 		id = FRA_Air_Coordination_center
