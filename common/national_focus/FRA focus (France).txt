@@ -317,6 +317,18 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Industrial_Recovery"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
 		}
 	}
 	# 法兰西经济 #################################################################
@@ -343,7 +355,20 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Slave_Labor"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
 			add_ideas = FRA_Slave_Labor1
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
 		}
 	}
 	# 自给自足
@@ -357,6 +382,32 @@ focus_tree = {
 			focus = FRA_Slave_Labor
 		}
 		relative_position_id = FRA_Slave_Labor
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Resource_Self_Sufficiency"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_local_resources_factor = 0.1
+				tooltip = local_resources_factor_tt
+			}
+		}
 	}
 	# 普及电气化
 	focus = {
@@ -369,6 +420,34 @@ focus_tree = {
 			focus = FRA_Resource_Self_Sufficiency
 		}
 		relative_position_id = FRA_Resource_Self_Sufficiency
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Electrification"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+		}
 	}
 	# 初步工业化
 	focus = {
@@ -381,6 +460,47 @@ focus_tree = {
 			focus = FRA_Electrification
 		}
 		relative_position_id = FRA_Electrification
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		available = {
+			has_completed_focus = FRA_Four_Years_Plan
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Military_Industry1"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_factory = 0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_dockyard = 0.03
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.03
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
 	}
 	# 加大军工投资
 	focus = {
@@ -393,6 +513,47 @@ focus_tree = {
 			focus = FRA_Military_Industry1
 		}
 		relative_position_id = FRA_Military_Industry1
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		available = {
+			has_completed_focus = FRA_Four_Years_Plan
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Military_Industry2"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_max_efficiency_factor = 0.06
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_efficiency_gain_factor = 0.06
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_max_efficiency_facto = 0.06
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_efficiency_gain_factor = 0.06
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
 	}
 	# 再次扩充军备
 	focus = {
@@ -405,6 +566,47 @@ focus_tree = {
 			focus = FRA_Military_Industry2
 		}
 		relative_position_id = FRA_Military_Industry2
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		available = {
+			has_completed_focus = FRA_Four_Years_Plan
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Military_Industry3"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_start_efficiency_factor = 0.06
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_efficiency_gain_factor = 0.06
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_start_efficiency_factor = 0.06
+				tooltip = production_factory_start_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_efficiency_gain_factor = 0.06
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
 	}
 	# 我们已经为战争做好了准备
 	focus = {
@@ -417,6 +619,38 @@ focus_tree = {
 			focus = FRA_Military_Industry2
 		}
 		relative_position_id = FRA_Military_Industry2
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		available = {
+			date > 1939.8.1
+			has_war_with_major = yes
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_We_Are_Already_For_War"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.06
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.06
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
 	}
 	# 四年计划 ##################################################################
 	focus = {
@@ -429,6 +663,622 @@ focus_tree = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Four_Years_Plan"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_dynamic_modifier = {
+				modifier = FRA_four_year_plan_modifier
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = -0.15
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = -0.02
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_buildings_factor = -0.1
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = -0.05
+				tooltip = stability_weekly_tt
+			}
+		}
+	}
+	# 加速军备重整
+	focus = {
+		id = FRA_Accelerate_The_Rearmament_Program
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Four_Years_Plan
+		}
+		relative_position_id = FRA_Four_Years_Plan
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Accelerate_The_Rearmament_Program"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = 0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = -0.01
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = -0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+		}
+	}
+	# 集中军备计划
+	focus = {
+		id = FRA_Concentrated_Armament_Program
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Accelerate_The_Rearmament_Program
+		}
+		relative_position_id = FRA_Accelerate_The_Rearmament_Program
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Concentrated_Armament_Program"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = -0.05
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = 0.01
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_arms_factory_factor = 0.05
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+		}
+	}
+	# 成立计划委员会
+	focus = {
+		id = FRA_Zentrale_planung
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Concentrated_Armament_Program
+		}
+		relative_position_id = FRA_Concentrated_Armament_Program
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Zentrale_planung"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = 0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = 0.01
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	# 经济奇迹
+	focus = {
+		id = FRA_Economic_Miracle
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Zentrale_planung
+		}
+		prerequisite = {
+			focus = FRA_The_Means_To_Wage_War
+		}
+		prerequisite = {
+			focus = FRA_Urbanization
+		}
+		available = {
+			has_completed_focus = FRA_Military_Industry1
+			has_completed_focus = FRA_Develop_Southern_Railways
+		}
+		relative_position_id = FRA_Zentrale_planung
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Economic_Miracle"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = -0.12
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = -0.02
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	# 战时生产
+	focus = {
+		id = FRA_War_Production
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Economic_Miracle
+		}
+		available = {
+			date > 1939.8.1
+			has_war_with_major = yes
+		}
+		relative_position_id = FRA_Economic_Miracle
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_War_Production"
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = 0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = 0.02
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.02
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_efficiency_gain_factor = 0.06
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_local_resources_factor = 0.07
+				tooltip = local_resources_factor_tt
+			}
+		}
+	}
+	# 法郎贬值 ##################################################################
+	focus = {
+		id = FRA_Devalue_The_Franc
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Devalue_The_Franc"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_Devalue_The_Franc_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = -0.01
+				tooltip = stability_weekly_tt
+			}
+		}
+	}
+	# 货币改革
+	focus = {
+		id = FRA_Currency_Reforms
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Devalue_The_Franc
+		}
+		relative_position_id = FRA_Devalue_The_Franc
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Currency_Reforms"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_Currency_Reforms_tt
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_expected_value = -0.01
+				tooltip = consumer_goods_expected_value_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			hidden_effect = {
+				remove_ideas = FRA_Devalue_The_Franc_idea
+				add_timed_idea = {
+					idea = FRA_Devalue_The_Franc_idea
+					days = 180
+				}
+			}
+		}
+	}
+	# 农业改革
+	focus = {
+		id = FRA_Agricultural_Reforms
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Currency_Reforms
+		}
+		relative_position_id = FRA_Currency_Reforms
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Agricultural_Reforms"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.2
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+		}
+	}
+	# 城市化
+	focus = {
+		id = FRA_Urbanization
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Agricultural_Reforms
+		}
+		relative_position_id = FRA_Agricultural_Reforms
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Urbanization"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = -0.01
+				tooltip = stability_weekly_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = 0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	# 实现自给自足
+	focus = {
+		id = FRA_Autarky_Achieved
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Urbanization
+		}
+		relative_position_id = FRA_Urbanization
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Economic_Miracle"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = 0.1
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	# 法兰西的最后一搏
+	focus = {
+		id = FRA_The_Last_Battle
+		icon = GFX_goal_unknown
+		cost = 1
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Autarky_Achieved
+		}
+		relative_position_id = FRA_Autarky_Achieved
+	}
+	# 投资研究设施  ####################################################################
+	focus = {
+		id = FRA_Develop_Research
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Industrial_Recovery
+		}
+		relative_position_id = FRA_Industrial_Recovery
+	}
+	# 组建国家研究中心
+	focus = {
+		id = FRA_Develop_Research2
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Research
+		}
+		relative_position_id = FRA_Develop_Research
+	}
+	# 平衡发展军备
+	focus = {
+		id = FRA_The_Means_To_Wage_War
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Research2
+		}
+		relative_position_id = FRA_Develop_Research2
 	}
 	# 法兰西高速公路  ##################################################################
 	focus = {
@@ -571,16 +1421,16 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_army_attack_factor = 0.05
-				tooltip = army_attack_factor_tt
+				FRA_cdg_plan_army_strength_factor = 0.05
+				tooltip = army_strength_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_army_defence_factor = 0.05
-				tooltip = army_defence_factor_tt
+				FRA_cdg_plan_army_org = 0.05
+				tooltip = army_org_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_max_planning_factor = 0.1
-				tooltip = max_planning_factor_tt
+				FRA_cdg_plan_army_speed_factor = 0.1
+				tooltip = army_speed_factor_tt
 			}
 		}
 	}
@@ -626,7 +1476,7 @@ focus_tree = {
 				tooltip = mechanized_defence_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_breakthrough_factor = 0.1
+				FRA_cdg_plan_breakthrough_factor = 0.05
 				tooltip = breakthrough_factor_tt
 			}
 		}
@@ -703,11 +1553,11 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_special_forces_attack_factor = 0.1
+				FRA_cdg_plan_special_forces_attack_factor = 0.05
 				tooltip = special_forces_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_special_forces_defence_factor = 0.1
+				FRA_cdg_plan_special_forces_defence_factor = 0.05
 				tooltip = special_forces_defence_factor_tt
 			}
 			add_to_variable = {
@@ -750,11 +1600,11 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_mechanized_attack_factor = 0.1
+				FRA_cdg_plan_mechanized_attack_factor = 0.05
 				tooltip = mechanized_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_mechanized_defence_factor = 0.1
+				FRA_cdg_plan_mechanized_defence_factor = 0.05
 				tooltip = mechanized_defence_factor_tt
 			}
 			add_to_variable = {
@@ -792,15 +1642,15 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_max_planning_factor = 0.2
+				FRA_cdg_plan_max_planning_factor = 0.1
 				tooltip = max_planning_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_army_attack_factor = 0.1
+				FRA_cdg_plan_army_attack_factor = 0.05
 				tooltip = army_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_army_defence_factor = 0.1
+				FRA_cdg_plan_army_defence_factor = 0.05
 				tooltip = army_defence_factor_tt
 			}
 		}
@@ -832,11 +1682,11 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_army_armor_attack_factor = 0.1
+				FRA_cdg_plan_army_armor_attack_factor = 0.05
 				tooltip = army_armor_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_army_armor_defence_factor = 0.1
+				FRA_cdg_plan_army_armor_defence_factor = 0.05
 				tooltip = army_armor_defence_factor_tt
 			}
 			add_to_variable = {
@@ -870,19 +1720,19 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_cdg_plan_tt
 			add_to_variable = {
-				FRA_cdg_plan_army_attack_factor = 0.05
-				tooltip = army_attack_factor_tt
+				FRA_cdg_plan_army_core_attack_factor = 0.05
+				tooltip = army_core_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_army_defence_factor = 0.05
-				tooltip = army_defence_factor_tt
+				FRA_cdg_plan_army_core_defence_factor = 0.05
+				tooltip = army_core_defence_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_special_forces_attack_factor = 0.1
+				FRA_cdg_plan_special_forces_attack_factor = 0.05
 				tooltip = special_forces_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_special_forces_defence_factor = 0.1
+				FRA_cdg_plan_special_forces_defence_factor = 0.05
 				tooltip = special_forces_defence_factor_tt
 			}
 		}
@@ -919,11 +1769,11 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_air_force_modifier_tt
 			add_to_variable = {
-				FRA_air_force_ground_attack_factor = 0.1
+				FRA_air_force_ground_attack_factor = 0.05
 				tooltip = ground_attack_factor_tt
 			}
 			add_to_variable = {
-				FRA_air_force_air_mission_efficiency = 0.1
+				FRA_air_force_air_mission_efficiency = 0.05
 				tooltip = air_mission_efficiency_tt
 			}
 		}
@@ -1010,8 +1860,8 @@ focus_tree = {
 				tooltip = army_armor_defence_factor_tt
 			}
 			add_to_variable = {
-				FRA_cdg_plan_supply_consumption_factor = -0.1
-				tooltip = supply_consumption_factor_tt
+				FRA_cdg_plan_army_strength_factor = 0.05
+				tooltip = army_strength_factor_tt
 			}
 		}
 	}
@@ -1237,160 +2087,6 @@ focus_tree = {
 			focus = FRA_grand_master
 		}
 		relative_position_id = FRA_grand_master
-	}
-	focus = {
-		id = FRA_Develop_Research
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Industrial_Recovery
-		}
-		relative_position_id = FRA_Industrial_Recovery
-	}
-	focus = {
-		id = FRA_Accelerate_The_Rearmament_Program
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Four_Years_Plan
-		}
-		relative_position_id = FRA_Four_Years_Plan
-	}
-	focus = {
-		id = FRA_Currency_Reforms
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Devalue_The_Franc
-		}
-		relative_position_id = FRA_Devalue_The_Franc
-	}
-	focus = {
-		id = FRA_Devalue_The_Franc
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Industrial_Recovery
-		}
-		relative_position_id = FRA_Industrial_Recovery
-	}
-	focus = {
-		id = FRA_Develop_Research2
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Research
-		}
-		relative_position_id = FRA_Develop_Research
-	}
-	focus = {
-		id = FRA_Concentrated_Armament_Program
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Accelerate_The_Rearmament_Program
-		}
-		relative_position_id = FRA_Accelerate_The_Rearmament_Program
-	}
-	focus = {
-		id = FRA_Agricultural_Reforms
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Currency_Reforms
-		}
-		relative_position_id = FRA_Currency_Reforms
-	}
-	focus = {
-		id = FRA_The_Means_To_Wage_War
-		icon = GFX_goal_unknown
-		cost = 3
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Research2
-		}
-		relative_position_id = FRA_Develop_Research2
-	}
-	focus = {
-		id = FRA_Zentrale_planung
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Concentrated_Armament_Program
-		}
-		relative_position_id = FRA_Concentrated_Armament_Program
-	}
-	focus = {
-		id = FRA_Urbanization
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Agricultural_Reforms
-		}
-		relative_position_id = FRA_Agricultural_Reforms
-	}
-	focus = {
-		id = FRA_Economic_Miracle
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Zentrale_planung
-		}
-		relative_position_id = FRA_Zentrale_planung
-	}
-	focus = {
-		id = FRA_Autarky_Achieved
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Urbanization
-		}
-		relative_position_id = FRA_Urbanization
-	}
-	focus = {
-		id = FRA_War_Production
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Economic_Miracle
-		}
-		relative_position_id = FRA_Economic_Miracle
-	}
-	focus = {
-		id = FRA_The_Last_Battle
-		icon = GFX_goal_unknown
-		cost = 1
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Autarky_Achieved
-		}
-		relative_position_id = FRA_Autarky_Achieved
 	}
 	focus = {
 		id = FRA_Develop_Northern_Railways

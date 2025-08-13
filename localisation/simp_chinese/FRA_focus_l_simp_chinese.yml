@@ -132,6 +132,7 @@
  FRA_Laissez_faire:0 "自由放任"
  FRA_Encourage_industrial_development:0 "鼓励工业发展"
  FRA_Free_dynamic_market:0 "自由活力的市场"
+ FRA_Currency_Reforms_tt:0 "将§Y法郎贬值§!的精神从§R365§!天减少到§R180§!天。"
 
  tooltip_white_line:0 "   \n"
  tooltip_line_break:0 "\n"

@@ -46,6 +46,35 @@ ideas = {
 			}
 		}
 		#法国工业精神 #################################################################
+		FRA_Concentrated_Armament_Program_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Concentrated_Armament_Program_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Concentrated_Armament_Program_idea
+			modifier = {
+				production_speed_arms_factory_factor = 0.1
+				production_speed_industrial_complex_factor = 0.1
+				production_speed_dockyard_factor = 0.1
+			}
+		}
+		FRA_Devalue_The_Franc_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Devalue_The_Franc_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Devalue_The_Franc_idea
+			modifier = {
+				consumer_goods_expected_value = -0.05
+				consumer_goods_factor = -0.15
+				stability_weekly = -0.002
+				stability_factor = -0.1
+			}
+		}
 		#法国陆军精神 #################################################################
 		#法国陆军改革开始
 		FRA_Army_Reform_idea = {
@@ -145,6 +174,7 @@ ideas = {
 				army_strength_factor = 0.1
 				army_org = 0.1
 				army_speed_factor = 0.1
+				army_core_attack_factor = 0.1
 			}
 		}
 		#法国海军精神
@@ -215,7 +245,6 @@ ideas = {
 			picture = FRA_slave_labor_law
 			visible = {
 				original_tag = FRA
-				has_completed_focus = FRA_Slave_Labor
 			}
 			available = {
 				has_completed_focus = FRA_Slave_Labor

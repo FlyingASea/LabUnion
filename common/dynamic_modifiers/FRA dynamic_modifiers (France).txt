@@ -45,6 +45,11 @@ FRA_cdg_plan_modifier = {
 	special_forces_attack_factor = FRA_cdg_plan_special_forces_attack_factor	#特种部队攻击
 	special_forces_defence_factor = FRA_cdg_plan_special_forces_defence_factor	#特种部队防御
 	supply_consumption_factor = FRA_cdg_plan_supply_consumption_factor	#补给消耗
+	army_strength_factor = FRA_cdg_plan_army_strength_factor	#陆军HP
+	army_org = FRA_cdg_plan_army_org	#陆军组织度
+	army_speed_factor = FRA_cdg_plan_army_speed_factor	#陆军速度
+	army_core_attack_factor = FRA_cdg_plan_army_core_attack_factor	#陆军核心攻击
+	army_core_defence_factor = FRA_cdg_plan_army_core_defence_factor	#陆军核心防御
 }
 
 #法国达尔朗计划
@@ -62,11 +67,11 @@ FRA_darlan_plan_modifier = {
 	navy_capital_ship_defence_factor = FRA_darlan_plan_navy_capital_ship_defence_factor	#主力舰防御
 	navy_submarine_attack_factor = FRA_darlan_plan_navy_submarine_attack_factor	#潜艇攻击
 	navy_submarine_defence_factor = FRA_darlan_plan_navy_submarine_defence_factor	#潜艇防御
-	navy_carrier_air_attack_factor = FRA_darlan_plan_navy_carrier_air_attack_factor #舰载机对空攻击
-	navy_carrier_air_targetting_factor = FRA_darlan_plan_navy_carrier_air_targetting_factor #舰载机对海瞄准
-	naval_torpedo_hit_chance_factor = FRA_darlan_plan_naval_torpedo_hit_chance_factor #鱼雷命中几率
-	naval_torpedo_reveal_chance_factor = FRA_darlan_plan_naval_torpedo_reveal_chance_factor #鱼雷暴露几率
-	naval_torpedo_screen_penetration_factor = FRA_darlan_plan_naval_torpedo_screen_penetration_factor #鱼雷穿透屏卫舰几率
+	navy_carrier_air_attack_factor = FRA_darlan_plan_navy_carrier_air_attack_factor	#舰载机对空攻击
+	navy_carrier_air_targetting_factor = FRA_darlan_plan_navy_carrier_air_targetting_factor	#舰载机对海瞄准
+	naval_torpedo_hit_chance_factor = FRA_darlan_plan_naval_torpedo_hit_chance_factor	#鱼雷命中几率
+	naval_torpedo_reveal_chance_factor = FRA_darlan_plan_naval_torpedo_reveal_chance_factor	#鱼雷暴露几率
+	naval_torpedo_screen_penetration_factor = FRA_darlan_plan_naval_torpedo_screen_penetration_factor	#鱼雷穿透屏卫舰几率
 	navy_visibility = FRA_darlan_plan_navy_visibility	#可见度
 	refit_speed = FRA_darlan_plan_refit_speed	#舰船改造速度
 	repair_speed_factor = FRA_darlan_plan_repair_speed_factor	#舰船修理速度
@@ -116,4 +121,27 @@ FRA_four_year_plan_modifier = {
 	production_factory_start_efficiency_factor = FRA_four_year_plan_production_factory_start_efficiency_factor	#基础生产效率
 	local_resources_factor = FRA_four_year_plan_local_resources_factor	#战略资源获取率
 	research_speed_factor = FRA_four_year_plan_research_speed_factor	#研究速度
+	production_speed_arms_factory_factor = FRA_four_year_plan_production_speed_arms_factory_factor	#军工建造速度
+	production_speed_industrial_complex_factor = FRA_four_year_plan_production_speed_industrial_complex_factor	#民工建造速度
+	production_speed_dockyard_factor = FRA_four_year_plan_production_speed_dockyard_factor	#船坞建造速度
+}
+
+#法国大萧条恢复
+FRA_great_depression_recovery_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		always = no
+	}
+	stability_weekly = FRA_great_depression_recovery_stability_weekly	#每周稳定度增长
+	consumer_goods_factor = FRA_great_depression_recovery_consumer_goods_factor	#消费品系数
+	production_speed_buildings_factor = FRA_great_depression_recovery_production_speed_buildings_factor	#建造速度
+	industrial_capacity_dockyard = FRA_great_depression_recovery_industrial_capacity_dockyard	#船坞产出
+	industrial_capacity_factory = FRA_great_depression_recovery_industrial_capacity_factory	#工厂产出
+	production_factory_max_efficiency_factor = FRA_great_depression_recovery_production_factory_max_efficiency_factor	#生产效率上限
+	production_factory_efficiency_gain_factor = FRA_great_depression_recovery_production_factory_efficiency_gain_factor	#生产效率增长
+	production_factory_start_efficiency_factor = FRA_great_depression_recovery_production_factory_start_efficiency_factor	#基础生产效率
+	local_resources_factor = FRA_great_depression_recovery_local_resources_factor	#战略资源获取率
+	research_speed_factor = FRA_great_depression_recovery_research_speed_factor	#研究速度
 }
