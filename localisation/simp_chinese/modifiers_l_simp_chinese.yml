@@ -409,7 +409,7 @@
  production_speed_arms_factory_factor_tt: "$modifier_production_speed_arms_factory_factor$ $RIGHT|+=%1$"
  production_speed_arms_factory_factor_whitespace_tt: "  $production_speed_arms_factory_factor_tt$"
  modifier_production_speed_industrial_complex_factor: "§Y民用工厂§!建造速度"
- production_speed_industrial_complex_factor_tt: "$modifier_production_speed_industrial_complex_factor$$RIGHT|+=%1$"
+ production_speed_industrial_complex_factor_tt: "$modifier_production_speed_industrial_complex_factor$：$RIGHT|+=%1$"
  production_speed_industrial_complex_factor_whitespace_tt: "  $production_speed_industrial_complex_factor_tt$"
  modifier_production_speed_industrial_complex_factor_desc: "改变民用工厂的建造速度。"
  modifier_production_speed_air_base_factor: "§Y空军基地§!建造速度"

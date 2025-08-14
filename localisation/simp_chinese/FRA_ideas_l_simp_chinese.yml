@@ -7,12 +7,24 @@
  FRA_great_depression_recovery_modifier:0 "法兰西国经济萧条"
  FRA_great_depression_recovery_modifier_tt:0 "§Y法兰西国经济萧条§!追加："
  FRA_Devalue_The_Franc_idea:0 "法郎贬值"
- FRA_Slave_Labor1:0 "不成熟的法西斯殖民经济"
+ FRA_The_Last_Battle_idea:0 "法兰西国的最后一搏"
+ FRA_Slave_Labor1:0 "不成熟的法团主义经济"
+ FRA_Slave_Labor2:0 "改进法团主义经济"
+ FRA_Slave_Labor3:0 "自由化法团主义经济"
+ FRA_Slave_Labor4:0 "管控与自由的法团主义经济"
+ FRA_Slave_Labor5:0 "完善的经济市场"
+ FRA_Slave_Labor6:0 "经济奇迹"
 
 
  FRA_cdg_plan_modifier:0 "戴高乐陆军改革计划"
  FRA_cdg_plan_tt:0 "§Y戴高乐陆军改革计划§!获得："
-
+ FRA_Army_Reform_idea:0 "陆军改革"
+ FRA_elite_army_idea:0 "人才涌入"
+ FRA_research_mechanized_idea:0 "专注机械化研究"
+ FRA_military_research_idea:0 "专注军事研究"
+ FRA_produce_mechanized_idea:0 "机械化大规模生产"
+ FRA_produce_armor_idea:0 "装甲大规模生产"
+ FRA_Army_Reform_End_idea:0 "陆军改革完成"
 
  FRA_darlan_plan_modifier:0 "达尔朗海军改革计划"
  FRA_darlan_plan_tt:0 "§Y达尔朗海军改革计划§!获得："

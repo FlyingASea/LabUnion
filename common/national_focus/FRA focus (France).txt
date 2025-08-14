@@ -369,6 +369,10 @@ focus_tree = {
 				FRA_great_depression_recovery_production_speed_buildings_factor = 0.05
 				tooltip = production_speed_buildings_factor_tt
 			}
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = -0.01
+				tooltip = stability_weekly_tt
+			}
 		}
 	}
 	# 自给自足
@@ -546,7 +550,7 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
 			add_to_variable = {
-				FRA_four_year_plan_production_factory_max_efficiency_facto = 0.06
+				FRA_four_year_plan_production_factory_max_efficiency_factor = 0.06
 				tooltip = production_factory_max_efficiency_factor_tt
 			}
 			add_to_variable = {
@@ -729,7 +733,7 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
 			add_to_variable = {
-				FRA_four_year_plan_consumer_goods_factor = 0.05
+				FRA_four_year_plan_consumer_goods_factor = -0.05
 				tooltip = consumer_goods_factor_tt
 			}
 			add_to_variable = {
@@ -747,6 +751,14 @@ focus_tree = {
 			add_to_variable = {
 				FRA_four_year_plan_industrial_capacity_factory = 0.03
 				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.03
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_efficiency_gain_factor = 0.03
+				tooltip = production_factory_efficiency_gain_factor_tt
 			}
 		}
 	}
@@ -797,6 +809,14 @@ focus_tree = {
 			add_to_variable = {
 				FRA_four_year_plan_industrial_capacity_factory = 0.03
 				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.03
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_max_efficiency_factor = 0.03
+				tooltip = production_factory_max_efficiency_factor_tt
 			}
 		}
 	}
@@ -991,6 +1011,9 @@ focus_tree = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
+		available = {
+			has_completed_focus = FRA_Four_Years_Plan
+		}
 		ai_will_do = {
 			factor = 20000
 			modifier = {
@@ -1060,6 +1083,10 @@ focus_tree = {
 			add_to_variable = {
 				FRA_four_year_plan_stability_weekly = 0.01
 				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
 			}
 			hidden_effect = {
 				remove_ideas = FRA_Devalue_The_Franc_idea
@@ -1195,23 +1222,9 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_Economic_Miracle"
+			log = "[GetLogRoot]: Focus Completed FRA_Autarky_Achieved"
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
-			custom_effect_tooltip = tooltip_white_line
-			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
-			add_to_variable = {
-				FRA_great_depression_recovery_consumer_goods_factor = -0.1
-				tooltip = consumer_goods_factor_tt
-			}
-			add_to_variable = {
-				FRA_great_depression_recovery_industrial_capacity_factory = 0.05
-				tooltip = industrial_capacity_factory_tt
-			}
-			add_to_variable = {
-				FRA_great_depression_recovery_stability_weekly = 0.01
-				tooltip = stability_weekly_tt
-			}
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
 			add_to_variable = {
@@ -1230,6 +1243,10 @@ focus_tree = {
 				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
 				tooltip = industrial_capacity_dockyard_tt
 			}
+			add_to_variable = {
+				FRA_four_year_plan_local_resources_factor = 0.1
+				tooltip = local_resources_factor_tt
+			}
 		}
 	}
 	# 法兰西的最后一搏
@@ -1243,6 +1260,63 @@ focus_tree = {
 			focus = FRA_Autarky_Achieved
 		}
 		relative_position_id = FRA_Autarky_Achieved
+		available = {
+			date > 1941.1.1
+			has_war_with_major = yes
+		}
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 10
+				date > 1941.4.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_The_Last_Battle"
+			add_offsite_building = {
+				type = land_facility
+				level = 1
+			}
+			add_offsite_building = {
+				type = air_facility
+				level = 1
+			}
+			add_offsite_building = {
+				type = arms_factory
+				level = 10
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_The_Last_Battle_idea
+				days = 365
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_consumer_goods_factor = -0.3
+				tooltip = consumer_goods_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = -0.05
+				tooltip = stability_weekly_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_factory = 0.5
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.5
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_max_efficiency_factor = 0.1
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_factory_efficiency_gain_factor = 0.3
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
 	}
 	# 投资研究设施  ####################################################################
 	focus = {
@@ -1255,6 +1329,47 @@ focus_tree = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Research"
+			add_tech_bonus = {
+				name = FRA_Develop_Research
+				bonus = 1
+				uses = 1
+				category = infantry_tech
+				category = support_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_research_speed_factor = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_special_project_speed_factor = 0.05
+				tooltip = special_project_speed_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_research_speed_factor = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_special_project_speed_factor = 0.02
+				tooltip = special_project_speed_factor_tt
+			}
+		}
 	}
 	# 组建国家研究中心
 	focus = {
@@ -1267,6 +1382,41 @@ focus_tree = {
 			focus = FRA_Develop_Research
 		}
 		relative_position_id = FRA_Develop_Research
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Research2"
+			add_research_slot = 1
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_research_speed_factor = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_special_project_speed_factor = 0.05
+				tooltip = special_project_speed_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_research_speed_factor = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_special_project_speed_factor = 0.03
+				tooltip = special_project_speed_factor_tt
+			}
+		}
 	}
 	# 平衡发展军备
 	focus = {
@@ -1279,6 +1429,51 @@ focus_tree = {
 			focus = FRA_Develop_Research2
 		}
 		relative_position_id = FRA_Develop_Research2
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_The_Means_To_Wage_War"
+			add_tech_bonus = {
+				name = FRA_The_Means_To_Wage_War
+				bonus = 0.5
+				uses = 2
+				category = infantry_tech
+				category = support_tech
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_research_speed_factor = 0.05
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_special_project_speed_factor = 0.05
+				tooltip = special_project_speed_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_research_speed_factor = 0.1
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_special_project_speed_factor = 0.05
+				tooltip = special_project_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_stability_weekly = 0.01
+				tooltip = stability_weekly_tt
+			}
+		}
 	}
 	# 法兰西高速公路  ##################################################################
 	focus = {
@@ -1291,14 +1486,421 @@ focus_tree = {
 			focus = FRA_Industrial_Recovery
 		}
 		relative_position_id = FRA_Industrial_Recovery
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Highway"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.1
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.1
+				tooltip = production_speed_dockyard_factor_tt
+			}
+		}
+	}
+	# 北方高速公路
+	focus = {
+		id = FRA_Develop_Northern_Railways
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Highway
+		}
+		relative_position_id = FRA_Highway
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Northern_Railways"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
+				tooltip = production_speed_dockyard_factor_tt
+			}
+		}
+	}
+	# 北方工业
+	focus = {
+		id = FRA_Develop_Northern_industry
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Northern_Railways
+		}
+		relative_position_id = FRA_Develop_Northern_Railways
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Northern_industry"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
+				tooltip = production_speed_dockyard_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_industrial_complex_factor = 0.1
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+		}
+	}
+	# 南方高速公路
+	focus = {
+		id = FRA_Develop_Southern_Railways
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Northern_industry
+		}
+		relative_position_id = FRA_Develop_Northern_industry
+		available = {
+		}
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Southern_Railways"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
+				tooltip = production_speed_dockyard_factor_tt
+			}
+		}
+	}
+	# 南方商业
+	focus = {
+		id = FRA_Develop_Southern_Buisnesses
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Railways
+		}
+		relative_position_id = FRA_Develop_Southern_Railways
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Develop_Southern_Buisnesses"
+			add_one_random_infrastructure = yes
+			add_one_random_infrastructure = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.1
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.1
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.1
+				tooltip = production_speed_dockyard_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+		}
+	}
+	# 条条大路通巴黎
+	focus = {
+		id = FRA_All_Roads_Lead_To_Paris
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Buisnesses
+		}
+		relative_position_id = FRA_Develop_Southern_Buisnesses
+		available = {
+			16 = {
+				is_fully_controlled_by = ROOT
+				is_demilitarized_zone = no
+			}
+		}
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_All_Roads_Lead_To_Paris"
+			16 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 9523
+					}
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = ""
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+		}
+	}
+	# 条条商船过马赛
+	focus = {
+		id = FRA_All_Ship_Lead_To_Marseille
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Develop_Southern_Buisnesses
+		}
+		relative_position_id = FRA_Develop_Southern_Buisnesses
+		available = {
+			21 = {
+				is_fully_controlled_by = ROOT
+				is_demilitarized_zone = no
+			}
+		}
+		ai_will_do = {
+			factor = 20000
+			modifier = {
+				factor = 0.1
+				date > 1938.1.1
+			}
+			modifier = {
+				factor = 0.01
+				date > 1939.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_All_Ship_Lead_To_Marseille"
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			21 = {
+				add_building_construction = {
+					type = dam
+					level = 1
+					instant_build = yes
+					province = {
+						id = 11849
+					}
+				}
+			}
+			custom_effect_tooltip = {
+				localization_key = building_state_modifier|dam
+				INDENT = ""
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
+				tooltip = production_speed_dockyard_factor_tt
+			}
+		}
 	}
 	# 外交线 雄鸡啼鸣 ####################################################################
 	focus = {
 		id = FRA_Look_The_World
 		icon = GFX_goal_unknown
-		cost = 10
+		cost = 5
 		x = 40
 		y = 0
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Look_The_World"
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
+				tooltip = production_speed_industrial_complex_factor_tt
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
+				tooltip = production_speed_infrastructure_factor_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
+				tooltip = production_speed_dockyard_factor_tt
+			}
+		}
 	}
 	# 空军改革线  ####################################################################
 	focus = {
@@ -2087,72 +2689,6 @@ focus_tree = {
 			focus = FRA_grand_master
 		}
 		relative_position_id = FRA_grand_master
-	}
-	focus = {
-		id = FRA_Develop_Northern_Railways
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Highway
-		}
-		relative_position_id = FRA_Highway
-	}
-	focus = {
-		id = FRA_Develop_Northern_industry
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Northern_Railways
-		}
-		relative_position_id = FRA_Develop_Northern_Railways
-	}
-	focus = {
-		id = FRA_Develop_Southern_Railways
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Northern_industry
-		}
-		relative_position_id = FRA_Develop_Northern_industry
-	}
-	focus = {
-		id = FRA_Develop_Southern_Buisnesses
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Southern_Railways
-		}
-		relative_position_id = FRA_Develop_Southern_Railways
-	}
-	focus = {
-		id = FRA_All_Roads_Lead_To_Paris
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Southern_Buisnesses
-		}
-		relative_position_id = FRA_Develop_Southern_Buisnesses
-	}
-	focus = {
-		id = FRA_All_Ship_Lead_To_Marseille
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Develop_Southern_Buisnesses
-		}
-		relative_position_id = FRA_Develop_Southern_Buisnesses
 	}
 	focus = {
 		id = FRA_Look_The_America
