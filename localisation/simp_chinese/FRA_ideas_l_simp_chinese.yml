@@ -27,9 +27,9 @@
  FRA_Army_Reform_End_idea:0 "陆军改革完成"
 
  FRA_darlan_plan_modifier:0 "达尔朗海军改革计划"
- FRA_darlan_plan_tt:0 "§Y达尔朗海军改革计划§!获得："
+ FRA_darlan_plan_modifier_tt:0 "§Y达尔朗海军改革计划§!获得："
 
 
  FRA_air_force_modifier:0 "冉冉升起的新生空军"
- FRA_air_force_tt:0 "§Y法国空军改革计划§!获得："
+ FRA_air_force_modifier_tt:0 "§Y法国空军改革计划§!获得："
 

@@ -200,6 +200,45 @@ ideas = {
 		}
 		#法国海军精神
 		#法国空军精神
+		FRA_Air_Reform_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Air_Reform_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Air_Reform_idea
+			modifier = {
+				experience_gain_air = 0.1
+				experience_gain_air_factor = 0.1
+			}
+		}
+		FRA_Developing_fighters_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Developing_fighters_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_FRA_Developing_fighters_idea
+			research_bonus = {
+				light_air = 0.15
+				medium_air = 0.15
+			}
+		}
+		FRA_Developing_bombers_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Developing_bombers_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Developing_bombers_idea
+			research_bonus = {
+				heavy_air = 0.15
+				jet_technology = 0.15
+			}
+		}
 	}
 	industrial_concern = {
 		metallurgique_de_normandie = {
