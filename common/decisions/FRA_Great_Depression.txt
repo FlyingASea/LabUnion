@@ -1,0 +1,452 @@
+#大萧条
+FRA_Great_Depression_Recovery_decision = {
+	#大萧条开始波及法国
+	FRA_Great_Depression_Change_Per_Month = {
+		icon = generic_prepare_civil_war
+		available = {
+			not = {
+				has_dynamic_modifier = {
+					modifier = FRA_great_depression_recovery_modifier
+				}
+			}
+		}
+		visible = {
+			has_country_flag = FRA_Great_Depression
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_mission_timeout = 30
+		activation = {
+			AND = {
+				has_country_flag = FRA_Great_Depression
+				has_dynamic_modifier = {
+					modifier = FRA_great_depression_recovery_modifier
+				}
+				date > 1936.1.1
+				date < 1936.12.31
+			}
+		}
+		is_good = no
+		complete_effect = {
+		}
+		#1936一整年的经济衰退
+		timeout_effect = {
+			add_offsite_building = {
+				type = industrial_complex
+				level = 1
+			}
+			custom_effect_tooltip = FRA_Great_Depression_Recovery_decision_tt
+			# 每周稳定度
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = -0.004
+				tooltip = stability_weekly_tt
+			}
+			# 消费品系数
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = 0.055
+				tooltip = consumer_goods_factor_tt
+			}
+			# 研究速度
+			add_to_variable = {
+				FRA_great_depression_recovery_research_speed_factor = -0.02
+				tooltip = research_speed_factor_tt
+			}
+			# 特殊项目研究速度
+			add_to_variable = {
+				FRA_great_depression_special_project_speed_factor = -0.02
+				tooltip = special_project_speed_factor_tt
+			}
+			# 战略资源获取率
+			add_to_variable = {
+				FRA_great_depression_recovery_local_resources_factor = -0.03
+				tooltip = local_resources_factor_tt
+			}
+			# 军工速度
+			add_to_variable = {
+				FRA_great_depression_production_speed_arms_factory_factor = -0.02
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+			# 建造速度
+			add_to_variable = {
+				FRA_great_depression_recovery_production_speed_buildings_factor = -0.02
+				tooltip = production_speed_buildings_factor_tt
+			}
+			# 船坞产出
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_dockyard = -0.03
+				tooltip = industrial_capacity_dockyard_tt
+			}
+			# 工厂产出
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_factory = -0.03
+				tooltip = industrial_capacity_factory_tt
+			}
+			# 最大效率上限
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_max_efficiency_factor = -0.02
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			# 效率增长
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_efficiency_gain_factor = -0.01
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	## 改善建筑速度
+	FRA_improve_jianzao = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_production_speed_buildings_factor
+				value = 0.2
+				compare = less_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_production_speed_buildings_factor = 0.05
+				tooltip = production_speed_buildings_factor_tt
+			}
+		}
+	}
+	## 改善工厂产出
+	FRA_improve_chanchu = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_industrial_capacity_factory
+				value = 0.2
+				compare = less_than_or_equals
+			}
+			check_variable = {
+				var = FRA_four_year_plan_industrial_capacity_dockyard
+				value = 0.2
+				compare = less_than_or_equals
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_industrial_capacity_factory = 0.05
+				tooltip = industrial_capacity_factory_tt
+			}
+			add_to_variable = {
+				FRA_four_year_plan_industrial_capacity_dockyard = 0.05
+				tooltip = industrial_capacity_dockyard_tt
+			}
+		}
+	}
+	## 改善资源获取率
+	FRA_improve_ziyuan = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_local_resources_factor
+				value = 0.2
+				compare = less_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_local_resources_factor = 0.1
+				tooltip = local_resources_factor_tt
+			}
+		}
+	}
+	## 改善建造军工速度
+	FRA_Depression_jungong = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_production_speed_arms_factory_factor
+				value = 0.2
+				compare = less_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_production_speed_arms_factory_factor = 0.1
+				tooltip = production_speed_arms_factory_factor_tt
+			}
+		}
+	}
+	## 改善生产
+	FRA_improve_production = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_production_factory_max_efficiency_factor
+				value = 0.2
+				compare = less_than
+			}
+			check_variable = {
+				var = FRA_great_depression_recovery_production_factory_efficiency_gain_factor
+				value = 0.2
+				compare = less_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_max_efficiency_factor = 0.05
+				tooltip = production_factory_max_efficiency_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_production_factory_efficiency_gain_factor = 0.05
+				tooltip = production_factory_efficiency_gain_factor_tt
+			}
+		}
+	}
+	## 改善消费品
+	FRA_improve_consumption = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_consumer_goods_factor
+				value = -0.5
+				compare = greater_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_consumer_goods_factor = -0.1
+				tooltip = consumer_goods_factor_tt
+			}
+		}
+	}
+	## 改善研究速度
+	FRA_improve_research = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 30
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_research_speed_factor
+				value = 0.2
+				compare = less_than
+			}
+			check_variable = {
+				var = FRA_great_depression_recovery_special_project_speed_factor
+				value = 0.2
+				compare = less_than
+			}
+		}
+		remove_effect = {
+			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
+			add_to_variable = {
+				FRA_great_depression_recovery_research_speed_factor = 0.03
+				tooltip = research_speed_factor_tt
+			}
+			add_to_variable = {
+				FRA_great_depression_recovery_special_project_speed_factor = 0.03
+				tooltip = special_project_speed_factor_tt
+			}
+		}
+	}
+	## 宣传暂时屏蔽每周稳定度扣减
+	FRA_improve_stability_weekly = {
+		icon = generic_political_actions
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+		}
+		days_remove = 90
+		days_re_enable = 30
+		cost = 100
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			check_variable = {
+				var = FRA_great_depression_recovery_stability_weekly
+				value = 0
+				compare = less_than
+			}
+		}
+		complete_effect = {
+			custom_effect_tooltip = FRA_improve_stability_weekly_tt
+			set_temp_variable = {
+				var = temp_stability_weekly
+				value = FRA_great_depression_recovery_stability_weekly
+			}
+			set_variable = {
+				FRA_great_depression_recovery_stability_weekly = 0
+			}
+		}
+		remove_effect = {
+			add_to_variable = {
+				FRA_great_depression_recovery_stability_weekly = temp_stability_weekly
+				tooltip = stability_weekly_tt
+			}
+		}
+	}
+	#结束大萧条
+	FRA_End_The_Great_Depression = {
+		icon = generic_political_actions
+		visible = {
+			OR = {
+				date > 1937.1.1
+				is_debug = yes
+			}
+		}
+		available = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+			has_completed_focus = FRA_Military_Industry3
+			has_completed_focus = FRA_Economic_Miracle
+			has_completed_focus = FRA_Autarky_Achieved
+			has_completed_focus = FRA_The_Means_To_Wage_War
+			has_completed_focus = FRA_Develop_Southern_Buisnesses
+		}
+		cost = 0
+		ai_will_do = {
+			factor = 20000
+		}
+		fire_only_once = yes
+		complete_effect = {
+			set_country_flag = FRA_win_the_great_depression
+			remove_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+			add_ideas = FRA_win_the_great_depression_idea
+			add_timed_idea = {
+				idea = FRA_heal_the_wounds_idea
+				years = 2
+			}
+		}
+	}
+}

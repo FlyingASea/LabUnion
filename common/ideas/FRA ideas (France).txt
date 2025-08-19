@@ -96,6 +96,43 @@ ideas = {
 				war_support_weekly = -0.002
 			}
 		}
+		# 战胜大萧条
+		FRA_win_the_great_depression_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_win_the_great_depression_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_win_the_great_depression_idea
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				research_speed_factor = 0.1
+				special_project_speed_factor = 0.1
+				consumer_goods_expected_value = -0.05
+				industrial_capacity_factory = 0.1
+				industrial_capacity_dockyard = 0.1
+				production_factory_max_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+			}
+		}
+		# 抚平创伤
+		FRA_heal_the_wounds_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_heal_the_wounds_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_heal_the_wounds_idea
+			modifier = {
+				stability_weekly = 0.04
+				stability_factor = 0.1
+				war_support_weekly = 0.01
+				war_support_factor = 0.1
+				political_power_gain = 0.2
+			}
+		}
 		#法国陆军精神 #################################################################
 		#法国陆军改革开始
 		FRA_Army_Reform_idea = {
@@ -199,6 +236,57 @@ ideas = {
 			}
 		}
 		#法国海军精神
+		FRA_Navy_Reform_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Navy_Reform_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Navy_Reform_idea
+			modifier = {
+				experience_gain_navy = 0.1
+				experience_gain_navy_factor = 0.1
+				experience_gain_navy_unit_factor = 0.1
+			}
+		}
+		# 重建海军工厂
+		FRA_restore_naval_glory_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_restore_naval_glory_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_restore_naval_glory_idea
+			equipment_bonus = {
+				convoy = {
+					build_cost_ic = -0.1
+				}
+			}
+			modifier = {
+				industrial_capacity_dockyard = 0.15
+				production_speed_dockyard_factor = 0.1
+			}
+		}
+		# 截断生命线
+		FRA_Cut_Off_lifeline_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Cut_Off_lifeline_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Cut_Off_lifeline_idea
+			equipment_bonus = {
+				submarine = {
+					build_cost_ic = -0.1
+				}
+			}
+			modifier = {
+				convoy_raiding_efficiency_factor = 0.2
+			}
+		}
 		#法国空军精神
 		FRA_Air_Reform_idea = {
 			on_add = {
@@ -213,6 +301,7 @@ ideas = {
 				experience_gain_air_factor = 0.1
 			}
 		}
+		# 发展战斗机
 		FRA_Developing_fighters_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Developing_fighters_idea"
@@ -222,10 +311,11 @@ ideas = {
 			}
 			picture = FRA_FRA_Developing_fighters_idea
 			research_bonus = {
-				light_air = 0.15
-				medium_air = 0.15
+				light_air = 0.1
+				medium_air = 0.1
 			}
 		}
+		# 发展轰炸机
 		FRA_Developing_bombers_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Developing_bombers_idea"
@@ -237,6 +327,67 @@ ideas = {
 			research_bonus = {
 				heavy_air = 0.15
 				jet_technology = 0.15
+			}
+		}
+		# 发展防空阵地
+		FRA_anti_air_positions_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_anti_air_positions_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_anti_air_positions_idea
+			equipment_bonus = {
+				anti_air = {
+					build_cost_ic = -0.05
+					air_attack = 0.05
+				}
+			}
+			modifier = {
+				production_speed_anti_air_building_factor = 0.1
+			}
+		}
+		# 大规模空军生产
+		FRA_Large_scale_aircraft_production_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Large_scale_aircraft_production_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Large_scale_aircraft_production_idea
+			equipment_bonus = {
+				fighter = {
+					build_cost_ic = -0.1
+				}
+				mio_cat_eq_all_cv_aircraft = {
+					build_cost_ic = -0.1
+				}
+				heavy_fighter = {
+					build_cost_ic = -0.1
+				}
+				cas = {
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_cas_airframe = {
+					build_cost_ic = -0.1
+				}
+				naval_bomber = {
+					build_cost_ic = -0.1
+				}
+				cv_small_plane_naval_bomber_airframe = {
+					build_cost_ic = -0.1
+				}
+				strategic_bomber = {
+					build_cost_ic = -0.1
+				}
+				heavy_fighter = {
+					build_cost_ic = -0.1
+				}
+				jet_fighter_equipment = {
+					build_cost_ic = -0.1
+				}
 			}
 		}
 	}

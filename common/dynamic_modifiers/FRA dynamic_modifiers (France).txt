@@ -1,5 +1,5 @@
-#多里奥革命进行时动态精神
-FRA_revolution_modifier = {
+#法国世界政策动态精神
+FRA_world_modifier = {
 	enable = {
 		always = yes
 	}
@@ -61,8 +61,8 @@ FRA_darlan_plan_modifier = {
 		always = no
 	}
 	experience_gain_navy_factor = FRA_darlan_plan_experience_gain_navy_factor	#海军经验增长系数
-	navy_screen_attack_factor = FRA_darlan_plan_screen_attack_factor	#屏卫舰攻击
-	navy_screen_defence_factor = FRA_darlan_plan_screen_defence_factor	#屏卫舰防御
+	navy_screen_attack_factor = FRA_darlan_plan_navy_screen_attack_factor	#屏卫舰攻击
+	navy_screen_defence_factor = FRA_darlan_plan_navy_screen_defence_factor	#屏卫舰防御
 	navy_capital_ship_attack_factor = FRA_darlan_plan_navy_capital_ship_attack_factor	#主力舰攻击
 	navy_capital_ship_defence_factor = FRA_darlan_plan_navy_capital_ship_defence_factor	#主力舰防御
 	navy_submarine_attack_factor = FRA_darlan_plan_navy_submarine_attack_factor	#潜艇攻击
@@ -82,6 +82,7 @@ FRA_darlan_plan_modifier = {
 
 #法国空军动态精神
 FRA_air_force_modifier = {
+	icon = GFX_goal_generic_air_production
 	enable = {
 		always = yes
 	}

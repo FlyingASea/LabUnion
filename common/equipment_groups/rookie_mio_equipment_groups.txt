@@ -1,0 +1,41 @@
+
+rookie_mio_cat_eq_super_heavy_artillery = { 
+	equipment_type = {
+		super_heavy_artillery_equipment
+	}
+}
+
+rookie_mio_cat_eq_self_propelled_super_heavy_artillery = { 
+	equipment_type = {
+		self_propelled_super_heavy_artillery_equipment
+	}
+}
+
+rookie_mio_cat_eq_super_heavy_railway_gun = { 
+	equipment_type = {
+		railway_gun_equipment
+		super_heavy_railway_gun_equipment
+	}
+}
+
+rookie_mio_cat_eq_mechanized = { 
+	equipment_type = {
+		mechanized_equipment
+		amphibious_mechanized_equipment
+	}
+}
+
+rookie_mio_cat_eq_motorized = { 
+	equipment_type = {
+		motorized_equipment
+		motorized_rocket_equipment
+		motorbike_equipment
+	}
+}
+
+rookie_mio_cat_eq_artillery = { 
+	equipment_type = {
+		rocket_artillery_equipment
+		artillery_equipment
+	}
+}

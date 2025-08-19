@@ -1,0 +1,7202 @@
+#========================================== mio write by "Rookie 904"==============================================
+#如果您想使用此mio模板，无需注明出处，请随意使用!
+#If you want to use this mio,feel free to do so! no attribution required!
+#本地化在"rookie_special_unit_l_simp_chinese.yml"
+# \\\\\\\\\\\
+#----------------------------------------------such as GER krupp
+rookie_armor_common_tank_1_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		armor
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_1_production_header
+		x = 2
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_1_armor_header
+		x = 6
+	}
+	initial_trait = {
+		name = rookie_armor_common_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	#-------左抬头
+	trait = {
+		token = rookie_armor_common_tank_production_conversion
+		name = rookie_armor_common_tank_production_conversion
+		icon = GFX_generic_mio_department_icon_tank_general_conversion
+		position = {
+			x = 2
+			y = 0
+		}
+		production_bonus = {
+			production_conversion_speed_factor = 0.25
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	#-----左第二左一
+	trait = {
+		token = rookie_armor_common_tank_production_efficiency_cap
+		name = rookie_armor_common_tank_production_efficiency_cap
+		icon = GFX_generic_mio_department_icon_tank_general_technology
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_production_conversion
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_production_efficiency_gain
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	#-----左第二右一
+	trait = {
+		token = rookie_armor_common_tank_production_efficiency_gain
+		name = rookie_armor_common_tank_production_efficiency_gain
+		icon = GFX_generic_mio_department_icon_tank_general_line_efficiency
+		position = {
+			x = 3
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_production_conversion
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_production_efficiency_cap
+		}
+		production_bonus = {
+			production_capacity_factor = 0.1
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	#-------左起第三左一
+	trait = {
+		token = rookie_armor_common_tank_production_build_cost_ic
+		name = rookie_armor_common_tank_production_build_cost_ic
+		icon = GFX_generic_mio_department_icon_tank_general_production
+		position = {
+			x = 1
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_common_tank_production_efficiency_gain
+			rookie_armor_common_tank_production_efficiency_cap
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_production_capacity
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	#-------左起第三右边一
+	trait = {
+		token = rookie_armor_common_tank_production_capacity
+		name = rookie_armor_common_tank_production_capacity
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 3
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_common_tank_production_efficiency_gain
+			rookie_armor_common_tank_production_efficiency_cap
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_production_build_cost_ic
+		}
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	#左起最后
+	trait = {
+		token = rookie_armor_common_tank_production_synthesize
+		name = rookie_armor_common_tank_production_synthesize
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 2
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_production_build_cost_ic
+			rookie_armor_common_tank_production_capacity
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	#右起互斥两个
+	#可靠
+	trait = {
+		token = rookie_armor_common_tank_equipment_reliability
+		name = rookie_armor_common_tank_equipment_reliability
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 5
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_equipment_maximum_speed
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	#速度
+	trait = {
+		token = rookie_armor_common_tank_equipment_maximum_speed
+		name = rookie_armor_common_tank_equipment_maximum_speed
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 7
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_equipment_reliability
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	#下一
+	trait = {
+		token = rookie_armor_common_tank_equipment_soft_and_hard_attack
+		name = rookie_armor_common_tank_equipment_soft_and_hard_attack
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		position = {
+			x = 6
+			y = 1
+		}
+		any_parent = {
+			rookie_armor_common_tank_equipment_reliability
+			rookie_armor_common_tank_equipment_maximum_speed
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	#下互斥两个(别问我怎么酱紫互斥，当然是逼玩家做选择啦)
+	#突破
+	trait = {
+		token = rookie_armor_common_tank_equipment_breakthrough
+		name = rookie_armor_common_tank_equipment_breakthrough
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_equipment_soft_and_hard_attack
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_equipment_defense
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	#防御
+	trait = {
+		token = rookie_armor_common_tank_equipment_defense
+		name = rookie_armor_common_tank_equipment_defense
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 7
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_equipment_soft_and_hard_attack
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_equipment_breakthrough
+		}
+		equipment_bonus = {
+			defense = 0.1
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	#下一排三个
+	#最左
+	trait = {
+		token = rookie_armor_common_tank_equipment_soft_attack
+		name = rookie_armor_common_tank_equipment_soft_attack
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_equipment_breakthrough
+			rookie_armor_common_tank_equipment_defense
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	#最右
+	trait = {
+		token = rookie_armor_common_tank_equipment_hard_attack
+		name = rookie_armor_common_tank_equipment_hard_attack
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		position = {
+			x = 8
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_equipment_breakthrough
+			rookie_armor_common_tank_equipment_defense
+		}
+		equipment_bonus = {
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#---------------------------------such as SOV mytishchy
+rookie_armor_common_tank_2_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		armor
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_2_production_header
+		x = 0
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_2_attack_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_2_defense_header
+		x = 8
+	}
+	initial_trait = {
+		name = rookie_armor_common_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_start
+		name = rookie_armor_common_tank_2_start
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 0
+		}
+		production_bonus = {
+			production_conversion_speed_factor = 0.1
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_left_1
+		name = rookie_armor_common_tank_2_left_1
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_start
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_left_2
+		name = rookie_armor_common_tank_2_left_2
+		icon = GFX_generic_mio_department_icon_tank_general_materials
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_left_1
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.2
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_left_3
+		name = rookie_armor_common_tank_2_left_3
+		icon = GFX_generic_mio_department_icon_tank_general_technology
+		special_trait_background = yes
+		position = {
+			x = 0
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_left_2
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_1
+		name = rookie_armor_common_tank_2_medium_1
+		icon = GFX_generic_mio_department_icon_tank_general_production
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_start
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_2
+		name = rookie_armor_common_tank_2_medium_2
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_medium_1
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_2_medium_3
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_3
+		name = rookie_armor_common_tank_2_medium_3
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_medium_1
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_2_medium_2
+		}
+		equipment_bonus = {
+			hard_attack = 0.05
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_4
+		name = rookie_armor_common_tank_2_medium_4
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 3
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_2_medium_2
+			rookie_armor_common_tank_2_medium_3
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_2_medium_5
+			rookie_armor_common_tank_2_medium_6
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_5
+		name = rookie_armor_common_tank_2_medium_5
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_2_medium_2
+			rookie_armor_common_tank_2_medium_3
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_2_medium_4
+			rookie_armor_common_tank_2_medium_6
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_6
+		name = rookie_armor_common_tank_2_medium_6
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 5
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_2_medium_2
+			rookie_armor_common_tank_2_medium_3
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_2_medium_4
+			rookie_armor_common_tank_2_medium_5
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_medium_7
+		name = rookie_armor_common_tank_2_medium_7
+		icon = GFX_generic_mio_department_icon_tank_general_quality
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 4
+		}
+		any_parent = {
+			rookie_armor_common_tank_2_medium_4
+			rookie_armor_common_tank_2_medium_5
+			rookie_armor_common_tank_2_medium_6
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+			hard_attack = 0.05
+			soft_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_right_1
+		name = rookie_armor_common_tank_2_right_1
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 8
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_start
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_right_2
+		name = rookie_armor_common_tank_2_right_2
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_right_1
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_2_right_3
+		name = rookie_armor_common_tank_2_right_3
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_common_tank_2_right_2
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#---------------------------shuch as----德国装甲特派技术团
+rookie_armor_common_tank_3_organization = {
+	allowed = {
+		always = no
+	}
+	icon = GFX_idea_generic_tank_manufacturer_3
+	equipment_type = {
+		armor
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_3_header_production
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_3_header_attack
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_3_header_defense
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_armor_common_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_left_1
+		name = rookie_armor_common_tank_3_left_1
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 1
+			y = 0
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_left_2
+		name = rookie_armor_common_tank_3_left_2
+		icon = GFX_generic_mio_department_icon_tank_general_conversion
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_left_1
+		}
+		production_bonus = {
+			production_conversion_speed_factor = 0.1
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_left_3
+		name = rookie_armor_common_tank_3_left_3
+		icon = GFX_generic_mio_department_icon_tank_general_line_efficiency
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_left_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_3_left_4
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_left_4
+		name = rookie_armor_common_tank_3_left_4
+		icon = GFX_generic_mio_department_icon_tank_general_technology
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_left_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_3_left_3
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_left_5
+		name = rookie_armor_common_tank_3_left_5
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 1
+			y = 4
+		}
+		any_parent = {
+			rookie_armor_common_tank_3_left_3
+			rookie_armor_common_tank_3_left_4
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_right_1
+		name = rookie_armor_common_tank_3_right_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 7
+			y = 0
+		}
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_right_2
+		name = rookie_armor_common_tank_3_right_2
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_right_1
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_right_3
+		name = rookie_armor_common_tank_3_right_3
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_right_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_3_right_4
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_right_4
+		name = rookie_armor_common_tank_3_right_4
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_right_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_3_right_3
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_right_5
+		name = rookie_armor_common_tank_3_right_5
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		special_trait_background = yes
+		position = {
+			x = 7
+			y = 4
+		}
+		any_parent = {
+			rookie_armor_common_tank_3_right_3
+			rookie_armor_common_tank_3_right_4
+		}
+		equipment_bonus = {
+			reliability = 0.05
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_medium_1
+		name = rookie_armor_common_tank_3_medium_1
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_left_1
+			rookie_armor_common_tank_3_right_1
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_medium_2
+		name = rookie_armor_common_tank_3_medium_2
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = {
+			x = 4
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_medium_1
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_3_medium_3
+		name = rookie_armor_common_tank_3_medium_3
+		icon = GFX_generic_mio_department_icon_tank_general_quality
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_common_tank_3_medium_2
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+			ap_attack = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+}
+
+#-----------------------通用坦克第四模板---底特律、沃克斯豪尔
+rookie_armor_common_tank_4_organization = {
+	allowed = {
+		always = no
+	}
+	icon = GFX_idea_generic_tank_manufacturer_3
+	equipment_type = {
+		armor
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_4_header_defense
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_4_header_production
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_4_header_attack
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_armor_common_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_left_1
+		name = rookie_armor_common_tank_4_left_1
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 1
+			y = 0
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_left_2
+		name = rookie_armor_common_tank_4_left_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_left_1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_left_3
+		name = rookie_armor_common_tank_4_left_3
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_left_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_left_4
+		}
+		equipment_bonus = {
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_left_4
+		name = rookie_armor_common_tank_4_left_4
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_left_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_left_3
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_1
+		name = rookie_armor_common_tank_4_medium_1
+		icon = GFX_generic_mio_department_icon_tank_general_line_efficiency
+		position = {
+			x = 4
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_2
+		name = rookie_armor_common_tank_4_medium_2
+		icon = GFX_generic_mio_department_icon_tank_general_technology
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_medium_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_3
+		name = rookie_armor_common_tank_4_medium_3
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_medium_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_medium_4
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+			military_industrial_organization_size_up_requirement = -0.05
+			military_industrial_organization_funds_gain = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_4
+		name = rookie_armor_common_tank_4_medium_4
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_medium_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_medium_3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_size_up_requirement = -0.15
+			military_industrial_organization_funds_gain = 0.15
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_5
+		name = rookie_armor_common_tank_4_medium_5
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_4_medium_3
+			rookie_armor_common_tank_4_medium_4
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+			production_cost_factor = -0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_6
+		name = rookie_armor_common_tank_4_medium_6
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		special_trait_background = yes
+		position = {
+			x = 1
+			y = 4
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_medium_5
+		}
+		equipment_bonus = {
+			hard_attack = 0.05
+			soft_attack = 0.05
+			ap_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_medium_7
+		name = rookie_armor_common_tank_4_medium_7
+		icon = GFX_generic_mio_trait_icon_hardness
+		special_trait_background = yes
+		position = {
+			x = 7
+			y = 4
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_medium_5
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_right_1
+		name = rookie_armor_common_tank_4_right_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 7
+			y = 0
+		}
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_right_2
+		name = rookie_armor_common_tank_4_right_2
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_right_1
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_right_3
+		name = rookie_armor_common_tank_4_right_3
+		icon = GFX_generic_mio_department_icon_tank_light_tank_spg
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_right_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_right_4
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_4_right_4
+		name = rookie_armor_common_tank_4_right_4
+		icon = GFX_generic_mio_department_icon_tank_light_tank_at
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_common_tank_4_right_2
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_4_right_3
+		}
+		equipment_bonus = {
+			hard_attack = 0.05
+			ap_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#------------------------------------通用坦克第5模板--中央装甲制造厂、菲亚特
+rookie_armor_common_tank_5_organization = {
+	allowed = {
+		always = no
+	}
+	icon = GFX_idea_generic_tank_manufacturer_3
+	equipment_type = {
+		armor
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_5_header_production
+		x = 2
+	}
+	tree_header_text = {
+		text = rookie_armor_common_tank_5_header_synthesize
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_armor_common_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		equipment_bonus = {
+			soft_attack = -0.05
+			hard_attack = -0.05
+			build_cost_ic = -0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_1
+		name = rookie_armor_common_tank_5_left_1
+		icon = GFX_generic_mio_department_icon_tank_general_conversion
+		position = {
+			x = 2
+			y = 0
+		}
+		production_bonus = {
+			production_conversion_speed_factor = 0.25
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_2
+		name = rookie_armor_common_tank_5_left_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_5_left_1
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_5_left_3
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_3
+		name = rookie_armor_common_tank_5_left_3
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_5_left_1
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_5_left_2
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_4
+		name = rookie_armor_common_tank_5_left_4
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 0
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_common_tank_5_left_2
+			rookie_armor_common_tank_5_left_3
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_5_left_5
+		}
+		production_bonus = {
+			production_capacity_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_5
+		name = rookie_armor_common_tank_5_left_5
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 4
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_common_tank_5_left_2
+			rookie_armor_common_tank_5_left_3
+		}
+		mutually_exclusive = {
+			rookie_armor_common_tank_5_left_4
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+			production_efficiency_gain_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_left_6
+		name = rookie_armor_common_tank_5_left_6
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 2
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_common_tank_5_left_4
+			rookie_armor_common_tank_5_left_5
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_1
+		name = rookie_armor_common_tank_5_right_1
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 7
+			y = 0
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_2
+		name = rookie_armor_common_tank_5_right_2
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+		position = {
+			x = 5
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_5_right_1
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_3
+		name = rookie_armor_common_tank_5_right_3
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 9
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_common_tank_5_right_1
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+			armor_value = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_4
+		name = rookie_armor_common_tank_5_right_4
+		icon = GFX_generic_mio_department_icon_tank_general_engine
+		special_trait_background = yes
+		all_parents = {
+			rookie_armor_common_tank_5_right_2
+			rookie_armor_common_tank_5_right_3
+		}
+		position = {
+			x = 7
+			y = 2
+		}
+		equipment_bonus = {
+			entrenchment = 0.1
+			fuel_capacity = 0.1
+			fuel_consumption = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_5
+		name = rookie_armor_common_tank_5_right_5
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		special_trait_background = yes
+		all_parents = {
+			rookie_armor_common_tank_5_right_4
+		}
+		position = {
+			x = 6
+			y = 4
+		}
+		equipment_bonus = {
+			reliability = 0.05
+			soft_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_common_tank_5_right_6
+		name = rookie_armor_common_tank_5_right_6
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+		all_parents = {
+			rookie_armor_common_tank_5_right_4
+		}
+		position = {
+			x = 8
+			y = 4
+		}
+		equipment_bonus = {
+			hard_attack = 0.05
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#--------------------------------------中坦MIO---曼恩
+rookie_armor_medium_tank_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_all_medium_tank
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_production_header
+		x = 0
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_attack_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_defense_header
+		x = 8
+	}
+	initial_trait = {
+		name = rookie_armor_medium_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	#左边
+	trait = {
+		token = rookie_armor_medium_tank_production_capacity
+		name = rookie_armor_medium_tank_production_capacity
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 0
+			y = 0
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_efficiency
+		name = rookie_armor_medium_tank_production_efficiency
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_capacity
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_cost_factor
+		name = rookie_armor_medium_tank_production_cost_factor
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_capacity
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_production_attack_2
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	#中间
+	trait = {
+		token = rookie_armor_medium_tank_production_attack_1
+		name = rookie_armor_medium_tank_production_attack_1
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 4
+			y = 0
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_attack_2
+		name = rookie_armor_medium_tank_production_attack_2
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+		position = {
+			x = 3
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_attack_1
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_production_cost_factor
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_attack_3
+		name = rookie_armor_medium_tank_production_attack_3
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_line_efficiency
+		position = {
+			x = 2
+			y = 2
+		}
+		special_trait_background = yes
+		any_parent = {
+			rookie_armor_medium_tank_production_cost_factor
+			rookie_armor_medium_tank_production_attack_2
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.2
+			military_industrial_organization_size_up_requirement = -0.2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_attack_4
+		name = rookie_armor_medium_tank_production_attack_4
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		position = {
+			x = 0
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_attack_3
+			rookie_armor_medium_tank_production_efficiency
+		}
+		equipment_bonus = {
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_attack_5
+		name = rookie_armor_medium_tank_production_attack_5
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 5
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_attack_1
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_production_defense_2
+		}
+		equipment_bonus = {
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_defense_1
+		name = rookie_armor_medium_tank_production_defense_1
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 8
+			y = 0
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_defense_2
+		name = rookie_armor_medium_tank_production_defense_2
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_defense_1
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_production_attack_5
+		}
+		equipment_bonus = {
+			defense = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_defense_3
+		name = rookie_armor_medium_tank_production_defense_3
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_production
+		special_trait_background = yes
+		position = {
+			x = 6
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_medium_tank_production_attack_5
+			rookie_armor_medium_tank_production_defense_2
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_defense_4
+		name = rookie_armor_medium_tank_production_defense_4
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 8
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_defense_1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_production_defense_5
+		name = rookie_armor_medium_tank_production_defense_5
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_medium_tank_production_defense_3
+			rookie_armor_medium_tank_production_defense_4
+		}
+		equipment_bonus = {
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#-----------------------------------中坦第二模板---莫佐夫设计局、克莱斯勒
+rookie_armor_medium_tank_2_organization = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_all_medium_tank
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_production_header
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_attack_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_medium_tank_defense_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_armor_medium_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_left_1
+		name = rookie_armor_medium_tank_2_left_1
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_left_2
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_left_2
+		name = rookie_armor_medium_tank_2_left_2
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 2
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_left_1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_left_3
+		name = rookie_armor_medium_tank_2_left_3
+		icon = GFX_generic_mio_department_icon_tank_general_conversion
+		position = {
+			x = 1
+			y = 1
+		}
+		any_parent = {
+			rookie_armor_medium_tank_2_left_1
+			rookie_armor_medium_tank_2_left_2
+		}
+		production_bonus = {
+			production_conversion_speed_factor = 0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_left_4
+		name = rookie_armor_medium_tank_2_left_4
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		special_trait_background = yes
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_medium_tank_2_left_3
+			rookie_armor_medium_tank_2_medium_3
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_left_5
+		name = rookie_armor_medium_tank_2_left_5
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_materials
+		special_trait_background = yes
+		position = {
+			x = 0
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_medium_tank_2_left_4
+		}
+		equipment_bonus = {
+			fuel_consumption = -0.2
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_medium_1
+		name = rookie_armor_medium_tank_2_medium_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 3
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_medium_2
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_medium_2
+		name = rookie_armor_medium_tank_2_medium_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 5
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_medium_1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_medium_3
+		name = rookie_armor_medium_tank_2_medium_3
+		icon = GFX_generic_mio_department_icon_tank_medium_tank_armor
+		position = {
+			x = 4
+			y = 1
+		}
+		any_parent = {
+			rookie_armor_medium_tank_2_medium_1
+			rookie_armor_medium_tank_2_medium_2
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_right_1
+		name = rookie_armor_medium_tank_2_right_1
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 6
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_right_2
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_right_2
+		name = rookie_armor_medium_tank_2_right_2
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 8
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_armor_medium_tank_2_right_1
+		}
+		equipment_bonus = {
+			hardness = 0.05
+			armor_value = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_right_3
+		name = rookie_armor_medium_tank_2_right_3
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 7
+			y = 1
+		}
+		any_parent = {
+			rookie_armor_medium_tank_2_right_1
+			rookie_armor_medium_tank_2_right_2
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_right_4
+		name = rookie_armor_medium_tank_2_right_4
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		special_trait_background = yes
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_medium_tank_2_right_3
+			rookie_armor_medium_tank_2_medium_3
+		}
+		equipment_bonus = {
+			ap_attack = 0.1
+			hard_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_medium_tank_2_right_5
+		name = rookie_armor_medium_tank_2_right_5
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_medium_tank_2_right_4
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#-------------------------------------------重坦第一模板--亨舍尔
+rookie_armor_heavy_tank_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_all_heavy_tank
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_production_header
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_attack_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_defense_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_armor_heavy_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_statrt
+		name = rookie_armor_heavy_tank_statrt
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_conversion
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 0
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.2
+			military_industrial_organization_size_up_requirement = -0.2
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_lfet_1
+		name = rookie_armor_heavy_tank_lfet_1
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_statrt
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_lfet_2
+		name = rookie_armor_heavy_tank_lfet_2
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_technology
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_lfet_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_lfet_3
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_lfet_3
+		name = rookie_armor_heavy_tank_lfet_3
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_line_efficiency
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_lfet_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_lfet_2
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_lfet_4
+		name = rookie_armor_heavy_tank_lfet_4
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 1
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_lfet_2
+			rookie_armor_heavy_tank_lfet_3
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_medium_1
+		name = rookie_armor_heavy_tank_medium_1
+		icon = GFX_generic_mio_department_icon_tank_general_weapons
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_statrt
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_medium_2
+		name = rookie_armor_heavy_tank_medium_2
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_medium_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_medium_3
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_medium_3
+		name = rookie_armor_heavy_tank_medium_3
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_medium_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_medium_2
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_medium_4
+		name = rookie_armor_heavy_tank_medium_4
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_medium_2
+			rookie_armor_heavy_tank_medium_3
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_right_1
+		name = rookie_armor_heavy_tank_right_1
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_statrt
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_right_2
+		name = rookie_armor_heavy_tank_right_2
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_right_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_right_3
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_right_3
+		name = rookie_armor_heavy_tank_right_3
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_right_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_right_2
+		}
+		equipment_bonus = {
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_right_4
+		name = rookie_armor_heavy_tank_right_4
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_armor
+		special_trait_background = yes
+		position = {
+			x = 7
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_right_2
+			rookie_armor_heavy_tank_right_3
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#---------------------------------重坦第二模板----基洛夫、
+rookie_armor_heavy_tank_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_all_heavy_tank
+	}
+	research_categories = {
+		armor
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_production_header
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_defense_header
+		x = 5
+	}
+	tree_header_text = {
+		text = rookie_armor_heavy_tank_attack_header
+		x = 9
+	}
+	initial_trait = {
+		name = rookie_armor_heavy_tank_organization_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_left_1
+		name = rookie_armor_heavy_tank_2_left_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 0
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_left_2
+		name = rookie_armor_heavy_tank_2_left_2
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 1
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_left_1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_left_3
+		name = rookie_armor_heavy_tank_2_left_3
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 1
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_left_2
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_left_4
+		name = rookie_armor_heavy_tank_2_left_4
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_conversion
+		special_trait_background = yes
+		position = {
+			x = 2
+			y = 4
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_left_3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_5
+			rookie_armor_heavy_tank_2_medium_6
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.1
+			production_conversion_speed_factor = 0.25
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_1
+		name = rookie_armor_heavy_tank_2_medium_1
+		icon = GFX_generic_mio_department_icon_tank_general_armor
+		position = {
+			x = 3
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_left_1
+			rookie_armor_heavy_tank_2_right_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_2
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_2
+		name = rookie_armor_heavy_tank_2_medium_2
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 6
+			y = 1
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_left_1
+			rookie_armor_heavy_tank_2_right_1
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_1
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_3
+		name = rookie_armor_heavy_tank_2_medium_3
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 3
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_1
+			rookie_armor_heavy_tank_2_medium_2
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_4
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_4
+		name = rookie_armor_heavy_tank_2_medium_4
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 6
+			y = 2
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_1
+			rookie_armor_heavy_tank_2_medium_2
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_3
+		}
+		equipment_bonus = {
+			hardness = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_5
+		name = rookie_armor_heavy_tank_2_medium_5
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_engine
+		special_trait_background = yes
+		position = {
+			x = 3
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_3
+			rookie_armor_heavy_tank_2_medium_4
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_6
+		}
+		equipment_bonus = {
+			reliability = 0.1
+			maximum_speed = 0.1
+			armor_value = -0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_medium_6
+		name = rookie_armor_heavy_tank_2_medium_6
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_production
+		special_trait_background = yes
+		position = {
+			x = 6
+			y = 3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_3
+			rookie_armor_heavy_tank_2_medium_4
+		}
+		mutually_exclusive = {
+			rookie_armor_heavy_tank_2_medium_5
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+			hardness = 0.05
+			maximum_speed = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_right_1
+		name = rookie_armor_heavy_tank_2_right_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 9
+			y = 0
+		}
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_right_2
+		name = rookie_armor_heavy_tank_2_right_2
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_right_1
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_right_3
+		name = rookie_armor_heavy_tank_2_right_3
+		icon = GFX_generic_mio_trait_icon_hard_attack
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_right_2
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_armor_heavy_tank_2_right_4
+		name = rookie_armor_heavy_tank_2_right_4
+		icon = GFX_generic_mio_department_icon_tank_heavy_tank_engine
+		special_trait_background = yes
+		position = {
+			x = 7
+			y = 4
+		}
+		all_parents = {
+			rookie_armor_heavy_tank_2_right_3
+		}
+		any_parent = {
+			rookie_armor_heavy_tank_2_medium_5
+			rookie_armor_heavy_tank_2_medium_6
+		}
+		equipment_bonus = {
+			reliability = 0.05
+			fuel_capacity = 0.25
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+#==========================================================帝国雄心飞机模板===================================================================
+rookie_plane_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_only_light_fighter
+		small_plane_cas_airframe
+	}
+	research_categories = {
+		air_equipment
+	}
+	#强化生产
+	tree_header_text = {
+		text = rookie_plane_organiztion_production_header
+		x = 1
+	}
+	#改进设计
+	tree_header_text = {
+		text = rookie_plane_organiztion_air_agility_header
+		x = 4
+	}
+	#火力
+	tree_header_text = {
+		text = rookie_plane_organiztion_defense_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_plane_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_left_1
+		name = rookie_plane_1_organiztion_left_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 1
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_left_2
+		name = rookie_plane_1_organiztion_left_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 1
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_left_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_left_3
+		name = rookie_plane_1_organiztion_left_3
+		icon = GFX_generic_mio_trait_icon_resources
+		position = {
+			x = 0
+			y = 2
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_left_2
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_1
+		name = rookie_plane_1_organiztion_medium_1
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 4
+			y = 0
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_2
+		name = rookie_plane_1_organiztion_medium_2
+		icon = GFX_generic_mio_trait_icon_air_agility
+		position = {
+			x = 2
+			y = 1
+		}
+		equipment_bonus = {
+			air_agility = 0.1
+		}
+		all_parents = {
+			rookie_plane_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_3
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_3
+		name = rookie_plane_1_organiztion_medium_3
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 6
+			y = 1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+		all_parents = {
+			rookie_plane_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_4
+		name = rookie_plane_1_organiztion_medium_4
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 2
+			y = 2
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_2
+			rookie_plane_1_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_5
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_5
+		name = rookie_plane_1_organiztion_medium_5
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 6
+			y = 2
+		}
+		equipment_bonus = {
+			air_defence = 0.1
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_2
+			rookie_plane_1_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_4
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_6
+		name = rookie_plane_1_organiztion_medium_6
+		icon = GFX_generic_mio_trait_icon_naval_range
+		position = {
+			x = 2
+			y = 3
+		}
+		equipment_bonus = {
+			air_range = 0.25
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_4
+			rookie_plane_1_organiztion_medium_5
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_7
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_7
+		name = rookie_plane_1_organiztion_medium_7
+		icon = GFX_generic_mio_trait_icon_air_agility
+		position = {
+			x = 6
+			y = 3
+		}
+		equipment_bonus = {
+			air_agility = 0.05
+			air_defence = 0.05
+			maximum_speed = 0.05
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_4
+			rookie_plane_1_organiztion_medium_5
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_6
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_8
+		name = rookie_plane_1_organiztion_medium_8
+		icon = GFX_generic_mio_department_icon_plane_fighter_engine
+		special_trait_background = yes
+		position = {
+			x = 2
+			y = 4
+		}
+		equipment_bonus = {
+			thrust = 0.1
+			air_agility = 0.1
+			maximum_speed = 0.1
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_6
+			rookie_plane_1_organiztion_medium_7
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_9
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_medium_9
+		name = rookie_plane_1_organiztion_medium_9
+		icon = GFX_generic_mio_department_icon_plane_fighter_production
+		special_trait_background = yes
+		position = {
+			x = 6
+			y = 4
+		}
+		equipment_bonus = {
+			weight = -0.1
+			air_agility = 0.1
+			maximum_speed = 0.1
+		}
+		any_parent = {
+			rookie_plane_1_organiztion_medium_6
+			rookie_plane_1_organiztion_medium_7
+		}
+		mutually_exclusive = {
+			rookie_plane_1_organiztion_medium_8
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_right_1
+		name = rookie_plane_1_organiztion_right_1
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 7
+			y = 0
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_right_2
+		name = rookie_plane_1_organiztion_right_2
+		icon = GFX_generic_mio_department_icon_plane_general_combat
+		position = {
+			x = 8
+			y = 1
+		}
+		all_parents = {
+			rookie_plane_1_organiztion_right_1
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_1_organiztion_right_3
+		name = rookie_plane_1_organiztion_right_3
+		icon = GFX_generic_mio_department_icon_plane_fighter_combat
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_plane_1_organiztion_right_2
+		}
+		equipment_bonus = {
+			air_attack = 0.05
+			air_defence = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_plane_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		mio_cat_eq_only_light_fighter
+		small_plane_cas_airframe
+	}
+	research_categories = {
+		air_equipment
+	}
+	#强化生产
+	tree_header_text = {
+		text = rookie_plane_organiztion_production_header
+		x = 1
+	}
+	#改进设计
+	tree_header_text = {
+		text = rookie_plane_organiztion_air_agility_header
+		x = 4
+	}
+	#火力
+	tree_header_text = {
+		text = rookie_plane_organiztion_defense_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_plane_2_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		equipment_bonus = {
+			air_range = -0.05
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_left_1
+		name = rookie_plane_2_organiztion_left_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 1
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_left_2
+		name = rookie_plane_2_organiztion_left_2
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 0
+			y = 3
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_left_1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_left_3
+		name = rookie_plane_2_organiztion_left_3
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 1
+			y = 4
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_left_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_1
+		name = rookie_plane_2_organiztion_medium_1
+		icon = GFX_generic_mio_trait_icon_air_agility
+		position = {
+			x = 2
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_plane_2_organiztion_medium_2
+		}
+		equipment_bonus = {
+			air_agility = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_2
+		name = rookie_plane_2_organiztion_medium_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 6
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_plane_2_organiztion_medium_1
+		}
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_3
+		name = rookie_plane_2_organiztion_medium_3
+		icon = GFX_generic_mio_trait_icon_naval_range
+		position = {
+			x = 4
+			y = 1
+		}
+		any_parent = {
+			rookie_plane_2_organiztion_medium_1
+			rookie_plane_2_organiztion_medium_2
+		}
+		equipment_bonus = {
+			air_range = 0.05
+			air_agility = 0.05
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_4
+		name = rookie_plane_2_organiztion_medium_4
+		icon = GFX_generic_mio_trait_icon_air_agility
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_plane_2_organiztion_medium_5
+		}
+		equipment_bonus = {
+			air_agility = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_5
+		name = rookie_plane_2_organiztion_medium_5
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_plane_2_organiztion_medium_4
+		}
+		equipment_bonus = {
+			maximum_speed = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_medium_6
+		name = rookie_plane_2_organiztion_medium_6
+		icon = GFX_generic_mio_department_icon_plane_fighter_engine
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_plane_2_organiztion_medium_4
+			rookie_plane_2_organiztion_medium_5
+		}
+		equipment_bonus = {
+			air_agility = 0.1
+			maximum_speed = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_right_1
+		name = rookie_plane_2_organiztion_right_1
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 7
+			y = 0
+		}
+		equipment_bonus = {
+			air_defence = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_right_2
+		name = rookie_plane_2_organiztion_right_2
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_right_1
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_plane_2_organiztion_right_3
+		name = rookie_plane_2_organiztion_right_3
+		icon = GFX_generic_mio_department_icon_plane_fighter_combat
+		position = {
+			x = 7
+			y = 4
+		}
+		all_parents = {
+			rookie_plane_2_organiztion_right_1
+		}
+		equipment_bonus = {
+			air_attack = 0.05
+			air_defence = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_cas_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		small_plane_cas_airframe
+		small_plane_naval_bomber_airframe
+		cv_small_plane_cas_airframe
+		cv_small_plane_naval_bomber_airframe
+	}
+	research_categories = {
+		air_equipment
+	}
+	tree_header_text = {
+		text = rookie_cas_1_organiztion_header_1
+		x = 2
+	}
+	tree_header_text = {
+		text = rookie_cas_1_organiztion_header_2
+		x = 6
+	}
+	initial_trait = {
+		name = rookie_cas_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_1
+		name = rookie_cas_1_organiztion_trait_1
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 0
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_2
+		name = rookie_cas_1_organiztion_trait_2
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 2
+			y = 1
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_1
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_3
+		name = rookie_cas_1_organiztion_trait_3
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 6
+			y = 1
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_1
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_4
+		name = rookie_cas_1_organiztion_trait_4
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_2
+			rookie_cas_1_organiztion_trait_3
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_5
+		name = rookie_cas_1_organiztion_trait_5
+		icon = GFX_generic_mio_trait_icon_air_ground_attack
+		position = {
+			x = 4
+			y = 2
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_2
+			rookie_cas_1_organiztion_trait_3
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_trait_6
+		name = rookie_cas_1_organiztion_trait_6
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_2
+			rookie_cas_1_organiztion_trait_3
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_left_1
+		name = rookie_cas_1_organiztion_left_1
+		icon = GFX_generic_mio_trait_icon_air_ground_attack
+		position = {
+			x = 1
+			y = 3
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_4
+			rookie_cas_1_organiztion_trait_5
+			rookie_cas_1_organiztion_trait_6
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_left_2
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_left_2
+		name = rookie_cas_1_organiztion_left_2
+		icon = GFX_generic_mio_department_icon_plane_cas_combat
+		position = {
+			x = 3
+			y = 3
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_4
+			rookie_cas_1_organiztion_trait_5
+			rookie_cas_1_organiztion_trait_6
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_left_1
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.05
+			night_penalty = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_left_3
+		name = rookie_cas_1_organiztion_left_3
+		icon = GFX_generic_mio_trait_icon_air_ground_attack
+		position = {
+			x = 1
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_1_organiztion_left_1
+			rookie_cas_1_organiztion_left_2
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_left_4
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_left_4
+		name = rookie_cas_1_organiztion_left_4
+		icon = GFX_generic_mio_trait_icon_detection
+		position = {
+			x = 3
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_1_organiztion_left_1
+			rookie_cas_1_organiztion_left_2
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_left_3
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.05
+			surface_detection = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_right_1
+		name = rookie_cas_1_organiztion_right_1
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = {
+			x = 5
+			y = 3
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_4
+			rookie_cas_1_organiztion_trait_5
+			rookie_cas_1_organiztion_trait_6
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_right_2
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_right_2
+		name = rookie_cas_1_organiztion_right_2
+		icon = GFX_generic_mio_department_icon_plane_general_combat
+		position = {
+			x = 7
+			y = 3
+		}
+		all_parents = {
+			rookie_cas_1_organiztion_trait_4
+			rookie_cas_1_organiztion_trait_5
+			rookie_cas_1_organiztion_trait_6
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_right_1
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_right_3
+		name = rookie_cas_1_organiztion_right_3
+		icon = GFX_generic_mio_department_icon_plane_cv_naval_bomber_engine
+		position = {
+			x = 5
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_1_organiztion_right_1
+			rookie_cas_1_organiztion_right_2
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_right_4
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+			air_ground_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_1_organiztion_right_4
+		name = rookie_cas_1_organiztion_right_4
+		icon = GFX_generic_mio_trait_icon_naval_range
+		position = {
+			x = 7
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_1_organiztion_right_1
+			rookie_cas_1_organiztion_right_2
+		}
+		mutually_exclusive = {
+			rookie_cas_1_organiztion_right_3
+		}
+		equipment_bonus = {
+			air_range = 0.2
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}
+
+rookie_cas_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		small_plane_cas_airframe
+		small_plane_naval_bomber_airframe
+		cv_small_plane_cas_airframe
+		cv_small_plane_naval_bomber_airframe
+	}
+	research_categories = {
+		air_equipment
+	}
+	#强化生产
+	tree_header_text = {
+		text = rookie_cas_1_organiztion_header_1
+		x = 2
+	}
+	#改进设计
+	tree_header_text = {
+		text = rookie_cas_1_organiztion_header_2
+		x = 6
+	}
+	initial_trait = {
+		name = rookie_cas_2_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		equipment_bonus = {
+			maximum_speed = -0.05
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_first_1
+		name = rookie_cas_2_organiztion_trait_first_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 0
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_first_2
+		name = rookie_cas_2_organiztion_trait_first_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 3
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_first_3
+		name = rookie_cas_2_organiztion_trait_first_3
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 5
+			y = 0
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_first_4
+		name = rookie_cas_2_organiztion_trait_first_4
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 8
+			y = 0
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_second_1
+		name = rookie_cas_2_organiztion_trait_second_1
+		icon = GFX_generic_mio_trait_icon_air_ground_attack
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_cas_2_organiztion_trait_first_1
+			rookie_cas_2_organiztion_trait_first_2
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_second_2
+		name = rookie_cas_2_organiztion_trait_second_2
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_cas_2_organiztion_trait_first_2
+			rookie_cas_2_organiztion_trait_first_3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_second_3
+		name = rookie_cas_2_organiztion_trait_second_3
+		icon = GFX_generic_mio_department_icon_plane_cv_naval_bomber_engine
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_cas_2_organiztion_trait_first_3
+			rookie_cas_2_organiztion_trait_first_4
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_third_1
+		name = rookie_cas_2_organiztion_trait_third_1
+		icon = GFX_generic_mio_department_icon_plane_cas_combat
+		special_trait_background = yes
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_cas_2_organiztion_trait_second_1
+			rookie_cas_2_organiztion_trait_second_2
+		}
+		mutually_exclusive = {
+			rookie_cas_2_organiztion_trait_third_2
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.15
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
+			surface_detection = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_third_2
+		name = rookie_cas_2_organiztion_trait_third_2
+		icon = GFX_generic_mio_department_icon_plane_cv_naval_bomber_production
+		special_trait_background = yes
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_cas_2_organiztion_trait_second_2
+			rookie_cas_2_organiztion_trait_second_3
+		}
+		mutually_exclusive = {
+			rookie_cas_2_organiztion_trait_third_1
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.05
+			naval_strike_attack = 0.1
+			naval_strike_targetting = 0.1
+			sub_detection = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_fourth_1
+		name = rookie_cas_2_organiztion_trait_fourth_1
+		icon = GFX_generic_mio_trait_icon_air_ground_attack
+		position = {
+			x = 0
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_2_organiztion_trait_third_1
+			rookie_cas_2_organiztion_trait_third_2
+		}
+		equipment_bonus = {
+			air_ground_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_cas_2_organiztion_trait_fourth_2
+		name = rookie_cas_2_organiztion_trait_fourth_2
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = {
+			x = 8
+			y = 4
+		}
+		any_parent = {
+			rookie_cas_2_organiztion_trait_third_1
+			rookie_cas_2_organiztion_trait_third_2
+		}
+		equipment_bonus = {
+			naval_strike_attack = 0.05
+			naval_strike_targetting = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_infantry_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		infantry_equipment
+		support_equipment
+		train_equipment
+		rookie_mio_cat_eq_super_heavy_railway_gun
+	}
+	research_categories = {
+		infantry_weapons
+		support_tech
+		train_tech
+	}
+	#
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_defense_header
+		x = 1
+	}
+	#
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_weapons_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_production_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_infantry_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_left_1
+		name = rookie_infantry_1_organiztion_left_1
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 1
+			y = 0
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_left_2
+		name = rookie_infantry_1_organiztion_left_2
+		icon = GFX_generic_mio_department_icon_support_production
+		position = {
+			x = 0
+			y = 4
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_left_1
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_left_3
+		name = rookie_infantry_1_organiztion_left_3
+		icon = GFX_generic_mio_department_icon_support_materials
+		position = {
+			x = 2
+			y = 4
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_left_1
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_1
+		name = rookie_infantry_1_organiztion_medium_1
+		icon = GFX_generic_mio_department_icon_infantry_offense
+		position = {
+			x = 4
+			y = 0
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_2
+		name = rookie_infantry_1_organiztion_medium_2
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 3
+			y = 1
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_infantry_1_organiztion_medium_3
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_3
+		name = rookie_infantry_1_organiztion_medium_3
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		position = {
+			x = 5
+			y = 1
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_infantry_1_organiztion_medium_2
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			hard_attack = 0.15
+			ap_attack = 0.25
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_4
+		name = rookie_infantry_1_organiztion_medium_4
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 3
+			y = 3
+		}
+		any_parent = {
+			rookie_infantry_1_organiztion_medium_2
+			rookie_infantry_1_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_1_organiztion_medium_5
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_5
+		name = rookie_infantry_1_organiztion_medium_5
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 5
+			y = 3
+		}
+		any_parent = {
+			rookie_infantry_1_organiztion_medium_2
+			rookie_infantry_1_organiztion_medium_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_1_organiztion_medium_4
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_medium_6
+		name = rookie_infantry_1_organiztion_medium_6
+		icon = GFX_generic_mio_department_icon_infantry_quality
+		position = {
+			x = 4
+			y = 4
+		}
+		any_parent = {
+			rookie_infantry_1_organiztion_medium_4
+			rookie_infantry_1_organiztion_medium_5
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_right_1
+		name = rookie_infantry_1_organiztion_right_1
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 7
+			y = 0
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_right_2
+		name = rookie_infantry_1_organiztion_right_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 6
+			y = 4
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_right_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_1_organiztion_right_3
+		name = rookie_infantry_1_organiztion_right_3
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 8
+			y = 4
+		}
+		all_parents = {
+			rookie_infantry_1_organiztion_right_1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_infantry_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		infantry_equipment
+		support_equipment
+		train_equipment
+		rookie_mio_cat_eq_super_heavy_railway_gun
+	}
+	research_categories = {
+		infantry_weapons
+		support_tech
+		train_tech
+	}
+	#强化生产
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_production_header
+		x = 1
+	}
+	#改进设计
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_weapons_header
+		x = 4
+	}
+	#可靠性改进
+	tree_header_text = {
+		text = rookie_infantry_1_organiztion_defense_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_infantry_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_1
+		name = rookie_infantry_2_organiztion_left_1
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 0
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_left_2
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_2
+		name = rookie_infantry_2_organiztion_left_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 2
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_left_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_3
+		name = rookie_infantry_2_organiztion_left_3
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 1
+			y = 1
+		}
+		any_parent = {
+			rookie_infantry_2_organiztion_left_1
+			rookie_infantry_2_organiztion_left_2
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_4
+		name = rookie_infantry_2_organiztion_left_4
+		icon = GFX_generic_mio_department_icon_infantry_line_efficiency
+		position = {
+			x = 0
+			y = 3
+		}
+		all_parents = {
+			rookie_infantry_2_organiztion_left_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_left_5
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_5
+		name = rookie_infantry_2_organiztion_left_5
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 2
+			y = 3
+		}
+		all_parents = {
+			rookie_infantry_2_organiztion_left_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_left_4
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_left_6
+		name = rookie_infantry_2_organiztion_left_6
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 1
+			y = 4
+		}
+		any_parent = {
+			rookie_infantry_2_organiztion_left_4
+			rookie_infantry_2_organiztion_left_5
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_medium_1
+		name = rookie_infantry_2_organiztion_medium_1
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 3
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_medium_2
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_medium_2
+		name = rookie_infantry_2_organiztion_medium_2
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 5
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_medium_1
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_medium_3
+		name = rookie_infantry_2_organiztion_medium_3
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 4
+			y = 4
+		}
+		any_parent = {
+			rookie_infantry_2_organiztion_medium_1
+			rookie_infantry_2_organiztion_medium_2
+		}
+		equipment_bonus = {
+			reliability = 0.1
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_1
+		name = rookie_infantry_2_organiztion_right_1
+		icon = GFX_generic_mio_trait_icon_soft_attack
+		position = {
+			x = 6
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_right_2
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_2
+		name = rookie_infantry_2_organiztion_right_2
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		position = {
+			x = 8
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_right_1
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+			ap_attack = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_3
+		name = rookie_infantry_2_organiztion_right_3
+		icon = GFX_generic_mio_department_icon_support_materials
+		position = {
+			x = 7
+			y = 1
+		}
+		any_parent = {
+			rookie_infantry_2_organiztion_right_1
+			rookie_infantry_2_organiztion_right_2
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_4
+		name = rookie_infantry_2_organiztion_right_4
+		icon = GFX_generic_mio_department_icon_infantry_conversion
+		special_trait_background = yes
+		position = {
+			x = 6
+			y = 3
+		}
+		all_parents = {
+			rookie_infantry_2_organiztion_right_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_right_5
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+			hard_attack = 0.05
+			build_cost_ic = 0.05
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_5
+		name = rookie_infantry_2_organiztion_right_5
+		icon = GFX_generic_mio_department_icon_infantry_materials
+		special_trait_background = yes
+		position = {
+			x = 8
+			y = 3
+		}
+		all_parents = {
+			rookie_infantry_2_organiztion_right_3
+		}
+		mutually_exclusive = {
+			rookie_infantry_2_organiztion_right_4
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			defense = -0.05
+			breakthrough = -0.05
+			build_cost_ic = -0.05
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 1
+		}
+	}
+	trait = {
+		token = rookie_infantry_2_organiztion_right_6
+		name = rookie_infantry_2_organiztion_right_6
+		icon = GFX_generic_mio_department_icon_infantry_quality
+		position = {
+			x = 7
+			y = 4
+		}
+		any_parent = {
+			rookie_infantry_2_organiztion_right_4
+			rookie_infantry_2_organiztion_right_5
+		}
+		limit_to_equipment_type = {
+			infantry_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_artillery_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		anti_tank_equipment
+		anti_air_equipment
+		rookie_mio_cat_eq_artillery
+		rookie_mio_cat_eq_super_heavy_artillery
+	}
+	research_categories = {
+		mio_cat_all_artillery_equipment
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_anti_air_header
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_anti_tank_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_artillery_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_artillery_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_1
+		name = rookie_artillery_1_organiztion_trait_1
+		icon = GFX_generic_mio_department_icon_anti_air
+		position = {
+			x = 0
+			y = 0
+		}
+		limit_to_equipment_type = {
+			anti_air_equipment
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_2
+		name = rookie_artillery_1_organiztion_trait_2
+		icon = GFX_generic_mio_department_icon_anti_tank
+		position = {
+			x = 4
+			y = 0
+		}
+		limit_to_equipment_type = {
+			anti_tank_equipment
+			super_heavy_artillery_equipment
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_3
+		name = rookie_artillery_1_organiztion_trait_3
+		icon = GFX_generic_mio_department_icon_artillery
+		position = {
+			x = 8
+			y = 0
+		}
+		limit_to_equipment_type = {
+			artillery_equipment
+			super_heavy_artillery_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_4
+		name = rookie_artillery_1_organiztion_trait_4
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_1_organiztion_trait_1
+			rookie_artillery_1_organiztion_trait_2
+			rookie_artillery_1_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_1_organiztion_trait_5
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_5
+		name = rookie_artillery_1_organiztion_trait_5
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 3
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_1_organiztion_trait_1
+			rookie_artillery_1_organiztion_trait_2
+			rookie_artillery_1_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_1_organiztion_trait_4
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_6
+		name = rookie_artillery_1_organiztion_trait_6
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 5
+			y = 1
+		}
+		mutually_exclusive = {
+			rookie_artillery_1_organiztion_trait_7
+		}
+		all_parents = {
+			rookie_artillery_1_organiztion_trait_1
+			rookie_artillery_1_organiztion_trait_2
+			rookie_artillery_1_organiztion_trait_3
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_7
+		name = rookie_artillery_1_organiztion_trait_7
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_1_organiztion_trait_1
+			rookie_artillery_1_organiztion_trait_2
+			rookie_artillery_1_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_1_organiztion_trait_6
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_8
+		name = rookie_artillery_1_organiztion_trait_8
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 2
+			y = 2
+		}
+		any_parent = {
+			rookie_artillery_1_organiztion_trait_4
+			rookie_artillery_1_organiztion_trait_5
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_9
+		name = rookie_artillery_1_organiztion_trait_9
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 6
+			y = 2
+		}
+		any_parent = {
+			rookie_artillery_1_organiztion_trait_6
+			rookie_artillery_1_organiztion_trait_7
+		}
+		equipment_bonus = {
+			reliability = 0.1
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_1_organiztion_trait_10
+		name = rookie_artillery_1_organiztion_trait_10
+		icon = GFX_generic_mio_department_icon_anti_tank_materials
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 4
+		}
+		all_parents = {
+			rookie_artillery_1_organiztion_trait_8
+			rookie_artillery_1_organiztion_trait_9
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_artillery_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		anti_tank_equipment
+		anti_air_equipment
+		rookie_mio_cat_eq_artillery
+		rookie_mio_cat_eq_super_heavy_artillery
+	}
+	research_categories = {
+		mio_cat_all_artillery_equipment
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_anti_air_header
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_anti_tank_header
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_artillery_1_organiztion_artillery_header
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_artillery_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_1
+		name = rookie_artillery_2_organiztion_trait_1
+		icon = GFX_generic_mio_department_icon_anti_air
+		position = {
+			x = 0
+			y = 0
+		}
+		limit_to_equipment_type = {
+			anti_air_equipment
+		}
+		equipment_bonus = {
+			air_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_2
+		name = rookie_artillery_2_organiztion_trait_2
+		icon = GFX_generic_mio_department_icon_anti_tank
+		position = {
+			x = 4
+			y = 0
+		}
+		limit_to_equipment_type = {
+			anti_tank_equipment
+			super_heavy_artillery_equipment
+		}
+		equipment_bonus = {
+			hard_attack = 0.1
+			ap_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_3
+		name = rookie_artillery_2_organiztion_trait_3
+		icon = GFX_generic_mio_department_icon_artillery
+		position = {
+			x = 8
+			y = 0
+		}
+		limit_to_equipment_type = {
+			artillery_equipment
+			super_heavy_artillery_equipment
+		}
+		equipment_bonus = {
+			soft_attack = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_4
+		name = rookie_artillery_2_organiztion_trait_4
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 0
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_1
+			rookie_artillery_2_organiztion_trait_2
+			rookie_artillery_2_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_2_organiztion_trait_5
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_5
+		name = rookie_artillery_2_organiztion_trait_5
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 2
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_1
+			rookie_artillery_2_organiztion_trait_2
+			rookie_artillery_2_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_2_organiztion_trait_4
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+			production_efficiency_gain_factor = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_6
+		name = rookie_artillery_2_organiztion_trait_6
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_1
+			rookie_artillery_2_organiztion_trait_2
+			rookie_artillery_2_organiztion_trait_3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_7
+		name = rookie_artillery_2_organiztion_trait_7
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 6
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_1
+			rookie_artillery_2_organiztion_trait_2
+			rookie_artillery_2_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_2_organiztion_trait_8
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_8
+		name = rookie_artillery_2_organiztion_trait_8
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 8
+			y = 1
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_1
+			rookie_artillery_2_organiztion_trait_2
+			rookie_artillery_2_organiztion_trait_3
+		}
+		mutually_exclusive = {
+			rookie_artillery_2_organiztion_trait_7
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_9
+		name = rookie_artillery_2_organiztion_trait_9
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 2
+			y = 4
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_6
+		}
+		equipment_bonus = {
+			defense = 0.05
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_artillery_2_organiztion_trait_10
+		name = rookie_artillery_2_organiztion_trait_10
+		icon = GFX_generic_mio_trait_icon_resources
+		position = {
+			x = 6
+			y = 4
+		}
+		all_parents = {
+			rookie_artillery_2_organiztion_trait_6
+		}
+		production_bonus = {
+			production_resource_penalty_factor = -0.2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_mechanize_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		rookie_mio_cat_eq_mechanized
+		rookie_mio_cat_eq_motorized
+	}
+	research_categories = {
+		mio_cat_tech_all_motorized_mechanized
+		infantry_weapons
+		support_tech
+		train_tech
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_mechanize_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_first_1
+		name = rookie_mechanize_1_organiztion_first_1
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 0
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_first_2
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_first_2
+		name = rookie_mechanize_1_organiztion_first_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 2
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_first_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_first_3
+		name = rookie_mechanize_1_organiztion_first_3
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 6
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_first_4
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_first_4
+		name = rookie_mechanize_1_organiztion_first_4
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 8
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_first_3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_size_up_requirement = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_second_1
+		name = rookie_mechanize_1_organiztion_second_1
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 3
+			y = 1
+		}
+		any_parent = {
+			rookie_mechanize_1_organiztion_first_1
+			rookie_mechanize_1_organiztion_first_2
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_second_2
+		name = rookie_mechanize_1_organiztion_second_2
+		icon = GFX_generic_mio_trait_icon_resources
+		position = {
+			x = 5
+			y = 1
+		}
+		any_parent = {
+			rookie_mechanize_1_organiztion_first_3
+			rookie_mechanize_1_organiztion_first_4
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_third_1
+		name = rookie_mechanize_1_organiztion_third_1
+		icon = GFX_generic_mio_trait_icon_hardness
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 2
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_second_1
+			rookie_mechanize_1_organiztion_second_2
+		}
+		equipment_bonus = {
+			reliability = 0.1
+			hardness = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fourth_1
+		name = rookie_mechanize_1_organiztion_fourth_1
+		icon = GFX_generic_mio_department_icon_motorized_production
+		position = {
+			x = 1
+			y = 3
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_third_1
+		}
+		equipment_bonus = {
+			fuel_consumption = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fourth_2
+		name = rookie_mechanize_1_organiztion_fourth_2
+		icon = GFX_generic_mio_department_icon_mechanized_production
+		position = {
+			x = 7
+			y = 3
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_third_1
+		}
+		equipment_bonus = {
+			defense = 0.05
+			armor_value = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fifth_1
+		name = rookie_mechanize_1_organiztion_fifth_1
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 0
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_fourth_1
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_fifth_2
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fifth_2
+		name = rookie_mechanize_1_organiztion_fifth_2
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 2
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_fourth_1
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_fifth_1
+		}
+		equipment_bonus = {
+			reliability = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fifth_3
+		name = rookie_mechanize_1_organiztion_fifth_3
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 6
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_fourth_2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_fifth_4
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_1_organiztion_fifth_4
+		name = rookie_mechanize_1_organiztion_fifth_4
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 8
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_1_organiztion_fourth_2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_1_organiztion_fifth_3
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}
+
+rookie_mechanize_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		rookie_mio_cat_eq_mechanized
+		rookie_mio_cat_eq_motorized
+	}
+	research_categories = {
+		mio_cat_tech_all_motorized_mechanized
+		infantry_weapons
+		support_tech
+		train_tech
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_mechanize_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_mechanize_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_first_1
+		name = rookie_mechanize_2_organiztion_fifth_1
+		icon = GFX_generic_mio_trait_icon_production_capacity
+		position = {
+			x = 3
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_first_2
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_first_2
+		name = rookie_mechanize_2_organiztion_fifth_2
+		icon = GFX_generic_mio_trait_icon_efficiency_cap
+		position = {
+			x = 5
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_first_1
+		}
+		production_bonus = {
+			production_efficiency_cap_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_second_1
+		name = rookie_mechanize_2_organiztion_second_1
+		icon = GFX_generic_mio_trait_icon_build_cost_ic
+		position = {
+			x = 0
+			y = 1
+		}
+		any_parent = {
+			rookie_mechanize_2_organiztion_first_1
+			rookie_mechanize_2_organiztion_first_2
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_second_2
+		name = rookie_mechanize_2_organiztion_second_2
+		icon = GFX_generic_mio_department_icon_facilities
+		position = {
+			x = 8
+			y = 1
+		}
+		any_parent = {
+			rookie_mechanize_2_organiztion_first_1
+			rookie_mechanize_2_organiztion_first_2
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_third_1
+		name = rookie_mechanize_2_organiztion_third_1
+		icon = GFX_generic_mio_trait_icon_defense
+		position = {
+			x = 1
+			y = 2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_third_2
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_second_1
+		}
+		equipment_bonus = {
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_third_2
+		name = rookie_mechanize_2_organiztion_third_2
+		icon = GFX_generic_mio_trait_icon_breakthrough
+		position = {
+			x = 3
+			y = 2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_third_1
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_second_1
+		}
+		equipment_bonus = {
+			breakthrough = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_third_3
+		name = rookie_mechanize_2_organiztion_third_3
+		icon = GFX_generic_mio_trait_icon_efficiency_gain
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_third_4
+		}
+		production_bonus = {
+			production_efficiency_gain_factor = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_third_4
+		name = rookie_mechanize_2_organiztion_third_4
+		icon = GFX_generic_mio_trait_icon_resources
+		position = {
+			x = 7
+			y = 2
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_mechanize_2_organiztion_third_3
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.2
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_fourth_1
+		name = rookie_mechanize_2_organiztion_fourth_1
+		icon = GFX_generic_mio_department_icon_mechanized_production
+		position = {
+			x = 2
+			y = 3
+		}
+		any_parent = {
+			rookie_mechanize_2_organiztion_third_1
+			rookie_mechanize_2_organiztion_third_2
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+			defense = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_fourth_2
+		name = rookie_mechanize_2_organiztion_fourth_2
+		icon = GFX_generic_mio_department_icon_motorized_production
+		position = {
+			x = 6
+			y = 3
+		}
+		any_parent = {
+			rookie_mechanize_2_organiztion_third_3
+			rookie_mechanize_2_organiztion_third_4
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_fifth_1
+		name = rookie_mechanize_2_organiztion_fifth_1
+		icon = GFX_generic_mio_trait_icon_hardness
+		position = {
+			x = 2
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_fourth_1
+		}
+		equipment_bonus = {
+			hardness = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_mechanize_2_organiztion_fifth_2
+		name = rookie_mechanize_2_organiztion_fifth_2
+		icon = GFX_generic_mio_trait_icon_reliability
+		position = {
+			x = 6
+			y = 4
+		}
+		all_parents = {
+			rookie_mechanize_2_organiztion_fourth_2
+		}
+		equipment_bonus = {
+			reliability = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_screen_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		screen_ship
+	}
+	research_categories = {
+		naval_equipment
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_screen_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_first_1
+		name = rookie_screen_1_organiztion_first_1
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_production
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 0
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_second_1
+		name = rookie_screen_1_organiztion_second_1
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 1
+			y = 1
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_first_1
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+			lg_armor_piercing = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_second_2
+		name = rookie_screen_1_organiztion_second_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 4
+			y = 1
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_first_1
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_second_3
+		name = rookie_screen_1_organiztion_second_3
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 7
+			y = 1
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_first_1
+		}
+		equipment_bonus = {
+			anti_air_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_1
+		name = rookie_screen_1_organiztion_third_1
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_1
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_2
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_2
+		name = rookie_screen_1_organiztion_third_2
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_offense
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_1
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_1
+		}
+		equipment_bonus = {
+			naval_light_gun_hit_chance_factor = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_3
+		name = rookie_screen_1_organiztion_third_3
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_engine
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_4
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+			naval_range = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_4
+		name = rookie_screen_1_organiztion_third_4
+		icon = GFX_generic_mio_trait_icon_sub_detection
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_3
+		}
+		equipment_bonus = {
+			surface_visibility = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_5
+		name = rookie_screen_1_organiztion_third_5
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_3
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_6
+		}
+		equipment_bonus = {
+			anti_air_attack = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_third_6
+		name = rookie_screen_1_organiztion_third_6
+		icon = GFX_generic_mio_trait_icon_naval_torpedo_damage_reduction_factor
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_second_3
+		}
+		mutually_exclusive = {
+			rookie_screen_1_organiztion_third_5
+		}
+		equipment_bonus = {
+			naval_torpedo_enemy_critical_chance_factor = -0.05
+			naval_torpedo_damage_reduction_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_fourth_1
+		name = rookie_screen_1_organiztion_fourth_1
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_screen_1_organiztion_third_1
+			rookie_screen_1_organiztion_third_2
+			rookie_screen_1_organiztion_third_3
+			rookie_screen_1_organiztion_third_4
+			rookie_screen_1_organiztion_third_5
+			rookie_screen_1_organiztion_third_6
+		}
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_fifth_1
+		name = rookie_screen_1_organiztion_fifth_1
+		icon = GFX_generic_mio_trait_icon_sub_attack
+		position = {
+			x = 1
+			y = 4
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_fourth_1
+		}
+		equipment_bonus = {
+			sub_detection = 0.1
+			sub_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_1_organiztion_fifth_2
+		name = rookie_screen_1_organiztion_fifth_2
+		icon = GFX_generic_mio_trait_icon_detection
+		position = {
+			x = 7
+			y = 4
+		}
+		all_parents = {
+			rookie_screen_1_organiztion_fourth_1
+		}
+		equipment_bonus = {
+			surface_detection = 0.05
+			patrol_coordination = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+}
+
+rookie_screen_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		screen_ship
+	}
+	research_categories = {
+		naval_equipment
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_screen_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_screen_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_first_1
+		name = rookie_screen_2_organiztion_first_1
+		icon = GFX_generic_mio_department_icon_ship_general_production
+		position = {
+			x = 0
+			y = 0
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_first_2
+		name = rookie_screen_2_organiztion_first_2
+		icon = GFX_generic_mio_department_icon_ship_general_engine
+		position = {
+			x = 8
+			y = 0
+		}
+		equipment_bonus = {
+			maximum_speed = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_second_1
+		name = rookie_screen_2_organiztion_second_1
+		icon = GFX_generic_mio_department_icon_ship_screen_ship_offense
+		position = {
+			x = 2
+			y = 1
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_first_1
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+			lg_armor_piercing = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_second_2
+		name = rookie_screen_2_organiztion_second_2
+		icon = GFX_generic_mio_trait_icon_sub_visibility
+		position = {
+			x = 6
+			y = 1
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_first_2
+		}
+		equipment_bonus = {
+			surface_detection = 0.05
+			sub_detection = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_third_1
+		name = rookie_screen_2_organiztion_third_1
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_second_1
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_third_2
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_third_2
+		name = rookie_screen_2_organiztion_third_2
+		icon = GFX_generic_mio_trait_icon_ap_attack
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_second_1
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_third_1
+		}
+		equipment_bonus = {
+			naval_light_gun_hit_chance_factor = 0.05
+			lg_armor_piercing = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_third_3
+		name = rookie_screen_2_organiztion_third_3
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_third_4
+		}
+		equipment_bonus = {
+			anti_air_attack = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_third_4
+		name = rookie_screen_2_organiztion_third_4
+		icon = GFX_generic_mio_trait_icon_sub_attack
+		position = {
+			x = 8
+			y = 2
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_second_2
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_third_3
+		}
+		equipment_bonus = {
+			sub_attack = 0.05
+			sub_detection = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_forth_1
+		name = rookie_screen_2_organiztion_forth_1
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 1
+			y = 3
+		}
+		any_parent = {
+			rookie_screen_2_organiztion_third_1
+			rookie_screen_2_organiztion_third_2
+		}
+		equipment_bonus = {
+			armor_value = 0.05
+			max_strength = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_forth_2
+		name = rookie_screen_2_organiztion_forth_2
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_forth_3
+		name = rookie_screen_2_organiztion_forth_3
+		icon = GFX_generic_mio_trait_icon_anti_air_attack
+		position = {
+			x = 7
+			y = 3
+		}
+		any_parent = {
+			rookie_screen_2_organiztion_third_3
+			rookie_screen_2_organiztion_third_4
+		}
+		equipment_bonus = {
+			anti_air_attack = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_fifth_1
+		name = rookie_screen_2_organiztion_fifth_1
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 3
+			y = 4
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_forth_2
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_fifth_2
+			rookie_screen_2_organiztion_fifth_3
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+			naval_light_gun_hit_chance_factor = 0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_fifth_2
+		name = rookie_screen_2_organiztion_fifth_2
+		icon = GFX_generic_mio_trait_icon_sub_detection
+		position = {
+			x = 4
+			y = 4
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_forth_2
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_fifth_1
+			rookie_screen_2_organiztion_fifth_3
+		}
+		equipment_bonus = {
+			surface_visibility = -0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_screen_2_organiztion_fifth_3
+		name = rookie_screen_2_organiztion_fifth_3
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 5
+			y = 4
+		}
+		all_parents = {
+			rookie_screen_2_organiztion_forth_2
+		}
+		mutually_exclusive = {
+			rookie_screen_2_organiztion_fifth_1
+			rookie_screen_2_organiztion_fifth_2
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+			naval_range = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+}
+
+rookie_capital_1_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		capital_ship
+		mio_cat_eq_all_carrier
+	}
+	research_categories = {
+		naval_equipment
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_capital_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_left_1
+		name = rookie_capital_1_organiztion_left_1
+		icon = GFX_generic_mio_department_icon_ship_carrier
+		position = {
+			x = 1
+			y = 0
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_left_2
+		name = rookie_capital_1_organiztion_left_2
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 0
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_left_1
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_left_3
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+			naval_range = 0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_left_3
+		name = rookie_capital_1_organiztion_left_3
+		icon = GFX_generic_mio_trait_icon_sub_detection
+		position = {
+			x = 2
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_left_1
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_left_2
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			surface_visibility = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_left_4
+		name = rookie_capital_1_organiztion_left_4
+		icon = GFX_generic_mio_department_icon_ship_carrier_production
+		position = {
+			x = 0
+			y = 4
+		}
+		any_parent = {
+			rookie_capital_1_organiztion_left_2
+			rookie_capital_1_organiztion_left_3
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_left_5
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_left_5
+		name = rookie_capital_1_organiztion_left_5
+		icon = GFX_generic_mio_department_icon_ship_carrier_materials
+		position = {
+			x = 2
+			y = 4
+		}
+		any_parent = {
+			rookie_capital_1_organiztion_left_2
+			rookie_capital_1_organiztion_left_3
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_left_4
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.15
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_medium_1
+		name = rookie_capital_1_organiztion_medium_1
+		icon = GFX_generic_mio_department_icon_ship_general_production
+		position = {
+			x = 4
+			y = 0
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_medium_2
+		name = rookie_capital_1_organiztion_medium_2
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 3
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_medium_3
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+			military_industrial_organization_funds_gain = 0.05
+			military_industrial_organization_size_up_requirement = -0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_medium_3
+		name = rookie_capital_1_organiztion_medium_3
+		icon = GFX_generic_mio_department_icon_facilities
+		special_trait_background = yes
+		position = {
+			x = 5
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_medium_1
+		}
+		mutually_exclusive = {
+			rookie_capital_1_organiztion_medium_2
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.05
+			military_industrial_organization_funds_gain = 0.15
+			military_industrial_organization_size_up_requirement = -0.15
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_1
+		name = rookie_capital_1_organiztion_right_1
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		position = {
+			x = 7
+			y = 0
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			hg_attack = 0.05
+			hg_armor_piercing = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_2
+		name = rookie_capital_1_organiztion_right_2
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 8
+			y = 0
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+			lg_armor_piercing = 0.05
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_3
+		name = rookie_capital_1_organiztion_right_3
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = {
+			x = 6
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_right_1
+			rookie_capital_1_organiztion_right_2
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_4
+		name = rookie_capital_1_organiztion_right_4
+		icon = GFX_generic_mio_trait_icon_armor_value
+		position = {
+			x = 9
+			y = 2
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_right_1
+			rookie_capital_1_organiztion_right_2
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_5
+		name = rookie_capital_1_organiztion_right_5
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_offense
+		position = {
+			x = 7
+			y = 4
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_right_3
+			rookie_capital_1_organiztion_right_4
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			naval_heavy_gun_hit_chance_factor = 0.1
+		}
+	}
+	trait = {
+		token = rookie_capital_1_organiztion_right_6
+		name = rookie_capital_1_organiztion_right_6
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_materials
+		position = {
+			x = 8
+			y = 4
+		}
+		all_parents = {
+			rookie_capital_1_organiztion_right_3
+			rookie_capital_1_organiztion_right_4
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.15
+		}
+	}
+}
+
+rookie_capital_2_organiztion = {
+	icon = GFX_idea_generic_tank_manufacturer_2
+	allowed = {
+		always = no
+	}
+	equipment_type = {
+		capital_ship
+		mio_cat_eq_all_carrier
+	}
+	research_categories = {
+		naval_equipment
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_1
+		x = 1
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_2
+		x = 4
+	}
+	tree_header_text = {
+		text = rookie_capital_1_organiztion_header_3
+		x = 7
+	}
+	initial_trait = {
+		name = rookie_capital_1_organiztion_initial_trait
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.15
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_left_1
+		name = rookie_capital_2_organiztion_left_1
+		icon = GFX_generic_mio_department_icon_ship_carrier_production
+		position = {
+			x = 0
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_left_2
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			build_cost_ic = -0.05
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_left_2
+		name = rookie_capital_2_organiztion_left_2
+		icon = GFX_generic_mio_department_icon_ship_carrier_engine
+		position = {
+			x = 2
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_left_1
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_left_3
+		name = rookie_capital_2_organiztion_left_3
+		icon = GFX_generic_mio_department_icon_ship_carrier
+		position = {
+			x = 1
+			y = 2
+		}
+		any_parent = {
+			rookie_capital_2_organiztion_left_1
+			rookie_capital_2_organiztion_left_2
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_left_4
+		name = rookie_capital_2_organiztion_left_4
+		icon = GFX_generic_mio_department_icon_ship_carrier_utility
+		position = {
+			x = 2
+			y = 3
+		}
+		all_parents = {
+			rookie_capital_2_organiztion_left_3
+		}
+		limit_to_equipment_type = {
+			mio_cat_eq_all_carrier
+		}
+		equipment_bonus = {
+			carrier_size = 1
+		}
+		ai_will_do = {
+			base = 10
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_medium_1
+		name = rookie_capital_2_organiztion_medium_1
+		icon = GFX_generic_mio_department_icon_ship_general_production
+		position = {
+			x = 3
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_medium_2
+		}
+		production_bonus = {
+			production_cost_factor = -0.05
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_medium_2
+		name = rookie_capital_2_organiztion_medium_2
+		icon = GFX_generic_mio_department_icon_ship_general_materials
+		position = {
+			x = 5
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_medium_1
+		}
+		production_bonus = {
+			production_resource_need_factor = -0.15
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_medium_3
+		name = rookie_capital_2_organiztion_medium_3
+		icon = GFX_generic_mio_department_icon_ship_general_engine
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 3
+		}
+		any_parent = {
+			rookie_capital_2_organiztion_medium_1
+			rookie_capital_2_organiztion_medium_2
+		}
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+			military_industrial_organization_funds_gain = 0.1
+			military_industrial_organization_size_up_requirement = -0.1
+		}
+		ai_will_do = {
+			base = 100
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_medium_4
+		name = rookie_capital_2_organiztion_medium_4
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_quality
+		special_trait_background = yes
+		position = {
+			x = 4
+			y = 4
+		}
+		all_parents = {
+			rookie_capital_2_organiztion_left_4
+			rookie_capital_2_organiztion_medium_3
+			rookie_capital_2_organiztion_right_4
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			naval_heavy_gun_hit_chance_factor = 0.1
+			armor_value = 0.05
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_right_1
+		name = rookie_capital_2_organiztion_right_1
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_armor
+		position = {
+			x = 6
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_right_2
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			armor_value = 0.1
+		}
+		ai_will_do = {
+			base = 25
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_right_2
+		name = rookie_capital_2_organiztion_right_2
+		icon = GFX_generic_mio_department_icon_ship_capital_ship_utility
+		position = {
+			x = 8
+			y = 0
+		}
+		mutually_exclusive = {
+			rookie_capital_2_organiztion_right_1
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			max_strength = 0.1
+		}
+		ai_will_do = {
+			base = 0
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_right_3
+		name = rookie_capital_2_organiztion_right_3
+		icon = GFX_generic_mio_trait_icon_hg_attack
+		position = {
+			x = 7
+			y = 2
+		}
+		any_parent = {
+			rookie_capital_2_organiztion_right_1
+			rookie_capital_2_organiztion_right_2
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			hg_attack = 0.05
+			naval_heavy_gun_hit_chance_factor = 0.05
+		}
+	}
+	trait = {
+		token = rookie_capital_2_organiztion_right_4
+		name = rookie_capital_2_organiztion_right_4
+		icon = GFX_generic_mio_trait_icon_lg_attack
+		position = {
+			x = 6
+			y = 3
+		}
+		all_parents = {
+			rookie_capital_2_organiztion_right_3
+		}
+		limit_to_equipment_type = {
+			capital_ship
+		}
+		equipment_bonus = {
+			lg_attack = 0.05
+			naval_light_gun_hit_chance_factor = 0.05
+		}
+	}
+}
+
+rookie_submarine_organiztion = {
+	icon = GFX_idea_generic_naval_manufacturer_1
+	allowed = {
+		always = no		# Archetype only - countries using it have their own verisons
+	}
+	equipment_type = {
+		ship_hull_submarine
+	}
+	research_categories = {
+		mio_cat_tech_all_submarine_and_modules
+	}
+	tree_header_text = {
+		text = mio_header_stealth_focus
+		x = 2
+	}
+	tree_header_text = {
+		text = mio_header_supremacy_focus
+		x = 5
+	}
+	initial_trait = {
+		name = generic_mio_initial_trait_submarine_designer
+		organization_modifier = {
+			military_industrial_organization_research_bonus = 0.1
+		}
+	}
+	trait = {
+		token = generic_mio_trait_long_range_raiding
+		name = generic_mio_trait_long_range_raiding
+		icon = GFX_generic_mio_trait_icon_sub_visibility
+		position = {
+			x = 2
+			y = 0
+		}
+		equipment_bonus = {
+			sub_visibility = -0.05
+			naval_range = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_decalin_fueled_torpedo
+		name = generic_mio_trait_decalin_fueled_torpedo
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = {
+			x = 3
+			y = 0
+		}
+		relative_position_id = generic_mio_trait_long_range_raiding
+		equipment_bonus = {
+			torpedo_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_efficient_fuel_engines
+		name = generic_mio_trait_efficient_fuel_engines
+		icon = GFX_generic_mio_trait_icon_naval_range
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_long_range_raiding
+		all_parents = {
+			generic_mio_trait_long_range_raiding
+		}
+		equipment_bonus = {
+			naval_range = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+		name = generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+		icon = GFX_generic_mio_trait_icon_naval_range
+		position = {
+			x = 0
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_efficient_fuel_engines
+		any_parent = {
+			generic_mio_trait_high_powered_engines
+			generic_mio_trait_efficient_fuel_engines
+		}
+		mutually_exclusive = {
+			generic_mio_trait_open_cycle_propulsion
+		}
+		equipment_bonus = {
+			naval_range = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_high_powered_engines
+		name = generic_mio_trait_high_powered_engines
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = -1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_decalin_fueled_torpedo
+		all_parents = {
+			generic_mio_trait_decalin_fueled_torpedo
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_open_cycle_propulsion
+		name = generic_mio_trait_open_cycle_propulsion
+		icon = GFX_generic_mio_trait_icon_maximum_speed
+		position = {
+			x = 0
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_high_powered_engines
+		any_parent = {
+			generic_mio_trait_high_powered_engines
+			generic_mio_trait_efficient_fuel_engines
+		}
+		mutually_exclusive = {
+			generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+		}
+		equipment_bonus = {
+			naval_speed = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_experimental_anechoic_tiles
+		name = generic_mio_trait_experimental_anechoic_tiles
+		icon = GFX_generic_mio_department_icon_ship_submarine_survivability
+		position = {
+			x = 0
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+		any_parent = {
+			generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+			generic_mio_trait_open_cycle_propulsion
+		}
+		production_bonus = {
+			production_cost_factor = 0.1
+		}
+		equipment_bonus = {
+			surface_visibility = -0.05
+			sub_visibility = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_improved_torpedo_detonators
+		name = generic_mio_trait_improved_torpedo_detonators
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = {
+			x = 0
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_open_cycle_propulsion
+		any_parent = {
+			generic_mio_trait_highly_efficient_diesel_electric_propulsion_systems
+			generic_mio_trait_open_cycle_propulsion
+		}
+		equipment_bonus = {
+			torpedo_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_simplified_pressure_hull_design
+		name = generic_mio_trait_simplified_pressure_hull_design
+		icon = GFX_generic_mio_department_icon_ship_submarine_production
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_experimental_anechoic_tiles
+		all_parents = {
+			generic_mio_trait_experimental_anechoic_tiles
+			generic_mio_trait_improved_torpedo_detonators
+		}
+		special_trait_background = yes
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+		equipment_bonus = {
+			sub_visibility = -0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_periscope
+		name = generic_mio_trait_advanced_periscope
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		position = {
+			x = -1
+			y = 2
+		}
+		relative_position_id = generic_mio_trait_long_range_raiding
+		all_parents = {
+			generic_mio_trait_long_range_raiding
+		}
+		equipment_bonus = {
+			surface_detection = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_emergency_main_ballast_tank_blow
+		name = generic_mio_trait_emergency_main_ballast_tank_blow
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = {
+			x = -1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_advanced_periscope
+		all_parents = {
+			generic_mio_trait_advanced_periscope
+		}
+		equipment_bonus = {
+			max_strength = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_radar_warning_receiver
+		name = generic_mio_trait_radar_warning_receiver
+		icon = GFX_generic_mio_trait_icon_sub_visibility
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_advanced_periscope
+		all_parents = {
+			generic_mio_trait_advanced_periscope
+		}
+		equipment_bonus = {
+			surface_detection = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_crash_dive_flood_tanks
+		name = generic_mio_trait_crash_dive_flood_tanks
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_emergency_main_ballast_tank_blow
+		all_parents = {
+			generic_mio_trait_emergency_main_ballast_tank_blow
+			generic_mio_trait_radar_warning_receiver
+		}
+		equipment_bonus = {
+			max_strength = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_submarine_mass_production
+		name = generic_mio_trait_submarine_mass_production
+		icon = GFX_generic_mio_department_icon_ship_submarine_production
+		position = {
+			x = 0
+			y = 2
+		}
+		relative_position_id = generic_mio_trait_decalin_fueled_torpedo
+		all_parents = {
+			generic_mio_trait_decalin_fueled_torpedo
+		}
+		production_bonus = {
+			production_capacity_factor = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_advanced_sonar
+		name = generic_mio_trait_advanced_sonar
+		icon = GFX_generic_mio_trait_icon_surface_detection
+		position = {
+			x = 2
+			y = 0
+		}
+		relative_position_id = generic_mio_trait_submarine_mass_production
+		all_parents = {
+			generic_mio_trait_decalin_fueled_torpedo
+		}
+		limit_to_equipment_type = {
+			ship_hull_submarine
+		}
+		equipment_bonus = {
+			surface_detection = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_deck_guns
+		name = generic_mio_trait_deck_guns
+		icon = GFX_generic_mio_trait_icon_max_strength
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_submarine_mass_production
+		all_parents = {
+			generic_mio_trait_submarine_mass_production
+			generic_mio_trait_advanced_sonar
+		}
+		equipment_bonus = {
+			max_strength = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_large_torpedo_banks
+		name = generic_mio_trait_large_torpedo_banks
+		icon = GFX_generic_mio_trait_icon_torpedo_attack
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_advanced_sonar
+		all_parents = {
+			generic_mio_trait_advanced_sonar
+		}
+		equipment_bonus = {
+			torpedo_attack = 0.05
+		}
+	}
+	trait = {
+		token = generic_mio_trait_high_capacity_mine_storage
+		name = generic_mio_trait_high_capacity_mine_storage
+		icon = GFX_generic_mio_trait_icon_mines
+		position = {
+			x = 1
+			y = 1
+		}
+		relative_position_id = generic_mio_trait_deck_guns
+		any_parent = {
+			generic_mio_trait_deck_guns
+			generic_mio_trait_large_torpedo_banks
+		}
+		visible = {
+			has_dlc = "Man the Guns"
+		}
+		equipment_bonus = {
+			mines_planting = 0.5
+		}
+	}
+}
+
+#-------------------------------- by rookie 904--------------------------------#

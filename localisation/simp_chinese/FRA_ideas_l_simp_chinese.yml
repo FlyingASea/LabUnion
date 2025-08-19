@@ -1,5 +1,6 @@
 ﻿l_simp_chinese:
- FRA_revolution_modifier:0 "多里奥革命"
+ FRA_world_modifier:0 "法国世界政策"
+ FRA_world_modifier_tt:0 "§Y法国世界政策§!追加："
 
 
  FRA_four_year_plan_modifier:0 "法兰西国四年计划"
@@ -14,6 +15,9 @@
  FRA_Slave_Labor4:0 "管控与自由的法团主义经济"
  FRA_Slave_Labor5:0 "完善的经济市场"
  FRA_Slave_Labor6:0 "经济奇迹"
+ FRA_heal_the_wounds_idea:0 "抚平创伤"
+ FRA_win_the_great_depression_idea:0 "战胜大萧条"
+ FRA_improve_stability_weekly_tt:0 "暂时将大萧条中的§R每周稳定度§!扣减设置为§Y0§!"
 
 
  FRA_cdg_plan_modifier:0 "戴高乐陆军改革计划"
@@ -28,8 +32,18 @@
 
  FRA_darlan_plan_modifier:0 "达尔朗海军改革计划"
  FRA_darlan_plan_modifier_tt:0 "§Y达尔朗海军改革计划§!获得："
-
+ fra_heavy_destroyers:0 "法式重型驱逐舰"
+ fra_heavy_destroyers_tt:0 "效果为：\n§Y所有驱逐舰§!：\n生产花费：§R+3%§!\n轻攻击穿甲深度：§G+10%§!\n轻型火炮攻击：§G+10%§!"
+ FRA_Navy_Reform_idea:0 "海军改革"
+ FRA_Cut_Off_lifeline_idea:0 "截断生命线"
+ FRA_restore_naval_glory_idea:0 "重建海军荣耀"
 
  FRA_air_force_modifier:0 "冉冉升起的新生空军"
  FRA_air_force_modifier_tt:0 "§Y法国空军改革计划§!获得："
-
+ fra_long_range_fighter_tech:0 "长航程战斗机技术"
+ fra_long_range_fighter_tech_tt:0 "效果为：\n§Y所有战斗机§!：\n生产花费：§R+2%§!\n航程：§G+15%§! \n§Y所有近距支援机§!：\n生产花费：§R+2%§!\n航程：§G+15%§!"
+ FRA_Developing_fighters_idea:0 "发展战斗机"
+ FRA_Developing_bombers_idea:0 "发展轰炸机"
+ FRA_Air_Reform_idea:0 "空军改革"
+ FRA_anti_air_positions_idea:0 "改善防空力量"
+ FRA_Large_scale_aircraft_production_idea:0 "飞机生产集团"

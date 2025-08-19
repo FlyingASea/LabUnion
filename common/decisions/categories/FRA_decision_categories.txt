@@ -1,0 +1,62 @@
+FRA_GONGYE = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_Industrial_Recovery
+		}
+	}
+}
+
+FRA_Great_Depression_Recovery_decision = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		OR = {
+			has_dynamic_modifier = {
+				modifier = FRA_great_depression_recovery_modifier
+			}
+			is_debug = yes
+		}
+	}
+	priority = 2000
+}
+
+FRA_LUJUN = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_address_The_Army
+		}
+	}
+}
+
+FRA_HAIJUN = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_address_The_Navy
+		}
+	}
+}
+
+FRA_KONGJUN = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_address_The_Air
+		}
+	}
+}

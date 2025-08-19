@@ -206,6 +206,7 @@ focus_tree = {
 			add_ideas = FRA_wake_men_idea
 		}
 	}
+	# 老大哥在看着你
 	focus = {
 		id = FRA_Big_Brother_watching_you
 		icon = GFX_goal_unknown
@@ -220,6 +221,7 @@ focus_tree = {
 		}
 		relative_position_id = FRA_Night_of_the_Long_Knives
 	}
+	# 纯洁法兰西
 	focus = {
 		id = FRA_Pure_France
 		icon = GFX_goal_unknown
@@ -235,6 +237,7 @@ focus_tree = {
 		}
 		relative_position_id = FRA_Kristallnacht
 	}
+	# 法兰西革命之父
 	focus = {
 		id = FRA_Father_of_the_French_Revolution
 		icon = GFX_goal_unknown
@@ -1880,38 +1883,537 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Look_The_World"
+			add_political_power = 50
 			custom_effect_tooltip = tooltip_white_line
-			custom_effect_tooltip = FRA_great_depression_recovery_modifier_tt
-			add_to_variable = {
-				FRA_great_depression_production_speed_infrastructure_factor = 0.05
-				tooltip = production_speed_infrastructure_factor_tt
+			add_dynamic_modifier = {
+				modifier = FRA_world_modifier
 			}
 			add_to_variable = {
-				FRA_great_depression_production_speed_industrial_complex_factor = 0.05
-				tooltip = production_speed_industrial_complex_factor_tt
-			}
-			custom_effect_tooltip = tooltip_white_line
-			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
-			add_to_variable = {
-				FRA_four_year_plan_production_speed_infrastructure_factor = 0.05
-				tooltip = production_speed_infrastructure_factor_tt
-			}
-			add_to_variable = {
-				FRA_four_year_plan_production_speed_dockyard_factor = 0.05
-				tooltip = production_speed_dockyard_factor_tt
+				FRA_revolution_operative_slot = 1
+				tooltip = operative_slot_tt
 			}
 		}
 	}
+	# 望向美洲 ####################################################################
 	focus = {
-		id = FRA_Look_The_Asian
+		id = FRA_Look_The_America
 		icon = GFX_goal_unknown
 		cost = 5
-		x = 6
+		x = -6
 		y = 1
 		prerequisite = {
 			focus = FRA_Look_The_World
 		}
 		relative_position_id = FRA_Look_The_World
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Look_The_America"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_world_modifier_tt
+			add_to_variable = {
+				FRA_revolution_agency_upgrade_time = -0.15
+				tooltip = agency_upgrade_time_tt
+			}
+			add_to_variable = {
+				FRA_revolution_civilian_intel_factor = 0.1
+				tooltip = civilian_intel_factor_tt
+			}
+		}
+	}
+	# 与秘鲁的工业合作
+	focus = {
+		id = FRA_Collaboration_With_Peru
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Look_The_America"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_Collaboration_With_Peru_tt
+		}
+	}
+	# 与美国的贸易
+	focus = {
+		id = FRA_Trade_With_USA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Look_The_America"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_Trade_With_USA_tt
+		}
+	}
+	# 与委内瑞拉的贸易
+	focus = {
+		id = FRA_Trade_With_Venezuela
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_America
+		}
+		relative_position_id = FRA_Look_The_America
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Trade_With_Venezuela"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_Trade_With_Venezuela_tt
+		}
+	}
+	# 干涉北美
+	focus = {
+		id = FRA_Influence_Northern_America
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+			focus = FRA_Collaboration_With_Peru
+			focus = FRA_Trade_With_Venezuela
+		}
+		relative_position_id = FRA_Collaboration_With_Peru
+		available = {
+			has_global_flag = USA_Civil_War_beginning
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Trade_With_Venezuela"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
+	}
+	# 干涉南美
+	focus = {
+		id = FRA_Influence_Southern_America
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Collaboration_With_Peru
+			focus = FRA_Trade_With_USA
+			focus = FRA_Trade_With_Venezuela
+		}
+		relative_position_id = FRA_Trade_With_Venezuela
+		available = {
+			has_global_flag = South_American_began_fighting
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Trade_With_Venezuela"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
+	}
+	# 恢复与美国的贸易
+	focus = {
+		id = FRA_Restore_Trade_With_USA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+			focus = FRA_Influence_Northern_America
+			focus = FRA_Influence_Southern_America
+		}
+		prerequisite = {
+			focus = FRA_Trade_With_USA
+		}
+		relative_position_id = FRA_Trade_With_USA
+		available = {
+			has_global_flag = USA_Civil_War_End
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Restore_Trade_With_USA"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
+	}
+	# 欧洲事务 ####################################################################
+	focus = {
+		id = FRA_Influence_Europe
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	# 干涉西班牙
+	focus = {
+		id = FRA_Intervention_Spain
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	# 先发制人
+	focus = {
+		id = FRA_Preemptive_Strike_Ger
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	# 与苏联接触
+	focus = {
+		id = FRA_Contact_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_Europe
+		}
+		relative_position_id = FRA_Influence_Europe
+	}
+	# 干涉意大利
+	focus = {
+		id = FRA_Influence_ITA
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Intervention_Spain
+			focus = FRA_Preemptive_Strike_Ger
+		}
+		prerequisite = {
+			focus = FRA_Intervention_Spain
+		}
+		relative_position_id = FRA_Intervention_Spain
+	}
+	# 制定低地国家入侵方案
+	focus = {
+		id = FRA_Operational_Plan_For_Low_Countries
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Intervention_Spain
+			focus = FRA_Preemptive_Strike_Ger
+			focus = FRA_Contact_With_SOV
+		}
+		relative_position_id = FRA_Preemptive_Strike_Ger
+	}
+	# 与苏联签订条约
+	focus = {
+		id = FRA_Treaty_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Contact_With_SOV
+			focus = FRA_Preemptive_Strike_Ger
+		}
+		prerequisite = {
+			focus = FRA_Contact_With_SOV
+		}
+		relative_position_id = FRA_Contact_With_SOV
+	}
+	# 巴尔干博弈
+	focus = {
+		id = FRA_Game_Balkans
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_ITA
+			focus = FRA_Operational_Plan_For_Low_Countries
+			focus = FRA_Treaty_With_SOV
+		}
+		prerequisite = {
+			focus = FRA_Influence_ITA
+		}
+		relative_position_id = FRA_Influence_ITA
+	}
+	# 洗刷二十年屈辱
+	focus = {
+		id = FRA_Revenge_For_Twenty_Years_Humiliation
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Influence_ITA
+			focus = FRA_Operational_Plan_For_Low_Countries
+			focus = FRA_Treaty_With_SOV
+		}
+		relative_position_id = FRA_Operational_Plan_For_Low_Countries
+	}
+	# 法苏结盟条约
+	focus = {
+		id = FRA_Temporary_Alliance_With_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Treaty_With_SOV
+		}
+		relative_position_id = FRA_Treaty_With_SOV
+	}
+	# 向着新欧洲前进
+	focus = {
+		id = FRA_Towards_A_New_Europe
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Revenge_For_Twenty_Years_Humiliation
+		}
+		relative_position_id = FRA_Revenge_For_Twenty_Years_Humiliation
+	}
+	# 法兰西帝国的新生
+	focus = {
+		id = FRA_Rebirth_Of_France
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	# 整合阿尔及利亚
+	focus = {
+		id = FRA_Union_Algeria
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	# 接收殖民地
+	focus = {
+		id = FRA_Taking_Over_Colonies
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Towards_A_New_Europe
+		}
+		relative_position_id = FRA_Towards_A_New_Europe
+	}
+	# 红黑阋墙
+	focus = {
+		id = FRA_Turning_Against_SOV
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Rebirth_Of_France
+		}
+		prerequisite = {
+			focus = FRA_Union_Algeria
+		}
+		prerequisite = {
+			focus = FRA_Taking_Over_Colonies
+		}
+		relative_position_id = FRA_Rebirth_Of_France
+	}
+	# 重建殖民帝国
+	focus = {
+		id = FRA_Restoring_Colonial_Empire
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_Algeria
+		}
+		prerequisite = {
+			focus = FRA_Taking_Over_Colonies
+		}
+		prerequisite = {
+			focus = FRA_Rebirth_Of_France
+		}
+		relative_position_id = FRA_Taking_Over_Colonies
+	}
+	# 扑灭红色火焰
+	focus = {
+		id = FRA_Extinguish_The_Flame
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Turning_Against_SOV
+		}
+		prerequisite = {
+			focus = FRA_Restoring_Colonial_Empire
+		}
+		relative_position_id = FRA_Union_Algeria
+	}
+	# 吞并线 ####################################################################
+	# 结束耻辱
+	focus = {
+		id = FRA_End_The_Shame
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	# 重归一统
+	focus = {
+		id = FRA_Reunification
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_End_The_Shame
+		}
+		relative_position_id = FRA_End_The_Shame
+	}
+	# 吞并摩洛哥王国
+	focus = {
+		id = FRA_Annex_Morocco
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Reunification
+		}
+		relative_position_id = FRA_Reunification
+	}
+	# 提议与西班牙的合并
+	focus = {
+		id = FRA_Propose_Union_With_Spain
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Annex_Morocco
+		}
+		relative_position_id = FRA_Annex_Morocco
+	}
+	# 望向亚洲 ####################################################################
+	focus = {
+		id = FRA_Look_The_Asian
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 7
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_World
+		}
+		relative_position_id = FRA_Look_The_World
+	}
+	# 中国博弈
+	focus = {
+		id = FRA_Game_Chinese
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	# 新友
+	focus = {
+		id = FRA_New_Friends
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		mutually_exclusive = {
+			focus = FRA_Old_Enemys
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	# 旧敌
+	focus = {
+		id = FRA_Old_Enemys
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 4
+		y = 1
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		mutually_exclusive = {
+			focus = FRA_New_Friends
+		}
+		relative_position_id = FRA_Look_The_Asian
+	}
+	# 印度洋伙伴关系
+	focus = {
+		id = FRA_Indian_Ocean_Coalition
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Look_The_Asian
+		}
+		relative_position_id = FRA_Look_The_Asian
 	}
 	# 空军改革线  ####################################################################
 	focus = {
@@ -1967,13 +2469,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Developing_fighters"
-			air_experience = 50
 			add_tech_bonus = {
 				name = FRA_Developing_fighters
 				bonus = 1
 				uses = 2
 				category = light_fighter
 				category = cat_heavy_fighter
+			}
+			add_tech_bonus = {
+				name = FRA_Developing_fighters
+				bonus = 0.5
+				uses = 2
+				category = cat_air_guns
+				category = cat_air_engine
 			}
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = FRA_Developing_fighters_idea
@@ -1999,13 +2507,19 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_address_The_Air"
-			air_experience = 50
 			add_tech_bonus = {
 				name = FRA_Developing_bombers
 				bonus = 1
 				uses = 2
 				category = cat_strategic_bomber
 				category = cas_bomber
+			}
+			add_tech_bonus = {
+				name = FRA_Developing_fighters
+				bonus = 0.5
+				uses = 2
+				category = cat_air_bombs
+				category = cat_air_engine
 			}
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = FRA_Developing_bombers_idea
@@ -2104,10 +2618,11 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_electromagnetic_detection"
+			log = "[GetLogRoot]: Focus Completed FRA_Long_Range_fighter"
 			set_technology = {
-				range_improvements = 1
+				fra_long_range_fighter_tech = 1
 			}
+			custom_effect_tooltip = fra_long_range_fighter_tech_tt
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_air_force_modifier_tt
 			add_to_variable = {
@@ -2131,6 +2646,27 @@ focus_tree = {
 			focus = FRA_Air_Coordination_center
 		}
 		relative_position_id = FRA_Air_Coordination_center
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Aviation_School"
+			air_experience = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_air_ace_generation_chance_factor = 0.05
+				tooltip = air_ace_generation_chance_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_agility_factor = 0.05
+				tooltip = air_agility_factor_tt
+			}
+		}
 	}
 	# 海军轰炸机
 	focus = {
@@ -2145,6 +2681,32 @@ focus_tree = {
 			focus = FRA_Long_Range_fighter
 		}
 		relative_position_id = FRA_electromagnetic_detection
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_naval_bombings"
+			add_tech_bonus = {
+				name = FRA_naval_bombings
+				bonus = 0.5
+				uses = 2
+				category = mio_cat_all_naval_bomber_and_modules
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_air_nav_efficiency = 0.05
+				tooltip = air_nav_efficiency_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_strategic_bomber_bombing_factor = 0.05
+				tooltip = air_strategic_bomber_bombing_factor_tt
+			}
+		}
 	}
 	# 建立防空阵地
 	focus = {
@@ -2159,6 +2721,24 @@ focus_tree = {
 			focus = FRA_Long_Range_fighter
 		}
 		relative_position_id = FRA_electromagnetic_detection
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_naval_bombings"
+			add_tech_bonus = {
+				name = FRA_anti_air_positions
+				bonus = 0.5
+				uses = 2
+				category = cat_anti_air
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_anti_air_positions_idea
+		}
 	}
 	# 战斗中队
 	focus = {
@@ -2171,6 +2751,32 @@ focus_tree = {
 			focus = FRA_Long_Range_fighter
 		}
 		relative_position_id = FRA_Long_Range_fighter
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_naval_bombings"
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+				name = FRA_combat_squadron
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_air_attack_factor = 0.05
+				tooltip = air_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_defence_factor = 0.05
+				tooltip = air_defence_factor_tt
+			}
+		}
 	}
 	# 大规模飞机生产
 	focus = {
@@ -2186,6 +2792,17 @@ focus_tree = {
 			focus = FRA_combat_squadron
 		}
 		relative_position_id = FRA_naval_bombings
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_naval_bombings"
+			add_ideas = FRA_Large_scale_aircraft_production_idea
+		}
 	}
 	# 飞行员专业化
 	focus = {
@@ -2201,6 +2818,43 @@ focus_tree = {
 			focus = FRA_combat_squadron
 		}
 		relative_position_id = FRA_anti_air_positions
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_naval_bombings"
+			if = {
+				limit = {
+					NOT = {
+						has_tech = experimental_rockets
+					}
+				}
+				set_technology = {
+					experimental_rockets = 1
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					bonus = 1
+					uses = 1
+					category = air_equipment
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_air_weather_penalty = -0.05
+				tooltip = air_weather_penalty_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_mission_efficiency = 0.05
+				tooltip = air_mission_efficiency_tt
+			}
+		}
 	}
 	# 发展火箭技术
 	focus = {
@@ -2213,6 +2867,24 @@ focus_tree = {
 			focus = FRA_Large_scale_aircraft_production
 		}
 		relative_position_id = FRA_Large_scale_aircraft_production
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_developing_rockets"
+			add_tech_bonus = {
+				name = FRA_developing_rockets
+				bonus = 1
+				ahead_reduction = 1
+				uses = 2
+				category = rocketry
+				category = air_equipment
+			}
+		}
 	}
 	# 法兰西雄鹰展翅翱翔
 	focus = {
@@ -2225,6 +2897,33 @@ focus_tree = {
 			focus = FRA_Pilot_specialization
 		}
 		relative_position_id = FRA_Pilot_specialization
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1940.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_The_eagle_soars"
+			custom_effect_tooltip = FRA_air_force_modifier_tt
+			add_to_variable = {
+				FRA_air_force_ground_attack_factor = 0.05
+				tooltip = ground_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_attack_factor = 0.05
+				tooltip = air_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_defence_factor = 0.05
+				tooltip = air_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_air_force_air_agility_factor = 0.05
+				tooltip = air_agility_factor_tt
+			}
+		}
 	}
 	# 海军改革线  ####################################################################
 	focus = {
@@ -2233,6 +2932,477 @@ focus_tree = {
 		cost = 5
 		x = 28
 		y = 8
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+		}
+	}
+	# 达尔朗计划被采用
+	focus = {
+		id = FRA_Darian_Plan_Chosen
+		icon = GFX_goal_unknown
+		cost = 7
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_address_The_Navy
+		}
+		relative_position_id = FRA_address_The_Navy
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Darian_Plan_Chosen"
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			navy_experience = 50
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_Navy_Reform_idea
+			custom_effect_tooltip = tooltip_white_line
+			add_dynamic_modifier = {
+				modifier = FRA_darlan_plan_modifier
+			}
+			add_to_variable = {
+				FRA_darlan_plan_experience_gain_navy_factor = 0.1
+				tooltip = experience_gain_navy_factor_tt
+			}
+		}
+	}
+	# 建设世界一流海军
+	focus = {
+		id = FRA_construct_A_World_Class_navy
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Darian_Plan_Chosen
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_tech_bonus = {
+				name = FRA_construct_A_World_Class_navy
+				bonus = 1
+				uses = 2
+				category = mio_cat_tech_all_submarine_and_modules
+				category = mio_cat_tech_all_destroyer_and_modules
+				category = mio_cat_tech_all_cruiser_and_modules
+				category = mio_cat_tech_all_carrier_and_modules
+				category = mio_cat_tech_all_capital_ship_and_modules
+			}
+		}
+	}
+	# 重建海军工厂
+	focus = {
+		id = FRA_restore_naval
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Darian_Plan_Chosen
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_restore_naval_glory_idea
+		}
+	}
+	# 旧想法
+	focus = {
+		id = FRA_old_doctrine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_construct_A_World_Class_navy
+		}
+		mutually_exclusive = {
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_construct_A_World_Class_navy
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_repair_speed_factor = 0.1
+				tooltip = repair_speed_factor_tt
+			}
+		}
+	}
+	# 新思路
+	focus = {
+		id = FRA_new_doctrine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_restore_naval
+		}
+		mutually_exclusive = {
+			focus = FRA_old_doctrine
+		}
+		relative_position_id = FRA_restore_naval
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_refit_speed = 0.1
+				tooltip = refit_speed_tt
+			}
+		}
+	}
+	# 重型驱逐舰
+	focus = {
+		id = FRA_destroyers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -4
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = mio_cat_tech_all_destroyer_and_modules
+			}
+			navy_experience = 50
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
+			custom_effect_tooltip = tooltip_white_line
+			set_technology = {
+				fra_heavy_destroyers = 1
+			}
+			custom_effect_tooltip = fra_heavy_destroyers_tt
+		}
+	}
+	# 巡洋舰
+	focus = {
+		id = FRA_cruisers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -2
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = mio_cat_tech_all_cruiser_and_modules
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_navy_screen_attack_factor = 0.1
+				tooltip = navy_screen_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_navy_screen_defence_factor = 0.1
+				tooltip = navy_screen_defence_factor_tt
+			}
+		}
+	}
+	# 重型战列舰
+	focus = {
+		id = FRA_heavy_battleship
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			navy_experience = 30
+			if = {
+				limit = {
+					NOT = {
+						has_tech = heavy_battleship
+					}
+				}
+				set_technology = {
+					heavy_battleship = 1
+				}
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_naval_damage_factor = 0.05
+				tooltip = naval_damage_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_naval_defense_factor = 0.05
+				tooltip = naval_defense_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_naval_speed_factor = 0.05
+				tooltip = naval_speed_factor_tt
+			}
+		}
+	}
+	# 航空母舰
+	focus = {
+		id = FRA_Air_carriers
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_one_random_dockyard = yes
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = mio_cat_tech_all_carrier_and_modules
+				category = naval_armor
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_navy_carrier_air_attack_factor = 0.1
+				tooltip = navy_carrier_air_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_navy_carrier_air_targetting_factor = 0.1
+				tooltip = navy_carrier_air_targetting_factor_tt
+			}
+		}
+	}
+	# 潜艇
+	focus = {
+		id = FRA_submarine
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 4
+		y = 3
+		prerequisite = {
+			focus = FRA_old_doctrine
+			focus = FRA_new_doctrine
+		}
+		relative_position_id = FRA_Darian_Plan_Chosen
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 4
+				category = mio_cat_tech_all_submarine_and_modules
+			}
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_navy_submarine_attack_factor = 0.1
+				tooltip = navy_submarine_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_navy_submarine_defence_factor = 0.1
+				tooltip = navy_submarine_defence_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_navy_visibility = -0.05
+				tooltip = navy_visibility_tt
+			}
+		}
+	}
+	# 发展主力舰
+	focus = {
+		id = FRA_Develop_battleships
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_destroyers
+		}
+		prerequisite = {
+			focus = FRA_cruisers
+		}
+		relative_position_id = FRA_destroyers
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_navy_capital_ship_attack_factor = 0.1
+				tooltip = navy_capital_ship_attack_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_navy_capital_ship_defence_factor = 0.1
+				tooltip = navy_capital_ship_defence_factor_tt
+			}
+		}
+	}
+	# 切断生命线
+	focus = {
+		id = FRA_Cut_Off_lifeline
+		icon = GFX_goal_unknown
+		cost = 5
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_submarine
+		}
+		prerequisite = {
+			focus = FRA_Air_carriers
+		}
+		relative_position_id = FRA_submarine
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				factor = 100
+				date > 1941.1.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_address_The_Navy"
+			add_ideas = FRA_Cut_Off_lifeline_idea
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_darlan_plan_modifier_tt
+			add_to_variable = {
+				FRA_darlan_plan_naval_torpedo_hit_chance_factor = 0.1
+				tooltip = naval_torpedo_hit_chance_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_naval_torpedo_reveal_chance_factor = -0.1
+				tooltip = naval_torpedo_reveal_chance_factor_tt
+			}
+			add_to_variable = {
+				FRA_darlan_plan_naval_torpedo_screen_penetration_factor = 0.1
+				tooltip = naval_torpedo_screen_penetration_factor_tt
+			}
+		}
 	}
 	#陆军改革线  ####################################################################
 	focus = {
@@ -2784,20 +3954,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FRA_Old_Enemys
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 4
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_Asian
-		}
-		mutually_exclusive = {
-			focus = FRA_New_Friends
-		}
-		relative_position_id = FRA_Look_The_Asian
-	}
-	focus = {
 		id = FRA_ban_others
 		icon = GFX_goal_unknown
 		cost = 5
@@ -2994,493 +4150,5 @@ focus_tree = {
 			focus = FRA_grand_master
 		}
 		relative_position_id = FRA_grand_master
-	}
-	focus = {
-		id = FRA_Look_The_America
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -6
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_World
-		}
-		relative_position_id = FRA_Look_The_World
-	}
-	focus = {
-		id = FRA_Trade_With_USA
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_America
-		}
-		relative_position_id = FRA_Look_The_America
-	}
-	focus = {
-		id = FRA_Influence_Southern_America
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Collaboration_With_Peru
-			focus = FRA_Trade_With_USA
-			focus = FRA_Trade_With_Venezuela
-		}
-		relative_position_id = FRA_Trade_With_Venezuela
-	}
-	focus = {
-		id = FRA_Collaboration_With_Peru
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_America
-		}
-		relative_position_id = FRA_Look_The_America
-	}
-	focus = {
-		id = FRA_Influence_Northern_America
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Trade_With_USA
-			focus = FRA_Collaboration_With_Peru
-			focus = FRA_Trade_With_Venezuela
-		}
-		relative_position_id = FRA_Collaboration_With_Peru
-	}
-	focus = {
-		id = FRA_Trade_With_Venezuela
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_America
-		}
-		relative_position_id = FRA_Look_The_America
-	}
-	focus = {
-		id = FRA_Restore_Trade_With_USA
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Trade_With_USA
-			focus = FRA_Influence_Northern_America
-			focus = FRA_Influence_Southern_America
-		}
-		prerequisite = {
-			focus = FRA_Trade_With_USA
-		}
-		relative_position_id = FRA_Trade_With_USA
-	}
-	focus = {
-		id = FRA_Influence_Europe
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_World
-		}
-		relative_position_id = FRA_Look_The_World
-	}
-	focus = {
-		id = FRA_Union_With_Spain
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_Influence_Europe
-		}
-		relative_position_id = FRA_Influence_Europe
-	}
-	focus = {
-		id = FRA_Preemptive_Strike_Ger
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Influence_Europe
-		}
-		relative_position_id = FRA_Influence_Europe
-	}
-	focus = {
-		id = FRA_Contact_With_SOV
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Influence_Europe
-		}
-		relative_position_id = FRA_Influence_Europe
-	}
-	focus = {
-		id = FRA_Influence_ITA
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Union_With_Spain
-			focus = FRA_Preemptive_Strike_Ger
-		}
-		prerequisite = {
-			focus = FRA_Union_With_Spain
-		}
-		relative_position_id = FRA_Union_With_Spain
-	}
-	focus = {
-		id = FRA_Operational_Plan_For_Low_Countries
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Union_With_Spain
-			focus = FRA_Preemptive_Strike_Ger
-			focus = FRA_Contact_With_SOV
-		}
-		relative_position_id = FRA_Preemptive_Strike_Ger
-	}
-	focus = {
-		id = FRA_Treaty_With_SOV
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Contact_With_SOV
-			focus = FRA_Preemptive_Strike_Ger
-		}
-		prerequisite = {
-			focus = FRA_Contact_With_SOV
-		}
-		relative_position_id = FRA_Contact_With_SOV
-	}
-	focus = {
-		id = FRA_Game_Balkans
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Influence_ITA
-			focus = FRA_Operational_Plan_For_Low_Countries
-			focus = FRA_Treaty_With_SOV
-		}
-		prerequisite = {
-			focus = FRA_Influence_ITA
-		}
-		relative_position_id = FRA_Influence_ITA
-	}
-	focus = {
-		id = FRA_Revenge_For_Twenty_Years_Humiliation
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Influence_ITA
-			focus = FRA_Operational_Plan_For_Low_Countries
-			focus = FRA_Treaty_With_SOV
-		}
-		relative_position_id = FRA_Operational_Plan_For_Low_Countries
-	}
-	focus = {
-		id = FRA_Temporary_Alliance_With_SOV
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Treaty_With_SOV
-		}
-		relative_position_id = FRA_Treaty_With_SOV
-	}
-	focus = {
-		id = FRA_Towards_A_New_Europe
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Revenge_For_Twenty_Years_Humiliation
-		}
-		relative_position_id = FRA_Revenge_For_Twenty_Years_Humiliation
-	}
-	focus = {
-		id = FRA_Game_Chinese
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_Asian
-		}
-		relative_position_id = FRA_Look_The_Asian
-	}
-	focus = {
-		id = FRA_New_Friends
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Look_The_Asian
-		}
-		mutually_exclusive = {
-			focus = FRA_Old_Enemys
-		}
-		relative_position_id = FRA_Look_The_Asian
-	}
-	focus = {
-		id = FRA_Indian_Ocean_Coalition
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Look_The_Asian
-		}
-		relative_position_id = FRA_Look_The_Asian
-	}
-	focus = {
-		id = FRA_Restoring_Colonial_Empire
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Union_Algeria
-		}
-		prerequisite = {
-			focus = FRA_Taking_Over_Colonies
-		}
-		prerequisite = {
-			focus = FRA_Rebirth_Of_France
-		}
-		relative_position_id = FRA_Taking_Over_Colonies
-	}
-	focus = {
-		id = FRA_Union_Algeria
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Towards_A_New_Europe
-		}
-		relative_position_id = FRA_Towards_A_New_Europe
-	}
-	focus = {
-		id = FRA_Taking_Over_Colonies
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Towards_A_New_Europe
-		}
-		relative_position_id = FRA_Towards_A_New_Europe
-	}
-	focus = {
-		id = FRA_Rebirth_Of_France
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_Towards_A_New_Europe
-		}
-		relative_position_id = FRA_Towards_A_New_Europe
-	}
-	focus = {
-		id = FRA_Extinguish_The_Flame
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Turning_Against_SOV
-			focus = FRA_Restoring_Colonial_Empire
-		}
-		relative_position_id = FRA_Union_Algeria
-	}
-	focus = {
-		id = FRA_Turning_Against_SOV
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Rebirth_Of_France
-		}
-		prerequisite = {
-			focus = FRA_Union_Algeria
-		}
-		prerequisite = {
-			focus = FRA_Taking_Over_Colonies
-		}
-		relative_position_id = FRA_Rebirth_Of_France
-	}
-	focus = {
-		id = FRA_Darian_Plan_Chosen
-		icon = GFX_goal_unknown
-		cost = 10
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_address_The_Navy
-		}
-		relative_position_id = FRA_address_The_Navy
-	}
-	focus = {
-		id = FRA_construct_A_World_Class_navy
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Darian_Plan_Chosen
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_old_doctrine
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_construct_A_World_Class_navy
-		}
-		mutually_exclusive = {
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_construct_A_World_Class_navy
-	}
-	focus = {
-		id = FRA_new_doctrine
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_restore_naval
-		}
-		mutually_exclusive = {
-			focus = FRA_old_doctrine
-		}
-		relative_position_id = FRA_restore_naval
-	}
-	focus = {
-		id = FRA_cruisers
-		icon = GFX_goal_unknown
-		cost = 10
-		x = -2
-		y = 3
-		prerequisite = {
-			focus = FRA_old_doctrine
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_destroyers
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -4
-		y = 3
-		prerequisite = {
-			focus = FRA_old_doctrine
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_heavy_battleship
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 3
-		prerequisite = {
-			focus = FRA_old_doctrine
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_Air_carriers
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 2
-		y = 3
-		prerequisite = {
-			focus = FRA_old_doctrine
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_submarine
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 4
-		y = 3
-		prerequisite = {
-			focus = FRA_old_doctrine
-			focus = FRA_new_doctrine
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
-	}
-	focus = {
-		id = FRA_Cut_Off_lifeline
-		icon = GFX_goal_unknown
-		cost = 5
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_submarine
-		}
-		prerequisite = {
-			focus = FRA_Air_carriers
-		}
-		relative_position_id = FRA_submarine
-	}
-	focus = {
-		id = FRA_Develop_amphibious_forces
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_destroyers
-		}
-		prerequisite = {
-			focus = FRA_cruisers
-		}
-		relative_position_id = FRA_destroyers
-	}
-	focus = {
-		id = FRA_restore_naval
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Darian_Plan_Chosen
-		}
-		relative_position_id = FRA_Darian_Plan_Chosen
 	}
 }
