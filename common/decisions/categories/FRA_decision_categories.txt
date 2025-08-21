@@ -60,3 +60,39 @@ FRA_KONGJUN = {
 		}
 	}
 }
+
+FRA_Pierre_Success = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_Pierre_Laval_Win
+		}
+	}
+}
+
+FRA_Doriot_qingxi = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_Jacques_Doriot_Win
+		}
+	}
+}
+
+FRA_Darnand_balance_of_power_category = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_Joseph_Darnand_Win
+		}
+	}
+}

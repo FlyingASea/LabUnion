@@ -1,0 +1,104 @@
+FRA_Pierre_Success = {
+	FRA_political_success = {
+		icon = generic_political_actions
+		available = {
+			has_completed_focus = FRA_laissez_faire
+			has_completed_focus = FRA_Commemorating_Joan_of_Arc
+			has_completed_focus = FRA_Crushing_Corruption
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		remove_effect = {
+			set_country_flag = FRA_Laval_political_success
+		}
+	}
+	FRA_economic_success = {
+		icon = generic_political_actions
+		available = {
+			not = {
+				has_dynamic_modifier = {
+					modifier = FRA_great_depression_recovery_modifier
+				}
+			}
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		remove_effect = {
+			set_country_flag = FRA_Laval_economic_success
+		}
+	}
+	FRA_production_success = {
+		icon = generic_political_actions
+		available = {
+			has_completed_focus = FRA_Military_Industry2
+			has_completed_focus = FRA_Economic_Miracle
+			has_completed_focus = FRA_Autarky_Achieved
+			has_completed_focus = FRA_All_Roads_Lead_To_Paris
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		remove_effect = {
+			set_country_flag = FRA_Laval_production_success
+		}
+	}
+	FRA_military_success = {
+		icon = generic_political_actions
+		available = {
+			has_completed_focus = FRA_The_Reaction
+			has_completed_focus = FRA_improve_special_forces
+			has_completed_focus = FRA_Mobile_warfare
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		remove_effect = {
+			set_country_flag = FRA_Laval_military_success
+		}
+	}
+	FRA_Pierre_First = {
+		icon = generic_political_actions
+		available = {
+			has_country_flag = FRA_Laval_military_success
+			has_country_flag = FRA_Laval_political_success
+			has_country_flag = FRA_Laval_economic_success
+			has_country_flag = FRA_Laval_production_success
+		}
+		fire_only_once = yes
+		cost = 20
+		ai_will_do = {
+			factor = 20000
+		}
+		visible = {
+			has_country_flag = Pierre_Laval_Win
+		}
+		remove_effect = {
+		}
+	}
+}
+
+FRA_Doriot_qingxi = {
+	
+}
