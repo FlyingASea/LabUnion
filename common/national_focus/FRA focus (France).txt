@@ -382,7 +382,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Resource_Self_Sufficiency
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = -1
 		y = 1
 		prerequisite = {
@@ -420,7 +420,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Electrification
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -460,7 +460,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Military_Industry1
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -711,7 +711,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Accelerate_The_Rearmament_Program
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = -1
 		y = 1
 		prerequisite = {
@@ -769,7 +769,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Concentrated_Armament_Program
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -1007,7 +1007,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Devalue_The_Franc
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = 1
 		y = 1
 		prerequisite = {
@@ -1049,7 +1049,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Currency_Reforms
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = 1
 		y = 1
 		prerequisite = {
@@ -1104,7 +1104,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Agricultural_Reforms
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -1325,7 +1325,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Develop_Research
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 2
 		prerequisite = {
@@ -1378,7 +1378,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Develop_Research2
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -1425,7 +1425,7 @@ focus_tree = {
 	focus = {
 		id = FRA_The_Means_To_Wage_War
 		icon = GFX_goal_unknown
-		cost = 3
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -1532,7 +1532,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Develop_Northern_Railways
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = 1
 		y = 1
 		prerequisite = {
@@ -1636,7 +1636,7 @@ focus_tree = {
 	focus = {
 		id = FRA_Develop_Southern_Railways
 		icon = GFX_goal_unknown
-		cost = 2
+		cost = 5
 		x = 0
 		y = 1
 		prerequisite = {
@@ -2075,6 +2075,26 @@ focus_tree = {
 			focus = FRA_Look_The_World
 		}
 		relative_position_id = FRA_Look_The_World
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_world_modifier_tt
+			add_to_variable = {
+				FRA_revolution_intel_network_gain_factor = 0.1
+				tooltip = intel_network_gain_factor_tt
+			}
+			add_to_variable = {
+				FRA_revolution_intel_from_operatives_factor = 0.2
+				tooltip = intel_from_operatives_factor_tt
+			}
+		}
 	}
 	# 干涉西班牙
 	focus = {
@@ -2087,6 +2107,26 @@ focus_tree = {
 			focus = FRA_Influence_Europe
 		}
 		relative_position_id = FRA_Influence_Europe
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_world_modifier_tt
+			add_to_variable = {
+				FRA_revolution_operative_slot = 1
+				tooltip = operative_slot_tt
+			}
+			add_to_variable = {
+				FRA_revolution_intelligence_agency_defense = 0.2
+				tooltip = intelligence_agency_defense_tt
+			}
+		}
 	}
 	# 先发制人
 	focus = {
@@ -2099,6 +2139,30 @@ focus_tree = {
 			focus = FRA_Influence_Europe
 		}
 		relative_position_id = FRA_Influence_Europe
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_world_modifier_tt
+			add_to_variable = {
+				FRA_revolution_army_intel_factor = 0.2
+				tooltip = army_intel_factor_tt
+			}
+			add_to_variable = {
+				FRA_revolution_navy_intel_factor = 0.2
+				tooltip = navy_intel_factor_tt
+			}
+			add_to_variable = {
+				FRA_revolution_airforce_intel_factor = 0.2
+				tooltip = airforce_intel_factor_tt
+			}
+		}
 	}
 	# 与苏联接触
 	focus = {
@@ -2111,6 +2175,21 @@ focus_tree = {
 			focus = FRA_Influence_Europe
 		}
 		relative_position_id = FRA_Influence_Europe
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			SOV = {
+				country_event = frasov.1
+			}
+			custom_tooltip = FRA_Contact_With_SOV_tt
+		}
 	}
 	# 干涉意大利
 	focus = {
@@ -2127,6 +2206,17 @@ focus_tree = {
 			focus = FRA_Intervention_Spain
 		}
 		relative_position_id = FRA_Intervention_Spain
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 制定低地国家入侵方案
 	focus = {
@@ -2141,6 +2231,17 @@ focus_tree = {
 			focus = FRA_Contact_With_SOV
 		}
 		relative_position_id = FRA_Preemptive_Strike_Ger
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 与苏联签订条约
 	focus = {
@@ -2157,6 +2258,17 @@ focus_tree = {
 			focus = FRA_Contact_With_SOV
 		}
 		relative_position_id = FRA_Contact_With_SOV
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 巴尔干博弈
 	focus = {
@@ -2174,6 +2286,17 @@ focus_tree = {
 			focus = FRA_Influence_ITA
 		}
 		relative_position_id = FRA_Influence_ITA
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 洗刷二十年屈辱
 	focus = {
@@ -2188,6 +2311,17 @@ focus_tree = {
 			focus = FRA_Treaty_With_SOV
 		}
 		relative_position_id = FRA_Operational_Plan_For_Low_Countries
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 法苏结盟条约
 	focus = {
@@ -2200,6 +2334,17 @@ focus_tree = {
 			focus = FRA_Treaty_With_SOV
 		}
 		relative_position_id = FRA_Treaty_With_SOV
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+		}
 	}
 	# 向着新欧洲前进
 	focus = {
@@ -2212,6 +2357,19 @@ focus_tree = {
 			focus = FRA_Revenge_For_Twenty_Years_Humiliation
 		}
 		relative_position_id = FRA_Revenge_For_Twenty_Years_Humiliation
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			from = {
+			}
+		}
 	}
 	# 法兰西帝国的新生
 	focus = {
@@ -2224,6 +2382,12 @@ focus_tree = {
 			focus = FRA_Towards_A_New_Europe
 		}
 		relative_position_id = FRA_Towards_A_New_Europe
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
 	}
 	# 整合阿尔及利亚
 	focus = {
@@ -2312,6 +2476,50 @@ focus_tree = {
 			focus = FRA_Look_The_World
 		}
 		relative_position_id = FRA_Look_The_World
+		bypass = {
+			29 = {
+				is_demilitarized_zone = no
+			}
+			18 = {
+				is_demilitarized_zone = no
+			}
+			17 = {
+				is_demilitarized_zone = no
+			}
+		}
+		available = {
+			is_subject = no
+			29 = {
+				is_fully_controlled_by = ROOT
+			}
+			18 = {
+				is_fully_controlled_by = ROOT
+			}
+			17 = {
+				is_fully_controlled_by = ROOT
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_End_The_Shame"
+			29 = {
+				set_demilitarized_zone = no
+			}
+			18 = {
+				set_demilitarized_zone = no
+			}
+			17 = {
+				set_demilitarized_zone = no
+			}
+			set_global_flag = rhineland_remilitarized
+			custom_effect_tooltip = tooltip_white_line
+			add_political_power = 75
+			army_experience = 5
+			custom_effect_tooltip = tooltip_white_line
+			add_named_threat = {
+				threat = 5
+				name = FRA_End_The_Shame
+			}
+		}
 	}
 	# 重归一统
 	focus = {
@@ -2324,6 +2532,54 @@ focus_tree = {
 			focus = FRA_End_The_Shame
 		}
 		relative_position_id = FRA_End_The_Shame
+		bypass = {
+			OR = {
+				BRI = {
+					exists = no
+				}
+				NAV = {
+					exists = no
+				}
+				COR = {
+					exists = no
+				}
+			}
+		}
+		available = {
+			is_subject = no
+			BRI = {
+				exists = yes
+			}
+			NAV = {
+				exists = yes
+			}
+			COR = {
+				exists = yes
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Reunification"
+			from = {
+				annex_country = {
+					target = BRI
+				}
+				annex_country = {
+					target = NAV
+				}
+				annex_country = {
+					target = COR
+				}
+			}
+			set_global_flag = rhineland_remilitarized
+			custom_effect_tooltip = tooltip_white_line
+			add_political_power = 75
+			army_experience = 5
+			custom_effect_tooltip = tooltip_white_line
+			add_named_threat = {
+				threat = 8
+				name = FRA_Reunification
+			}
+		}
 	}
 	# 吞并摩洛哥王国
 	focus = {
@@ -2360,6 +2616,22 @@ focus_tree = {
 			focus = FRA_Look_The_World
 		}
 		relative_position_id = FRA_Look_The_World
+		available = {
+			has_dynamic_modifier = FRA_world_modifier
+		}
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Influence_Europe"
+			add_political_power = 50
+			custom_effect_tooltip = tooltip_white_line
+			custom_effect_tooltip = FRA_world_modifier_tt
+			add_to_variable = {
+				FRA_revolution_operative_slot= 1
+				tooltip = operative_slot_tt
+			}
+		}
 	}
 	# 中国博弈
 	focus = {
