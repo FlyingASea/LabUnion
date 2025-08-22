@@ -271,6 +271,194 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Pierre_Laval_Win"
+			unlock_decision_category_tooltip = FRA_Pierre_Success_category
+		}
+	}
+	# 统合军方
+	focus = {
+		id = FRA_Union_military
+		icon = GFX_goal_unknown
+		cost = 3
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			unlock_decision_category_tooltip = FRA_Pierre_Purge_military_category
+		}
+	}
+	# 取缔选举制度
+	focus = {
+		id = FRA_ban_others
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_ban_others"
+			add_political_power = 50
+			add_manpower = -1000
+			add_stability = 0.1
+		}
+	}
+	# 劳动，家庭与祖国
+	focus = {
+		id = FRA_work_family_fatherland
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_Pierre_Laval_Win
+		}
+		relative_position_id = FRA_Pierre_Laval_Win
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			add_stability = 0.1
+			add_war_support = 0.1
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_work_family_fatherland_idea
+		}
+	}
+	# 纪念圣女贞德
+	focus = {
+		id = FRA_Commemorating_Joan_of_Arc
+		icon = GFX_goal_unknown
+		cost = 3
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Union_military
+		}
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		relative_position_id = FRA_Union_military
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Commemorating_Joan_of_Arc"
+			add_political_power = 50
+			add_stability = 0.05
+			add_war_support = 0.05
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_Commemorating_Joan_of_Arc_idea
+		}
+	}
+	# 粉碎堕落
+	focus = {
+		id = FRA_Crushing_Corruption
+		icon = GFX_goal_unknown
+		cost = 3
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		prerequisite = {
+			focus = FRA_work_family_fatherland
+		}
+		relative_position_id = FRA_work_family_fatherland
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			add_political_power = 50
+			add_manpower = -1000
+			custom_effect_tooltip = tooltip_white_line
+			add_timed_idea = {
+				idea = FRA_Crushing_Corruption_idea
+				years = 2
+			}
+		}
+	}
+	# 自由放任
+	focus = {
+		id = FRA_Laissez_faire
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_ban_others
+		}
+		prerequisite = {
+			focus = FRA_ban_others
+			focus = FRA_Commemorating_Joan_of_Arc
+			focus = FRA_Crushing_Corruption
+		}
+		relative_position_id = FRA_ban_others
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			add_ideas = FRA_Laissez_faire_idea
+		}
+	}
+	# 鼓励工业发展
+	focus = {
+		id = FRA_Encourage_industrial_development
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Laissez_faire
+		}
+		relative_position_id = FRA_Laissez_faire
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			add_tech_bonus = {
+				bonus = 1.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
+	# 自由活力的市场
+	focus = {
+		id = FRA_Free_dynamic_market
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Encourage_industrial_development
+		}
+		relative_position_id = FRA_Encourage_industrial_development
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Union_military"
+			add_tech_bonus = {
+				bonus = 1
+				ahead_reduction = 2
+				uses = 1
+				category = industry
+			}
 		}
 	}
 	#约瑟夫达南德获胜  ####################################################################
@@ -295,6 +483,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			effect_tooltip = {
+				set_power_balance = {
+					id = FRA_Darnand_Balance
+					left_side = FRA_Cabinet_dissatisfied_side
+					right_side = FRA_Military_dissatisfaction_side
+					set_default = yes
+				}
+			}
 		}
 	}
 	# 工业线 工业恢复 ####################################################################
@@ -2628,7 +2824,7 @@ focus_tree = {
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_world_modifier_tt
 			add_to_variable = {
-				FRA_revolution_operative_slot= 1
+				FRA_revolution_operative_slot = 1
 				tooltip = operative_slot_tt
 			}
 		}
@@ -4226,39 +4422,6 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = FRA_ban_others
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Pierre_Laval_Win
-		}
-		relative_position_id = FRA_Pierre_Laval_Win
-	}
-	focus = {
-		id = FRA_Union_military
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_Pierre_Laval_Win
-		}
-		relative_position_id = FRA_Pierre_Laval_Win
-	}
-	focus = {
-		id = FRA_work_family_fatherland
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_Pierre_Laval_Win
-		}
-		relative_position_id = FRA_Pierre_Laval_Win
-	}
-	focus = {
 		id = FRA_praetorian_Guards
 		icon = GFX_goal_unknown
 		cost = 5
@@ -4268,20 +4431,6 @@ focus_tree = {
 			focus = FRA_Joseph_Darnand_Win
 		}
 		relative_position_id = FRA_Joseph_Darnand_Win
-	}
-	focus = {
-		id = FRA_Commemorating_Joan_of_Arc
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Union_military
-		}
-		prerequisite = {
-			focus = FRA_ban_others
-		}
-		relative_position_id = FRA_Union_military
 	}
 	focus = {
 		id = FRA_Voice_of_the_Army
@@ -4315,58 +4464,6 @@ focus_tree = {
 			focus = FRA_praetorian_Guards
 		}
 		relative_position_id = FRA_praetorian_Guards
-	}
-	focus = {
-		id = FRA_Crushing_Corruption
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_ban_others
-		}
-		prerequisite = {
-			focus = FRA_work_family_fatherland
-		}
-		relative_position_id = FRA_work_family_fatherland
-	}
-	focus = {
-		id = FRA_Laissez_faire
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_ban_others
-		}
-		prerequisite = {
-			focus = FRA_ban_others
-			focus = FRA_Commemorating_Joan_of_Arc
-			focus = FRA_Crushing_Corruption
-		}
-		relative_position_id = FRA_ban_others
-	}
-	focus = {
-		id = FRA_Encourage_industrial_development
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Laissez_faire
-		}
-		relative_position_id = FRA_Laissez_faire
-	}
-	focus = {
-		id = FRA_Free_dynamic_market
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Encourage_industrial_development
-		}
-		relative_position_id = FRA_Encourage_industrial_development
 	}
 	focus = {
 		id = FRA_Pacify_the_military

@@ -61,7 +61,7 @@ FRA_KONGJUN = {
 	}
 }
 
-FRA_Pierre_Success = {
+FRA_Pierre_Success_category = {
 	allowed = {
 		tag = FRA
 	}
@@ -69,6 +69,18 @@ FRA_Pierre_Success = {
 		tag = FRA
 		from = {
 			has_completed_focus = FRA_Pierre_Laval_Win
+		}
+	}
+}
+
+FRA_Pierre_Purge_military_category = {
+	allowed = {
+		tag = FRA
+	}
+	visible = {
+		tag = FRA
+		from = {
+			has_completed_focus = FRA_Union_military
 		}
 	}
 }

@@ -45,6 +45,69 @@ ideas = {
 				conscription = 0.08
 			}
 		}
+		# 劳动，家庭与祖国
+		FRA_work_family_fatherland_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_work_family_fatherland_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_work_family_fatherland_idea
+			modifier = {
+				stability_factor = 0.1
+				conscription = -0.02
+				production_factory_max_efficiency_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		FRA_Commemorating_Joan_of_Arc_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Commemorating_Joan_of_Arc_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Commemorating_Joan_of_Arc_idea
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				compliance_growth = 0.05
+				compliance_gain = 0.02
+				resistance_growth = -0.05
+			}
+		}
+		FRA_Crushing_Corruption_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Crushing_Corruption_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Crushing_Corruption_idea
+			modifier = {
+				stability_weekly = 0.03
+				weekly_manpower = -100
+			}
+		}
+		FRA_Laissez_faire_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Laissez_faire_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Laissez_faire_idea
+			modifier = {
+				min_export = 0.2
+				production_factory_max_efficiency_factor = 0.1
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.08
+				industrial_capacity_dockyard = 0.08
+			}
+		}
 		#法国工业精神 #################################################################
 		FRA_Concentrated_Armament_Program_idea = {
 			on_add = {
