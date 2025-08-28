@@ -85,7 +85,7 @@ FRA_Pierre_Purge_military_category = {
 	}
 }
 
-FRA_Doriot_qingxi = {
+FRA_Doriot_balance_of_power_category = {
 	allowed = {
 		tag = FRA
 	}

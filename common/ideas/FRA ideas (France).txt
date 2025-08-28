@@ -2,7 +2,7 @@ ideas = {
 	country = {
 		FRA_beginning_revolution_idea = {
 			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea FRA_communard_spirit_idea"
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_beginning_revolution_idea"
 			}
 			allowed = {
 				always = no
@@ -16,7 +16,7 @@ ideas = {
 		}
 		FRA_wake_men_idea = {
 			on_add = {
-				log = "[GetDateText]: [Root.GetName]: add idea FRA_guillotine_idea"
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_wake_men_idea"
 			}
 			allowed = {
 				always = no
@@ -28,6 +28,41 @@ ideas = {
 				resistance_growth_on_our_occupied_states = 0.05
 				army_core_attack_factor = 0.1
 				resistance_damage_to_garrison = -0.2
+			}
+		}
+		FRA_Big_Brother_watching_you_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Big_Brother_watching_you_idea"
+			}
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = FRA_Big_Brother_watching_you_idea
+			modifier = {
+				stability_factor = 0.02
+				operative_slot = 1
+				enemy_operative_capture_chance_factor = 0.1
+				enemy_operative_detection_chance_factor = 0.1
+				resistance_target = -0.02
+			}
+		}
+		FRA_Pure_France_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Pure_France_idea"
+			}
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = FRA_Pure_France_idea
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.1
+				war_support_factor = 0.1
+				conscription = -0.01
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
 			}
 		}
 		FRA_revolution_end_idea = {
@@ -106,6 +141,83 @@ ideas = {
 				production_speed_buildings_factor = 0.1
 				industrial_capacity_factory = 0.08
 				industrial_capacity_dockyard = 0.08
+			}
+		}
+		FRA_praetorian_Guards_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_praetorian_Guards_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_praetorian_Guards_idea
+			modifier = {
+				conscription = 0.02
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+			}
+		}
+		FRA_Mastering_Capitalism_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_Mastering_Capitalism_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_Mastering_Capitalism_idea
+			modifier = {
+				political_power_cost = 0.2
+				consumer_goods_expected_value = 0.02
+				economy_cost_factor = 0.1
+				trade_laws_cost_factor = 0.1
+				production_speed_buildings_factor = 0.1
+				production_speed_arms_factory_factor = 0.1
+				production_speed_dockyard_factor = 0.1
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		FRA_grand_master_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_grand_master_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_grand_master_idea
+			modifier = {
+				political_power_gain = 0.2
+				stability_factor = 0.05
+				war_support_factor = 0.05
+				production_speed_buildings_factor = 0.1
+				non_core_manpower = 0.03
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		FRA_The_Magnificent_Holy_War_idea = {
+			on_add = {
+				log = "[GetDateText]: [Root.GetName]: add idea FRA_The_Magnificent_Holy_War_idea"
+			}
+			allowed = {
+				always = no
+			}
+			picture = FRA_The_Magnificent_Holy_War_idea
+			modifier = {
+				army_attack_factor = 0.02
+				army_defence_factor = 0.02
+			}
+			targeted_modifier = {
+				tag = GER
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.1
+			}
+			targeted_modifier = {
+				tag = ENG
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+				breakthrough_bonus_against = 0.1
 			}
 		}
 		#法国工业精神 #################################################################

@@ -68,6 +68,14 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Jacques_Doriot_Win"
+			effect_tooltip = {
+				set_power_balance = {
+					id = FRA_Doriot_Balance
+					left_side = FRA_Low_revolutionary_radicalism
+					right_side = FRA_High_revolutionary_radicalism
+					set_default = yes
+				}
+			}
 		}
 	}
 	#开始宣告革命
@@ -116,7 +124,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			log = "[GetLogRoot]: Focus Completed FRA_Kristallnacht"
 			add_political_power = 50
 			add_stability = 0.1
 			add_war_support = 0.05
@@ -142,7 +150,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			log = "[GetLogRoot]: Focus Completed FRA_reign_of_terror"
 			add_political_power = 100
 			add_war_support = 0.1
 			add_manpower = -50000
@@ -167,7 +175,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			log = "[GetLogRoot]: Focus Completed FRA_Night_of_the_Long_Knives"
 			add_political_power = 100
 			add_stability = 0.1
 			add_manpower = -50000
@@ -199,7 +207,7 @@ focus_tree = {
 			}
 		}
 		completion_reward = {
-			log = "[GetLogRoot]: Focus Completed FRA_beginning_revolution"
+			log = "[GetLogRoot]: Focus Completed FRA_wake_men"
 			add_political_power = 100
 			add_manpower = -50000
 			custom_effect_tooltip = tooltip_white_line
@@ -220,6 +228,17 @@ focus_tree = {
 			focus = FRA_Night_of_the_Long_Knives
 		}
 		relative_position_id = FRA_Night_of_the_Long_Knives
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Big_Brother_watching_you"
+			add_ideas = FRA_Big_Brother_watching_you_idea
+		}
 	}
 	# 纯洁法兰西
 	focus = {
@@ -236,6 +255,17 @@ focus_tree = {
 			focus = FRA_Kristallnacht
 		}
 		relative_position_id = FRA_Kristallnacht
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Pure_France"
+			add_ideas = FRA_Pure_France_idea
+		}
 	}
 	# 法兰西革命之父
 	focus = {
@@ -248,6 +278,16 @@ focus_tree = {
 			focus = FRA_Pure_France
 		}
 		relative_position_id = FRA_Pure_France
+		ai_will_do = {
+			factor = 200
+			modifier = {
+				factor = 2
+				date < 1939.6.1
+			}
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Father_of_the_French_Revolution"
+		}
 	}
 	#皮埃尔赖伐尔获胜  ####################################################################
 	focus = {
@@ -491,6 +531,206 @@ focus_tree = {
 					set_default = yes
 				}
 			}
+		}
+	}
+	# 法兰西禁卫军
+	focus = {
+		id = FRA_praetorian_Guards
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_Joseph_Darnand_Win
+		}
+		relative_position_id = FRA_Joseph_Darnand_Win
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_political_power = 50
+			add_war_support = 0.1
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_praetorian_Guards_idea
+		}
+	}
+	# 军队之声
+	focus = {
+		id = FRA_Voice_of_the_Army
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -2
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_country_leader_trait = lion_tamer
+			add_power_balance_value = {
+				id = FRA_Darnand_Balance
+				value = -0.05
+			}
+		}
+	}
+	# 掌握资本主义
+	focus = {
+		id = FRA_Mastering_Capitalism
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_one_random_military_factory = yes
+			add_one_random_military_factory = yes
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_Mastering_Capitalism_idea
+		}
+	}
+	# 我们内部的敌人
+	focus = {
+		id = FRA_the_internal_enemy
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 2
+		y = 1
+		prerequisite = {
+			focus = FRA_praetorian_Guards
+		}
+		relative_position_id = FRA_praetorian_Guards
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_manpower = -1000
+			add_political_power = 50
+			add_stability = 0.05
+			custom_effect_tooltip = tooltip_white_line
+			add_power_balance_value = {
+				id = FRA_Darnand_Balance
+				value = -0.05
+			}
+		}
+	}
+	# 平定军方
+	focus = {
+		id = FRA_Pacify_the_military
+		icon = GFX_goal_unknown
+		cost = 2
+		x = 1
+		y = 1
+		prerequisite = {
+			focus = FRA_Voice_of_the_Army
+		}
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		relative_position_id = FRA_Voice_of_the_Army
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_manpower = -800
+			add_stability = 0.05
+			add_war_support = 0.05
+			custom_effect_tooltip = tooltip_white_line
+		}
+	}
+	# 推动工业化
+	focus = {
+		id = FRA_Promote_industrialization
+		icon = GFX_goal_unknown
+		cost = 2
+		x = -1
+		y = 1
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		prerequisite = {
+			focus = FRA_the_internal_enemy
+		}
+		relative_position_id = FRA_the_internal_enemy
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_one_random_civilian_factory = yes
+			add_one_random_civilian_factory = yes
+			add_tech_bonus = {
+				bonus = 1
+				uses = 2
+				category = industry
+			}
+			custom_effect_tooltip = tooltip_white_line
+			add_power_balance_value = {
+				id = FRA_Darnand_Balance
+				value = 0.05
+			}
+		}
+	}
+	# 法兰西大团长
+	focus = {
+		id = FRA_grand_master
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 2
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+			focus = FRA_Pacify_the_military
+			focus = FRA_Promote_industrialization
+		}
+		prerequisite = {
+			focus = FRA_Mastering_Capitalism
+		}
+		relative_position_id = FRA_Mastering_Capitalism
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_country_leader_trait = lion_tamer
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_grand_master_idea
+		}
+	}
+	# 壮丽的圣战
+	focus = {
+		id = FRA_The_Magnificent_Holy_War
+		icon = GFX_goal_unknown
+		cost = 5
+		x = 0
+		y = 1
+		prerequisite = {
+			focus = FRA_grand_master
+		}
+		relative_position_id = FRA_grand_master
+		ai_will_do = {
+			factor = 200
+		}
+		completion_reward = {
+			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
+			add_country_leader_trait = lion_tamer
+			custom_effect_tooltip = tooltip_white_line
+			add_ideas = FRA_The_Magnificent_Holy_War_idea
 		}
 	}
 	# 工业线 工业恢复 ####################################################################
@@ -4420,104 +4660,5 @@ focus_tree = {
 				tooltip = army_strength_factor_tt
 			}
 		}
-	}
-	focus = {
-		id = FRA_praetorian_Guards
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_Joseph_Darnand_Win
-		}
-		relative_position_id = FRA_Joseph_Darnand_Win
-	}
-	focus = {
-		id = FRA_Voice_of_the_Army
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -2
-		y = 1
-		prerequisite = {
-			focus = FRA_praetorian_Guards
-		}
-		relative_position_id = FRA_praetorian_Guards
-	}
-	focus = {
-		id = FRA_Mastering_Capitalism
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_praetorian_Guards
-		}
-		relative_position_id = FRA_praetorian_Guards
-	}
-	focus = {
-		id = FRA_the_internal_enemy
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 2
-		y = 1
-		prerequisite = {
-			focus = FRA_praetorian_Guards
-		}
-		relative_position_id = FRA_praetorian_Guards
-	}
-	focus = {
-		id = FRA_Pacify_the_military
-		icon = GFX_goal_unknown
-		cost = 2
-		x = 1
-		y = 1
-		prerequisite = {
-			focus = FRA_Voice_of_the_Army
-		}
-		prerequisite = {
-			focus = FRA_Mastering_Capitalism
-		}
-		relative_position_id = FRA_Voice_of_the_Army
-	}
-	focus = {
-		id = FRA_Promote_industrialization
-		icon = GFX_goal_unknown
-		cost = 2
-		x = -1
-		y = 1
-		prerequisite = {
-			focus = FRA_Mastering_Capitalism
-		}
-		prerequisite = {
-			focus = FRA_the_internal_enemy
-		}
-		relative_position_id = FRA_the_internal_enemy
-	}
-	focus = {
-		id = FRA_grand_master
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 2
-		prerequisite = {
-			focus = FRA_Mastering_Capitalism
-			focus = FRA_Pacify_the_military
-			focus = FRA_Promote_industrialization
-		}
-		prerequisite = {
-			focus = FRA_Mastering_Capitalism
-		}
-		relative_position_id = FRA_Mastering_Capitalism
-	}
-	focus = {
-		id = FRA_The_Magnificent_Holy_War
-		icon = GFX_goal_unknown
-		cost = 5
-		x = 0
-		y = 1
-		prerequisite = {
-			focus = FRA_grand_master
-		}
-		relative_position_id = FRA_grand_master
 	}
 }
