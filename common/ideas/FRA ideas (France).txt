@@ -42,8 +42,8 @@ ideas = {
 			modifier = {
 				stability_factor = 0.02
 				operative_slot = 1
-				enemy_operative_capture_chance_factor = 0.1
-				enemy_operative_detection_chance_factor = 0.1
+				enemy_operative_capture_chance_factor = 0.05
+				enemy_operative_detection_chance_factor = 0.05
 				resistance_target = -0.02
 			}
 		}
@@ -74,10 +74,9 @@ ideas = {
 			}
 			picture = FRA_revolution_end_idea
 			modifier = {
-				political_power_gain = 0.3
+				political_power_gain = 0.2
 				stability_factor = 0.1
 				war_support_factor = 0.15
-				conscription = 0.08
 			}
 		}
 		# 劳动，家庭与祖国
@@ -186,13 +185,12 @@ ideas = {
 			}
 			picture = FRA_grand_master_idea
 			modifier = {
-				political_power_gain = 0.2
 				stability_factor = 0.05
 				war_support_factor = 0.05
 				production_speed_buildings_factor = 0.1
-				non_core_manpower = 0.03
+				non_core_manpower = -0.03
 				army_attack_factor = 0.05
-				army_defence_factor = 0.05
+				army_defence_factor = -0.05
 			}
 		}
 		FRA_The_Magnificent_Holy_War_idea = {

@@ -1,0 +1,29 @@
+###法国领导人特质
+leader_traits = {
+	darnand_grand_master = {
+		random = no
+		war_support_factor = 0.15
+		defensive_war_stability_factor = 0.2
+		offensive_war_stability_factor = 0.2
+		annex_cost_factor = -0.1
+	}
+	darnand_military_spokesman = {
+		random = no
+		political_power_cost = 0.1
+		army_advisor_cost_factor = -0.1
+		army_chief_cost_factor = -0.1
+		navy_advisor_cost_factor = -0.1
+		navy_chief_cost_factor = -0.1
+		air_chief_cost_factor = -0.1
+		air_advisor_cost_factor = -0.1
+	}
+	Father_of_the_French_Revolution = {
+		random = no
+		political_power_gain = 0.1
+		political_advisor_cost_factor = 0.1
+		stability_factor = -0.05
+		war_support_factor = 0.1
+		production_speed_buildings_factor = 0.08
+		research_speed_factor = -0.02
+	}
+}

@@ -149,6 +149,7 @@
  FRA_High_revolutionary_radicalism:0 "高革命激进度"
  FRA_Doriot_Balance:0 "多里奥权力平衡"
  FRA_Pierre_Success_category:0 "赖伐尔的宏伟蓝图"
+ FRA_Pierre_Purge_military_category:0 "对军方采取措施"
 
  tooltip_white_line:0 "   \n"
  tooltip_line_break:0 "\n"

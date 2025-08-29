@@ -1,4 +1,19 @@
 ﻿l_simp_chinese:
+ FRA_beginning_revolution_idea:0 "革命开始"
+ FRA_wake_men_idea:0 "唤起革命精神"
+ FRA_Big_Brother_watching_you_idea:0 "老大哥在监视你"
+ FRA_Pure_France_idea:0 "纯净的法兰西"
+ FRA_revolution_end_idea:0 "革命胜利"
+ FRA_work_family_fatherland_idea:0 "劳动，家庭与祖国"
+ FRA_Commemorating_Joan_of_Arc_idea:0 "纪念圣女贞德"
+ FRA_Crushing_Corruption_idea:0 "粉碎堕落"
+ FRA_Laissez_faire_idea:0 "自由放任的市场"
+ FRA_praetorian_Guards_idea:0 "禁卫军"
+ FRA_Mastering_Capitalism_idea:0 "掌控财阀"
+ FRA_grand_master_idea:0 "法兰西大团长回归"
+ FRA_The_Magnificent_Holy_War_idea:0 "壮丽的圣战"
+ 
+
  FRA_world_modifier:0 "法国世界政策"
  FRA_world_modifier_tt:0 "§Y法国世界政策§!追加："
  FRA_world_modifier_has_tt:0 "拥有动态民族精神§Y法国世界政策§!"

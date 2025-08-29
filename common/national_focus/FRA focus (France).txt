@@ -265,6 +265,10 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Pure_France"
 			add_ideas = FRA_Pure_France_idea
+			swap_ideas = {
+				remove_idea = FRA_beginning_revolution_idea
+				add_idea = FRA_revolution_end_idea
+			}
 		}
 	}
 	# 法兰西革命之父
@@ -287,6 +291,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Father_of_the_French_Revolution"
+			add_country_leader_trait = Father_of_the_French_Revolution
 		}
 	}
 	#皮埃尔赖伐尔获胜  ####################################################################
@@ -571,7 +576,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
-			add_country_leader_trait = lion_tamer
+			add_country_leader_trait = darnand_military_spokesman
 			add_power_balance_value = {
 				id = FRA_Darnand_Balance
 				value = -0.05
@@ -707,7 +712,7 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
-			add_country_leader_trait = lion_tamer
+			add_country_leader_trait = darnand_grand_master
 			custom_effect_tooltip = tooltip_white_line
 			add_ideas = FRA_grand_master_idea
 		}
@@ -728,8 +733,6 @@ focus_tree = {
 		}
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Joseph_Darnand_Win"
-			add_country_leader_trait = lion_tamer
-			custom_effect_tooltip = tooltip_white_line
 			add_ideas = FRA_The_Magnificent_Holy_War_idea
 		}
 	}
@@ -1508,6 +1511,10 @@ focus_tree = {
 			add_one_random_civilian_factory = yes
 			add_one_random_civilian_factory = yes
 			custom_effect_tooltip = tooltip_white_line
+			modify_timed_idea = {
+				idea = FRA_Devalue_The_Franc_idea
+				days = -185
+			}
 			custom_effect_tooltip = FRA_Currency_Reforms_tt
 			custom_effect_tooltip = tooltip_white_line
 			custom_effect_tooltip = FRA_four_year_plan_modifier_tt
@@ -1526,13 +1533,6 @@ focus_tree = {
 			add_to_variable = {
 				FRA_four_year_plan_production_speed_industrial_complex_factor = 0.05
 				tooltip = production_speed_industrial_complex_factor_tt
-			}
-			hidden_effect = {
-				remove_ideas = FRA_Devalue_The_Franc_idea
-				add_timed_idea = {
-					idea = FRA_Devalue_The_Franc_idea
-					days = 180
-				}
 			}
 		}
 	}
