@@ -292,6 +292,9 @@ focus_tree = {
 		completion_reward = {
 			log = "[GetLogRoot]: Focus Completed FRA_Father_of_the_French_Revolution"
 			add_country_leader_trait = Father_of_the_French_Revolution
+			remove_power_balance = {
+				id = FRA_Doriot_Balance
+			}
 		}
 	}
 	#皮埃尔赖伐尔获胜  ####################################################################
@@ -2682,7 +2685,7 @@ focus_tree = {
 	# 与苏联签订条约
 	focus = {
 		id = FRA_Treaty_With_SOV
-		icon = GFX_goal_unknown
+		icon = GFX_FRA_Treaty_With_SOV
 		cost = 5
 		x = 0
 		y = 1

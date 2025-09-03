@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_FRA_Treaty_With_SOV"
+		textureFile = "gfx/interface/goals/FRA/FRA_Treaty_With_SOV.png"
+	}
+	spriteType = {
+		name = "GFX_FRA_Temporary_Alliance_With_SOV"
+		textureFile = "gfx/interface/goals/FRA/FRA_Temporary_Alliance_With_SOV.png"
+	}
+}

@@ -1,5 +1,6 @@
 ideas = {
 	country = {
+		# 开始宣告革命
 		FRA_beginning_revolution_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_beginning_revolution_idea"
@@ -14,6 +15,7 @@ ideas = {
 				war_support_factor = 0.1
 			}
 		}
+		# 唤醒法兰西人民
 		FRA_wake_men_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_wake_men_idea"
@@ -30,6 +32,7 @@ ideas = {
 				resistance_damage_to_garrison = -0.2
 			}
 		}
+		# 老大哥在看着你
 		FRA_Big_Brother_watching_you_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Big_Brother_watching_you_idea"
@@ -47,6 +50,7 @@ ideas = {
 				resistance_target = -0.02
 			}
 		}
+		# 纯净法兰西
 		FRA_Pure_France_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Pure_France_idea"
@@ -65,6 +69,7 @@ ideas = {
 				army_defence_factor = 0.05
 			}
 		}
+		# 革命结束
 		FRA_revolution_end_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_revolution_end_idea"
@@ -97,6 +102,7 @@ ideas = {
 				industrial_capacity_dockyard = 0.05
 			}
 		}
+		# 纪念圣女贞德
 		FRA_Commemorating_Joan_of_Arc_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Commemorating_Joan_of_Arc_idea"
@@ -113,6 +119,7 @@ ideas = {
 				resistance_growth = -0.05
 			}
 		}
+		# 粉碎堕落
 		FRA_Crushing_Corruption_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Crushing_Corruption_idea"
@@ -126,6 +133,7 @@ ideas = {
 				weekly_manpower = -100
 			}
 		}
+		# 自由放任的市场
 		FRA_Laissez_faire_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Laissez_faire_idea"
@@ -142,6 +150,7 @@ ideas = {
 				industrial_capacity_dockyard = 0.08
 			}
 		}
+		# 禁卫军
 		FRA_praetorian_Guards_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_praetorian_Guards_idea"
@@ -156,6 +165,7 @@ ideas = {
 				army_core_defence_factor = 0.05
 			}
 		}
+		# 掌控财阀
 		FRA_Mastering_Capitalism_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_Mastering_Capitalism_idea"
@@ -176,6 +186,7 @@ ideas = {
 				industrial_capacity_dockyard = 0.05
 			}
 		}
+		# 法兰西大团长
 		FRA_grand_master_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_grand_master_idea"
@@ -193,6 +204,7 @@ ideas = {
 				army_defence_factor = -0.05
 			}
 		}
+		# 壮丽的圣战
 		FRA_The_Magnificent_Holy_War_idea = {
 			on_add = {
 				log = "[GetDateText]: [Root.GetName]: add idea FRA_The_Magnificent_Holy_War_idea"
